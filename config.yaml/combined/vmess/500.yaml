@@ -1,0 +1,87 @@
+# COMBINED - VMESS - Tier 500
+# Updated: 2026-06-17 07:09:21
+# Count: 4
+# Failed conversions: 0
+
+proxies:
+- name: 'T.ME: @aristapnel #1'
+  type: vmess
+  server: 5.231.56.98
+  port: 3721
+  uuid: 5f2f0765-f331-4d1e-8560-d2fb533dd6fe
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: false
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: 5.231.56.98
+  client-fingerprint: chrome
+  ws-opts:
+    path: /
+    headers:
+      Host: 5.231.56.98
+- name: 'T.ME: @aristapnel #2'
+  type: vmess
+  server: nm7386.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: nm7386.teeoomboom.de
+  client-fingerprint: chrome
+  alpn:
+  - h2
+  - http/1.1
+  ws-opts:
+    path: /video/2upvxla.m3u8
+    headers:
+      Host: nm7386.teeoomboom.de
+- name: 'T.ME: @aristapnel #3'
+  type: vmess
+  server: jl2klj.teeoomboom.de
+  port: 443
+  uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: jl2klj.teeoomboom.de
+  client-fingerprint: chrome
+  alpn:
+  - h2
+  - http/1.1
+  ws-opts:
+    path: /video/7mtc1f.m3u8
+    headers:
+      Host: jl2klj.teeoomboom.de
+- name: 'T.ME: @aristapnel #4'
+  type: vmess
+  server: 96.47.230.5
+  port: 54840
+  uuid: b2da9920-b0a7-4354-9e26-3833ab8d00d0
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: imafake.locker
+  client-fingerprint: chrome
+  alpn:
+  - h2
+  - http/1.1
+  ws-opts:
+    path: /speedtest
+    headers:
+      Host: imafake.locker

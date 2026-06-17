@@ -1,0 +1,46 @@
+# GITHUB - HYSTERIA2 - Tier 100
+# Updated: 2026-06-17 07:09:25
+# Count: 4
+# Failed conversions: 0
+
+proxies:
+- name: 'T.ME: @aristapnel #1'
+  type: hysteria2
+  server: mumbai-3.nezhasu.com
+  port: 443
+  password: 2b195c17-5ff5-4b0d-a809-210b92212394
+  sni: mumbai-3.nezhasu.com
+  skip-cert-verify: false
+  fast-open: true
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #2'
+  type: hysteria2
+  server: lsdg1.lansecs.top
+  port: 58338
+  password: e42a38c4-4bea-42d6-90f1-3076e12f8c51
+  sni: lsdg1.lansecs.top
+  skip-cert-verify: false
+  fast-open: true
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #3'
+  type: hysteria2
+  server: 70.34.215.221
+  port: 20335
+  password: 80747420-96c4-4a2f-83e6-eea4e46beb09
+  sni: 70.34.215.221
+  skip-cert-verify: false
+  fast-open: true
+  client-fingerprint: chrome
+  obfs: salamander
+  obfs-password: U1wBrYQyFm
+- name: 'T.ME: @aristapnel #4'
+  type: hysteria2
+  server: dir.cybsecguru.com
+  port: 35000
+  password: b4bd0613-ff7c-4f2f-954d-185915e6ddad
+  sni: dir.cybsecguru.com
+  skip-cert-verify: false
+  fast-open: true
+  client-fingerprint: chrome
+  obfs: salamander
+  obfs-password: '%40JavidnamanIran-Javid-SHAH-KingRezaPahlavi'

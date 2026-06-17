@@ -1,0 +1,72 @@
+# COMBINED - VMESS - Tier 200
+# Updated: 2026-06-17 07:09:21
+# Count: 4
+# Failed conversions: 0
+
+proxies:
+- name: 'ARISTA #1'
+  type: vmess
+  server: 104.16.52.150
+  port: 2053
+  uuid: 3bb59086-8706-49ef-aa24-132619856668
+  alterId: 0
+  cipher: auto
+  network: xhttp
+  tls: true
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: gErtOw1.lOolOolOolOo.cOM
+  client-fingerprint: chrome
+  alpn:
+  - h2
+  - http/1.1
+- name: 'ARISTA #2'
+  type: vmess
+  server: 185.176.26.126
+  port: 443
+  uuid: 5b24e124-e6f4-442d-bddd-28430836d82c
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: cd.accuratenetworkchecker.ir
+  client-fingerprint: chrome
+  alpn:
+  - h2
+  - http/1.1
+  ws-opts:
+    path: /api/v2/ws/YyCFISnskY?ed=2048
+    headers:
+      Host: cd.accuratenetworkchecker.ir
+- name: 'ARISTA #3'
+  type: vmess
+  server: v10.hdacd.com
+  port: 30807
+  uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+  alterId: 2
+  cipher: auto
+  network: tcp
+  tls: false
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: v10.hdacd.com
+  client-fingerprint: chrome
+- name: 'ARISTA #4'
+  type: vmess
+  server: 216.106.183.35
+  port: 22324
+  uuid: 04621bae-ab36-11ec-b909-0242ac120002
+  alterId: 0
+  cipher: auto
+  network: tcp
+  tls: false
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: 216.106.183.35
+  client-fingerprint: chrome

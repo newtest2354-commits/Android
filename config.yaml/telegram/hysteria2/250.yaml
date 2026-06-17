@@ -1,0 +1,15 @@
+# TELEGRAM - HYSTERIA2 - Tier 250
+# Updated: 2026-06-17 07:09:24
+# Count: 1
+# Failed conversions: 0
+
+proxies:
+- name: 'ARISTA #1'
+  type: hysteria2
+  server: vpn-de-002.fastervpn.world
+  port: 443
+  password: qQe1z5kU8kN6SlKnDt9Ru3Qp
+  sni: vpn-de-002.fastervpn.world
+  skip-cert-verify: false
+  fast-open: true
+  client-fingerprint: chrome
