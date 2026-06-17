@@ -454,10 +454,13 @@ class ConfigToJSONConverter:
                     "type": "tun",
                     "tag": "tun-in",
                     "interface_name": "singbox-tun",
-                    "inet4_address": "172.19.0.1/30",
+                    "address": [
+                        "172.19.0.1/30",
+                        "fdfe:dcba:9876::1/126"
+                    ],
                     "auto_route": True,
                     "strict_route": True,
-                    "stack": "system"
+                    "stack": "mixed"
                 }
             ],
             "outbounds": outbounds + [
