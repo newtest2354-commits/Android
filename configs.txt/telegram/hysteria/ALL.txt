@@ -1,5 +1,5 @@
 # TELEGRAM - ALL - HYSTERIA
-# Updated: 2026-06-17 14:47:01
+# Updated: 2026-06-17 15:38:16
 # Count: 1
 
 hysteria://5.83.129.153:20088?alpn=h3&auth=dongtaiwang.com&downmbps=1000&protocol=udp&insecure=1&peer=apple.com&upmbps=500#ARISTA

@@ -1,5 +1,5 @@
 # COMBINED - HYSTERIA2 - Tier ALL
-# Updated: 2026-06-17 14:47:01
+# Updated: 2026-06-17 15:38:16
 # Count: 38
 
 proxies:
@@ -16,15 +16,13 @@ proxies:
   obfs-password: 8s7t1sNDH36vU8_Ixd7MckIY
 - name: 'ARISTA #2'
   type: hysteria2
-  server: 213.156.152.76
+  server: vpn-de-002.fastervpn.world
   port: 443
-  password: '%40V2RayyNGvpn'
-  sni: 213.156.152.76
+  password: qQe1z5kU8kN6SlKnDt9Ru3Qp
+  sni: vpn-de-002.fastervpn.world
   skip-cert-verify: false
   fast-open: true
   client-fingerprint: chrome
-  obfs: salamander
-  obfs-password: V2RayyNGvpn%24miracle%24krouky
 - name: 'ARISTA #3'
   type: hysteria2
   server: 130.49.161.70
@@ -38,26 +36,6 @@ proxies:
   obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
 - name: 'ARISTA #4'
   type: hysteria2
-  server: 80.66.81.78
-  port: 9443
-  password: rs2mR3g9bZiMloftx6lZQ59Um1Ld
-  sni: 80.66.81.78
-  skip-cert-verify: false
-  fast-open: true
-  client-fingerprint: chrome
-  obfs: salamander
-  obfs-password: oMgvuBy5Lj5kYM57sGsnjpjNcSEQ
-- name: 'ARISTA #5'
-  type: hysteria2
-  server: vpn-de-002.fastervpn.world
-  port: 443
-  password: qQe1z5kU8kN6SlKnDt9Ru3Qp
-  sni: vpn-de-002.fastervpn.world
-  skip-cert-verify: false
-  fast-open: true
-  client-fingerprint: chrome
-- name: 'ARISTA #6'
-  type: hysteria2
   server: 18.157.222.169
   port: 54040
   password: '%40Masir_Sefid'
@@ -67,6 +45,28 @@ proxies:
   client-fingerprint: chrome
   obfs: salamander
   obfs-password: Masir_Sefid
+- name: 'ARISTA #5'
+  type: hysteria2
+  server: 80.66.81.78
+  port: 9443
+  password: rs2mR3g9bZiMloftx6lZQ59Um1Ld
+  sni: 80.66.81.78
+  skip-cert-verify: false
+  fast-open: true
+  client-fingerprint: chrome
+  obfs: salamander
+  obfs-password: oMgvuBy5Lj5kYM57sGsnjpjNcSEQ
+- name: 'ARISTA #6'
+  type: hysteria2
+  server: 213.156.152.76
+  port: 443
+  password: '%40V2RayyNGvpn'
+  sni: 213.156.152.76
+  skip-cert-verify: false
+  fast-open: true
+  client-fingerprint: chrome
+  obfs: salamander
+  obfs-password: V2RayyNGvpn%24miracle%24krouky
 - name: 'ARISTA #7'
   type: hysteria2
   server: …

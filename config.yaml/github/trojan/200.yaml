@@ -1,5 +1,5 @@
 # GITHUB - TROJAN - Tier 200
-# Updated: 2026-06-17 14:47:11
+# Updated: 2026-06-17 15:38:26
 # Count: 197
 
 proxies:
@@ -2502,18 +2502,22 @@ proxies:
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #191'
   type: trojan
-  server: 38.54.13.189
-  port: 443
-  password: lhvfOzkRQqNd9cLDwpryrAkFGgqzlZR9Fi
-  network: tcp
+  server: 45.130.125.156
+  port: 8080
+  password: VN3zRAL4Hq
+  network: ws
   udp: true
   skip-cert-verify: false
   tcp-fast-open: true
-  servername: 38.54.13.189
+  servername: s3.aananas.ir
   client-fingerprint: chrome
+  ws-opts:
+    path: /da
+    headers:
+      Host: 45.130.125.156
 - name: 'T.ME: @aristapnel #192'
   type: trojan
-  server: 188.253.12.90
+  server: 188.253.12.96
   port: 48697
   password: 4f4d1167-ef14-4304-9bce-0740472503ef
   network: tcp
@@ -2524,18 +2528,22 @@ proxies:
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #193'
   type: trojan
-  server: 103.177.136.42
-  port: 46424
-  password: 4f4d1167-ef14-4304-9bce-0740472503ef
-  network: tcp
+  server: 43.207.87.133
+  port: 443
+  password: hV66LcSGyxUdHq2aAeqxmLfpBDQmRYxo8Wte43oZr8L379SS
+  network: ws
   udp: true
   skip-cert-verify: false
   tcp-fast-open: true
-  servername: de.01.naiun.bilibili.com
+  servername: node2.bw8848.org
   client-fingerprint: chrome
+  ws-opts:
+    path: /node2-node2-gu7bfd
+    headers:
+      Host: node2.bw8848.org
 - name: 'T.ME: @aristapnel #194'
   type: trojan
-  server: 103.177.136.44
+  server: 188.253.12.99
   port: 46424
   password: 4f4d1167-ef14-4304-9bce-0740472503ef
   network: tcp
@@ -2546,6 +2554,61 @@ proxies:
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #195'
   type: trojan
+  server: 15.188.67.19
+  port: 22222
+  password: telegram-id-privatevpns
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: 15.188.67.19
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #196'
+  type: trojan
+  server: 15.188.218.165
+  port: 22222
+  password: telegram-id-privatevpns
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: 15.188.218.165
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #197'
+  type: trojan
+  server: 185.137.157.59
+  port: 443
+  password: fFj7MAGy1VlAWmB_gMBG_27oPYTSHvV6MX
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: www.lateralio.click
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #198'
+  type: trojan
+  server: 38.54.13.189
+  port: 443
+  password: lhvfOzkRQqNd9cLDwpryrAkFGgqzlZR9Fi
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: 38.54.13.189
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #199'
+  type: trojan
+  server: 188.253.12.94
+  port: 48697
+  password: 4f4d1167-ef14-4304-9bce-0740472503ef
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: gh.01.naiun.bilibili.com
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #200'
+  type: trojan
   server: 207.126.167.241
   port: 443
   password: GTCCjtvCtuy03-aV1mwF0OkG2q6yL+Fc5K
@@ -2554,65 +2617,6 @@ proxies:
   skip-cert-verify: false
   tcp-fast-open: true
   servername: 207.126.167.241
-  client-fingerprint: chrome
-- name: 'T.ME: @aristapnel #196'
-  type: trojan
-  server: 103.125.219.70
-  port: 443
-  password: s75Gtmy56sptTA39hmBH965YYx4ZgfQR_I
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  tcp-fast-open: true
-  servername: 103.125.219.70
-  client-fingerprint: chrome
-- name: 'T.ME: @aristapnel #197'
-  type: trojan
-  server: 130.94.94.15
-  port: 443
-  password: tUtK5TKdjxsPnOyritLtv8OQWHAK8f8yNR
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  tcp-fast-open: true
-  servername: 130.94.94.15
-  client-fingerprint: chrome
-- name: 'T.ME: @aristapnel #198'
-  type: trojan
-  server: 188.253.12.90
-  port: 41943
-  password: 4f4d1167-ef14-4304-9bce-0740472503ef
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  tcp-fast-open: true
-  servername: az.01.naiun.bilibili.com
-  client-fingerprint: chrome
-- name: 'T.ME: @aristapnel #199'
-  type: trojan
-  server: 3.8.238.251
-  port: 443
-  password: hF7uSJfeBPtSNXKtuYvTRNaBdGkkXHpKJfLRfbpaDWovomSL
-  network: ws
-  udp: true
-  skip-cert-verify: false
-  tcp-fast-open: true
-  servername: uk1.bw8848.org
-  client-fingerprint: chrome
-  ws-opts:
-    path: '%2Fuk1-uk1-gcjtze'
-    headers:
-      Host: uk1.bw8848.org
-- name: 'T.ME: @aristapnel #200'
-  type: trojan
-  server: 90081bb25c.node.tro.cac.cab
-  port: 47909
-  password: 4f4d1167-ef14-4304-9bce-0740472503ef
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  tcp-fast-open: true
-  servername: is.01.naiun.bilibili.com
   client-fingerprint: chrome
 proxy-groups:
 - name: 🚀 ARISTA LOW LATENCY
