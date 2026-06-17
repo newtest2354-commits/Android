@@ -531,8 +531,6 @@ class ConfigToJSONConverter:
         return outbounds
 
     def generate_singbox_config(self, proxies, source_name, category, tier_name):
-        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
         outbounds = self.generate_singbox_outbounds(proxies)
 
         singbox_config = {
