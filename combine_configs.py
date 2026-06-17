@@ -178,9 +178,9 @@ class ConfigCombiner:
             if source_name == "combined":
                 category_configs = configs_list.get(category, [])
             elif source_name == "telegram":
-                category_configs = self.read_configs(f'configs/telegram/{category}.txt')
+                category_configs = self.read_configs(f'configs.txt/telegram/{category}.txt')
             elif source_name == "github":
-                category_configs = self.read_configs(f'configs/github/{category}.txt')
+                category_configs = self.read_configs(f'configs.txt/github/{category}.txt')
             
             if not category_configs:
                 continue
@@ -216,12 +216,12 @@ class ConfigCombiner:
                     all_configs[category] = configs_list[category][:]
         elif source_name == "telegram":
             for category in self.categories:
-                cat_configs = self.read_configs(f'configs/telegram/{category}.txt')
+                cat_configs = self.read_configs(f'configs.txt/telegram/{category}.txt')
                 if cat_configs:
                     all_configs[category] = cat_configs
         elif source_name == "github":
             for category in self.categories:
-                cat_configs = self.read_configs(f'configs/github/{category}.txt')
+                cat_configs = self.read_configs(f'configs.txt/github/{category}.txt')
                 if cat_configs:
                     all_configs[category] = cat_configs
         
@@ -253,21 +253,21 @@ class ConfigCombiner:
             self.write_config_file(all_filename, title, unique_all, total_all_count, timestamp)
     
     def combine(self):
-        os.makedirs('configs/combined', exist_ok=True)
+        os.makedirs('configs.txt/combined', exist_ok=True)
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         
         all_combined_dict = {}
         all_combined_list = []
         
         for category in self.categories:
-            telegram_configs = self.read_configs(f'configs/telegram/{category}.txt')
-            github_configs = self.read_configs(f'configs/github/{category}.txt')
+            telegram_configs = self.read_configs(f'configs.txt/telegram/{category}.txt')
+            github_configs = self.read_configs(f'configs.txt/github/{category}.txt')
             
             combined_configs = telegram_configs + github_configs
             unique_configs = self.deduplicate(combined_configs)
             
             if unique_configs:
-                filename = f"configs/combined/{category}.txt"
+                filename = f"configs.txt/combined/{category}.txt"
                 title = f"Combined {category.upper()} Configurations"
                 self.write_config_file(filename, title, unique_configs, len(unique_configs), timestamp, len(telegram_configs), len(github_configs))
                 all_combined_dict[category] = unique_configs
@@ -275,12 +275,12 @@ class ConfigCombiner:
         
         if all_combined_list:
             all_unique = self.deduplicate(all_combined_list)
-            filename = "configs/combined/all.txt"
+            filename = "configs.txt/combined/all.txt"
             title = "All Combined Configurations"
             self.write_config_file(filename, title, all_unique, len(all_unique), timestamp)
         
-        all_telegram = self.read_configs('configs/telegram/all.txt')
-        all_github = self.read_configs('configs/github/all.txt')
+        all_telegram = self.read_configs('configs.txt/telegram/all.txt')
+        all_github = self.read_configs('configs.txt/github/all.txt')
         
         total_telegram = len(all_telegram)
         total_github = len(all_github)
@@ -292,16 +292,16 @@ class ConfigCombiner:
         print(f"Telegram configs: {total_telegram}")
         print(f"GitHub configs: {total_github}")
         print(f"Combined unique configs: {total_combined}")
-        print("\n📁 Files created in configs/combined/:")
+        print("\n📁 Files created in configs.txt/combined/:")
         
         for category in self.categories:
-            filepath = f'configs/combined/{category}.txt'
+            filepath = f'configs.txt/combined/{category}.txt'
             if os.path.exists(filepath):
                 with open(filepath, 'r', encoding='utf-8') as f:
                     lines = [line for line in f if line.strip() and not line.startswith('#')]
                 print(f"  {category}.txt: {len(lines)} configs")
         
-        all_filepath = 'configs/combined/all.txt'
+        all_filepath = 'configs.txt/combined/all.txt'
         if os.path.exists(all_filepath):
             with open(all_filepath, 'r', encoding='utf-8') as f:
                 lines = [line for line in f if line.strip() and not line.startswith('#')]
@@ -309,12 +309,12 @@ class ConfigCombiner:
         
         print("=" * 60)
         
-        self.generate_tiered_outputs(all_combined_dict, "combined", "configs/combined", timestamp)
-        self.generate_tiered_outputs({}, "telegram", "configs/telegram", timestamp)
-        self.generate_tiered_outputs({}, "github", "configs/github", timestamp)
+        self.generate_tiered_outputs(all_combined_dict, "combined", "configs.txt/combined", timestamp)
+        self.generate_tiered_outputs({}, "telegram", "configs.txt/telegram", timestamp)
+        self.generate_tiered_outputs({}, "github", "configs.txt/github", timestamp)
         
         for source in ["combined", "telegram", "github"]:
-            base_dir = f"configs/{source}"
+            base_dir = f"configs.txt/{source}"
             for category in self.categories:
                 category_root = os.path.join(base_dir, f"{category}.txt")
                 if os.path.exists(category_root) and os.path.isfile(category_root):
@@ -329,7 +329,7 @@ class ConfigCombiner:
         
         for source in ["combined", "telegram", "github"]:
             print(f"\n📁 {source.upper()}/:")
-            base_dir = f"configs/{source}"
+            base_dir = f"configs.txt/{source}"
             
             for category in self.categories:
                 cat_dir = os.path.join(base_dir, category)
