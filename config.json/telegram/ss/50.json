@@ -1,6 +1,6 @@
 // TELEGRAM - SS - Tier 50
-// Updated: 2026-06-17 21:19:07
-// Count: 3
+// Updated: 2026-06-17 22:02:46
+// Count: 1
 
 {
   "log": {
@@ -10,15 +10,34 @@
   "dns": {
     "servers": [
       {
+        "tag": "fakeip",
+        "address": "fakeip"
+      },
+      {
         "tag": "google",
-        "address": "8.8.8.8"
+        "address": "8.8.8.8",
+        "address_resolver": "fakeip",
+        "detour": "direct"
       },
       {
         "tag": "cloudflare",
-        "address": "1.1.1.1"
+        "address": "1.1.1.1",
+        "address_resolver": "fakeip",
+        "detour": "direct"
       }
     ],
-    "final": "google"
+    "fakeip": {
+      "enabled": true,
+      "inet4_range": "198.18.0.0/15",
+      "inet6_range": "fc00::/18"
+    },
+    "independent_cache": true,
+    "rules": [
+      {
+        "outbound": "proxy",
+        "server": "fakeip"
+      }
+    ]
   },
   "inbounds": [
     {
@@ -37,27 +56,11 @@
   "outbounds": [
     {
       "type": "shadowsocks",
-      "tag": "ARISTA #1",
+      "tag": "ARISTA #9",
       "server": "82.38.31.7",
       "server_port": 8080,
       "method": "chacha20-ietf-poly1305",
       "password": "oZIoA69Q8yhcQV8ka3Pa3A"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "ARISTA #41",
-      "server": "admin.c1.havij.co",
-      "server_port": 443,
-      "method": "chacha20-ietf-poly1305",
-      "password": "1kVr0KATIJI7mwOF"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "ARISTA #42",
-      "server": "series-a1.samanehha.co",
-      "server_port": 443,
-      "method": "chacha20-ietf-poly1305",
-      "password": "W74XFALLLuw6m5IA"
     },
     {
       "type": "direct",
@@ -71,20 +74,16 @@
       "type": "selector",
       "tag": "proxy",
       "outbounds": [
-        "ARISTA #1",
-        "ARISTA #41",
-        "ARISTA #42",
+        "ARISTA #9",
         "direct"
       ],
-      "default": "ARISTA #1"
+      "default": "ARISTA #9"
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "ARISTA #1",
-        "ARISTA #41",
-        "ARISTA #42"
+        "ARISTA #9"
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "5m",

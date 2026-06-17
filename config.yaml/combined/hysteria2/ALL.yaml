@@ -1,5 +1,5 @@
 # COMBINED - HYSTERIA2 - Tier ALL
-# Updated: 2026-06-17 21:15:56
+# Updated: 2026-06-17 21:59:41
 # Count: 37
 
 proxies:
@@ -25,27 +25,16 @@ proxies:
   client-fingerprint: chrome
 - name: 'ARISTA #3'
   type: hysteria2
-  server: 213.156.152.76
-  port: 443
-  password: '%40V2RayyNGvpn'
-  sni: 213.156.152.76
+  server: endpoint.neoservers.ir
+  port: 30781
+  password: zZlPDO5jYeaE9rYtNnjlBI0igvbIdjRX
+  sni: endpoint.neoservers.ir
   skip-cert-verify: false
   fast-open: true
   client-fingerprint: chrome
   obfs: salamander
-  obfs-password: V2RayyNGvpn%24miracle%24krouky
+  obfs-password: 8s7t1sNDH36vU8_Ixd7MckIY
 - name: 'ARISTA #4'
-  type: hysteria2
-  server: 80.66.81.78
-  port: 9443
-  password: rs2mR3g9bZiMloftx6lZQ59Um1Ld
-  sni: 80.66.81.78
-  skip-cert-verify: false
-  fast-open: true
-  client-fingerprint: chrome
-  obfs: salamander
-  obfs-password: oMgvuBy5Lj5kYM57sGsnjpjNcSEQ
-- name: 'ARISTA #5'
   type: hysteria2
   server: 18.157.222.169
   port: 54040
@@ -56,7 +45,7 @@ proxies:
   client-fingerprint: chrome
   obfs: salamander
   obfs-password: Masir_Sefid
-- name: 'ARISTA #6'
+- name: 'ARISTA #5'
   type: hysteria2
   server: 202.61.205.86
   port: 4433
@@ -65,17 +54,28 @@ proxies:
   skip-cert-verify: false
   fast-open: true
   client-fingerprint: chrome
-- name: 'ARISTA #7'
+- name: 'ARISTA #6'
   type: hysteria2
-  server: endpoint.neoservers.ir
-  port: 30781
-  password: zZlPDO5jYeaE9rYtNnjlBI0igvbIdjRX
-  sni: endpoint.neoservers.ir
+  server: 80.66.81.78
+  port: 9443
+  password: rs2mR3g9bZiMloftx6lZQ59Um1Ld
+  sni: 80.66.81.78
   skip-cert-verify: false
   fast-open: true
   client-fingerprint: chrome
   obfs: salamander
-  obfs-password: 8s7t1sNDH36vU8_Ixd7MckIY
+  obfs-password: oMgvuBy5Lj5kYM57sGsnjpjNcSEQ
+- name: 'ARISTA #7'
+  type: hysteria2
+  server: 213.156.152.76
+  port: 443
+  password: '%40V2RayyNGvpn'
+  sni: 213.156.152.76
+  skip-cert-verify: false
+  fast-open: true
+  client-fingerprint: chrome
+  obfs: salamander
+  obfs-password: V2RayyNGvpn%24miracle%24krouky
 - name: 'T.ME: @aristapnel #8'
   type: hysteria2
   server: 202.61.205.86
