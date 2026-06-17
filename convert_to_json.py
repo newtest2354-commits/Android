@@ -375,13 +375,20 @@ class ConfigToJSONConverter:
             if not all([p.hostname, p.port]):
                 return None
             name = f"{unquote(p.fragment or 'Hysteria2')} #{index + 1}"
+            tls_config = self.build_tls(q, p.hostname)
+            if not tls_config.get("enabled", False):
+                tls_config = {
+                    "enabled": True,
+                    "server_name": p.hostname,
+                    "insecure": True
+                }
             config = {
                 "type": "hysteria2",
                 "tag": name,
                 "server": p.hostname,
                 "server_port": int(p.port),
                 "password": unquote(p.username or ""),
-                "tls": self.build_tls(q, p.hostname)
+                "tls": tls_config
             }
             obfs = self.get_first(q, "obfs")
             obfs_pass = self.get_first(q, "obfs-password")
@@ -432,16 +439,12 @@ class ConfigToJSONConverter:
             "dns": {
                 "servers": [
                     {
-                        "type": "udp",
                         "tag": "google",
-                        "server": "8.8.8.8",
-                        "server_port": 53
+                        "address": "8.8.8.8"
                     },
                     {
-                        "type": "udp",
                         "tag": "cloudflare",
-                        "server": "1.1.1.1",
-                        "server_port": 53
+                        "address": "1.1.1.1"
                     }
                 ],
                 "final": "google"
@@ -458,7 +461,6 @@ class ConfigToJSONConverter:
                 }
             ],
             "outbounds": outbounds + [
-                {"type": "dns", "tag": "dns-out"},
                 {"type": "direct", "tag": "direct"},
                 {"type": "block", "tag": "block"},
                 {
@@ -472,7 +474,7 @@ class ConfigToJSONConverter:
                     "tag": "auto",
                     "outbounds": tags,
                     "url": "http://www.gstatic.com/generate_204",
-                    "interval": "5m0s",
+                    "interval": "5m",
                     "tolerance": 50
                 }
             ],
@@ -480,8 +482,7 @@ class ConfigToJSONConverter:
                 "auto_detect_interface": True,
                 "final": "proxy",
                 "rules": [
-                    {"protocol": "dns", "outbound": "dns-out"},
-                    {"network": "udp", "port": 53, "outbound": "dns-out"}
+                    {"action": "hijack-dns"}
                 ]
             }
         }
