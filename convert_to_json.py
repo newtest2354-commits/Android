@@ -192,52 +192,56 @@ class ConfigToJSONConverter:
         try:
             raw = ss_url.replace("ss://", "").split("#")[0]
             name = unquote(ss_url.split("#", 1)[1]) if "#" in ss_url else ""
+
+            def build_result(method, password, server, port):
+                if not method or not password or not server or not port:
+                    return None
+                if method not in self.allowed_ss_ciphers:
+                    return None
+                if not str(port).isdigit():
+                    return None
+                password = str(password).strip()
+                if not password:
+                    return None
+                return {
+                    "method": method,
+                    "password": password,
+                    "server": server,
+                    "port": int(port),
+                    "name": name
+                }
+
             if "@" in raw:
                 method_password, server_port = raw.split("@", 1)
+
                 decoded = self.safe_b64_decode(method_password)
                 if decoded and ":" in decoded:
                     method, password = decoded.split(":", 1)
-                    if method in self.allowed_ss_ciphers:
-                        server, port = server_port.split(":", 1)
-                        if port.isdigit():
-                            return {
-                                "method": method,
-                                "password": password,
-                                "server": server,
-                                "port": int(port),
-                                "name": name
-                            }
+                    server, port = server_port.split(":", 1)
+                    result = build_result(method, password, server, port)
+                    if result:
+                        return result
+
                 method_password_base64 = raw.split("@", 1)[0]
-                if self.safe_b64_decode(method_password_base64):
-                    full_decoded = self.safe_b64_decode(method_password_base64)
-                    if full_decoded and "@" in full_decoded:
-                        method_password_part, server_port_part = full_decoded.split("@", 1)
-                        if ":" in method_password_part:
-                            method, password = method_password_part.split(":", 1)
-                            if method in self.allowed_ss_ciphers:
-                                server, port = server_port_part.split(":", 1)
-                                if port.isdigit():
-                                    return {
-                                        "method": method,
-                                        "password": password,
-                                        "server": server,
-                                        "port": int(port),
-                                        "name": name
-                                    }
-            if raw.startswith("method:") or ":" in raw and "@" in raw:
+                full_decoded = self.safe_b64_decode(method_password_base64)
+                if full_decoded and "@" in full_decoded:
+                    method_password_part, server_port_part = full_decoded.split("@", 1)
+                    if ":" in method_password_part:
+                        method, password = method_password_part.split(":", 1)
+                        server, port = server_port_part.split(":", 1)
+                        result = build_result(method, password, server, port)
+                        if result:
+                            return result
+
+            if raw.startswith("method:") or ("@" in raw and ":" in raw):
                 method_password, server_port = raw.split("@", 1)
                 if ":" in method_password:
                     method, password = method_password.split(":", 1)
-                    if method in self.allowed_ss_ciphers:
-                        server, port = server_port.split(":", 1)
-                        if port.isdigit():
-                            return {
-                                "method": method,
-                                "password": password,
-                                "server": server,
-                                "port": int(port),
-                                "name": name
-                            }
+                    server, port = server_port.split(":", 1)
+                    result = build_result(method, password, server, port)
+                    if result:
+                        return result
+
             return None
         except:
             return None
@@ -289,16 +293,32 @@ class ConfigToJSONConverter:
         try:
             if not raw.startswith("ss://"):
                 return None
+
             d = self.decode_ss_config(raw)
             if not d:
                 return None
+
+            password = str(d.get("password", "")).strip()
+            if not password:
+                return None
+
+            method = d.get("method", "")
+            if method not in self.allowed_ss_ciphers:
+                return None
+
+            server = d.get("server", "")
+            port = d.get("port", None)
+
+            if not server or not port or not str(port).isdigit():
+                return None
+
             return {
                 "type": "shadowsocks",
-                "tag": f"{d['name'] or 'SS'} #{index + 1}",
-                "server": d["server"],
-                "server_port": d["port"],
-                "method": d["method"],
-                "password": d["password"]
+                "tag": f"{d.get('name') or 'SS'} #{index + 1}",
+                "server": server,
+                "server_port": int(port),
+                "method": method,
+                "password": password
             }
         except:
             return None
