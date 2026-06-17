@@ -1,7 +1,8 @@
 # GITHUB - Tier 100 - TROJAN
-# Updated: 2026-06-17 11:26:09
+# Updated: 2026-06-17 11:50:01
 # Count: 100
 
+trojan://humanity@45.80.111.7:443?path=%2Fassignment&security=tls&fp=chrome&type=ws&sni=www.calmlunch.com#T.ME: @aristapnel
 trojan://03mpolj39zyewzufal2r@51.75.86.196:55646?security=tls&fp=chrome&type=tcp&headerType=none&path=/&allow_insecure=1#T.ME: @aristapnel
 trojan://03mpolj39zyewzufal2r@51.75.86.196:55646?security=tls&sni=51.75.86.196&fp=chrome&type=tcp&headerType=none&path=/&allow_insecure=1#T.ME: @aristapnel
 trojan://03mpolj39zyewzufal2r@51.75.86.196:55646?security=tls&type=tcp&headerType=none&path=/&allow_insecure=1#T.ME: @aristapnel
@@ -101,4 +102,3 @@ trojan://humanity@172.66.47.69:443?security=tls&type=ws&sni=www.multiplydose.com
 trojan://humanity@185.18.250.245:443?path=/assignment&security=tls&insecure=1&host=www.calmlunch.com&type=ws&allowInsecure=1&sni=www.calmlunch.com#T.ME: @aristapnel
 trojan://humanity@185.18.250.252:443?allowInsecure=1&host=www.calmlunch.com&path=/assignment&sni=www.calmlunch.com&type=ws#T.ME: @aristapnel
 trojan://humanity@185.208.79.149:443?security=tls&sni=www.creationlong.org&type=ws&host=www.creationlong.org&path=/assignment#T.ME: @aristapnel
-trojan://humanity@185.231.112.217:40443?security=tls&sni=www.creationlong.org&type=ws&host=www.creationlong.org&path=/assignment&allowInsecure=1#T.ME: @aristapnel

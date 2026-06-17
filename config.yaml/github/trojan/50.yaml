@@ -1,19 +1,23 @@
 # GITHUB - TROJAN - Tier 50
-# Updated: 2026-06-17 11:26:19
+# Updated: 2026-06-17 11:50:10
 # Count: 48
 
 proxies:
 - name: 'T.ME: @aristapnel #1'
   type: trojan
-  server: 51.75.86.196
-  port: 55646
-  password: 03mpolj39zyewzufal2r
-  network: tcp
+  server: 45.80.111.7
+  port: 443
+  password: humanity
+  network: ws
   udp: true
   skip-cert-verify: false
   tcp-fast-open: true
-  servername: 51.75.86.196
+  servername: www.calmlunch.com
   client-fingerprint: chrome
+  ws-opts:
+    path: '%2Fassignment'
+    headers:
+      Host: www.calmlunch.com
 - name: 'T.ME: @aristapnel #2'
   type: trojan
   server: 51.75.86.196
@@ -36,21 +40,17 @@ proxies:
   tcp-fast-open: true
   servername: 51.75.86.196
   client-fingerprint: chrome
-- name: 'T.ME: @aristapnel #6'
+- name: 'T.ME: @aristapnel #4'
   type: trojan
-  server: 46.137.202.140
-  port: 443
-  password: 5JKj82yC2BNxy8LAZha8Gsj2BAexJJU7ttTfeFcuHzmLjAiZ
-  network: ws
+  server: 51.75.86.196
+  port: 55646
+  password: 03mpolj39zyewzufal2r
+  network: tcp
   udp: true
   skip-cert-verify: false
   tcp-fast-open: true
-  servername: node1.bw8848.org
+  servername: 51.75.86.196
   client-fingerprint: chrome
-  ws-opts:
-    path: /node1-node1-5sczzi
-    headers:
-      Host: node1.bw8848.org
 - name: 'T.ME: @aristapnel #7'
   type: trojan
   server: 46.137.202.140
@@ -68,6 +68,21 @@ proxies:
       Host: node1.bw8848.org
 - name: 'T.ME: @aristapnel #8'
   type: trojan
+  server: 46.137.202.140
+  port: 443
+  password: 5JKj82yC2BNxy8LAZha8Gsj2BAexJJU7ttTfeFcuHzmLjAiZ
+  network: ws
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: node1.bw8848.org
+  client-fingerprint: chrome
+  ws-opts:
+    path: /node1-node1-5sczzi
+    headers:
+      Host: node1.bw8848.org
+- name: 'T.ME: @aristapnel #9'
+  type: trojan
   server: 213.176.113.98
   port: 2053
   password: 8r%3C%5B9%27l6hAO%238ZQi
@@ -81,7 +96,7 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-- name: 'T.ME: @aristapnel #9'
+- name: 'T.ME: @aristapnel #10'
   type: trojan
   server: 207.126.167.241
   port: 443
@@ -92,7 +107,7 @@ proxies:
   tcp-fast-open: true
   servername: 207.126.167.241
   client-fingerprint: chrome
-- name: 'T.ME: @aristapnel #10'
+- name: 'T.ME: @aristapnel #11'
   type: trojan
   server: 130.94.65.195
   port: 443
@@ -102,17 +117,6 @@ proxies:
   skip-cert-verify: false
   tcp-fast-open: true
   servername: 130.94.65.195
-  client-fingerprint: chrome
-- name: 'T.ME: @aristapnel #11'
-  type: trojan
-  server: 46.8.113.142
-  port: 443
-  password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  tcp-fast-open: true
-  servername: ch-2.bexum.fun
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #12'
   type: trojan
@@ -193,14 +197,14 @@ proxies:
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #19'
   type: trojan
-  server: 94.103.173.70
-  port: 9443
+  server: 46.8.113.142
+  port: 443
   password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
   network: tcp
   udp: true
   skip-cert-verify: false
   tcp-fast-open: true
-  servername: de-1.hysteria.ltd
+  servername: ch-2.bexum.fun
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #20'
   type: trojan
@@ -259,14 +263,14 @@ proxies:
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #25'
   type: trojan
-  server: ch-2.bexum.fun
-  port: 443
+  server: 94.103.173.70
+  port: 9443
   password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
   network: tcp
   udp: true
   skip-cert-verify: false
   tcp-fast-open: true
-  servername: ch-2.bexum.fun
+  servername: de-1.hysteria.ltd
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #26'
   type: trojan
@@ -336,14 +340,14 @@ proxies:
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #32'
   type: trojan
-  server: de-1.hysteria.ltd
-  port: 9443
+  server: ch-2.bexum.fun
+  port: 443
   password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
   network: tcp
   udp: true
   skip-cert-verify: false
   tcp-fast-open: true
-  servername: de-1.hysteria.ltd
+  servername: ch-2.bexum.fun
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #33'
   type: trojan
@@ -424,6 +428,17 @@ proxies:
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #40'
   type: trojan
+  server: de-1.hysteria.ltd
+  port: 9443
+  password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: de-1.hysteria.ltd
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #41'
+  type: trojan
   server: masir_sefid
   port: 443
   password: Masir_Sefid
@@ -432,17 +447,6 @@ proxies:
   skip-cert-verify: false
   tcp-fast-open: true
   servername: store.steampowered.com
-  client-fingerprint: chrome
-- name: 'T.ME: @aristapnel #41'
-  type: trojan
-  server: 78.159.131.12
-  port: 28259
-  password: MeaDiUmPlkWbZJ2BON8tz
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  tcp-fast-open: true
-  servername: ads.x5.ru
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #42'
   type: trojan
@@ -453,9 +457,20 @@ proxies:
   udp: true
   skip-cert-verify: false
   tcp-fast-open: true
-  servername: 78.159.131.12
+  servername: ads.x5.ru
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #43'
+  type: trojan
+  server: 78.159.131.12
+  port: 28259
+  password: MeaDiUmPlkWbZJ2BON8tz
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: 78.159.131.12
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #44'
   type: trojan
   server: 104.27.30.190
   port: 8443
@@ -470,7 +485,7 @@ proxies:
     path: /
     headers:
       Host: billowing-night-3b76.iranmountains.workers.dev
-- name: 'T.ME: @aristapnel #44'
+- name: 'T.ME: @aristapnel #45'
   type: trojan
   server: 127.0.0.1
   port: 1080
@@ -481,7 +496,7 @@ proxies:
   tcp-fast-open: true
   servername: 127.0.0.1
   client-fingerprint: chrome
-- name: 'T.ME: @aristapnel #45'
+- name: 'T.ME: @aristapnel #46'
   type: trojan
   server: 127.0.0.1
   port: 8080
@@ -491,17 +506,6 @@ proxies:
   skip-cert-verify: false
   tcp-fast-open: true
   servername: 127.0.0.1
-  client-fingerprint: chrome
-- name: 'T.ME: @aristapnel #46'
-  type: trojan
-  server: 130.94.97.140
-  port: 443
-  password: bNpSPq25FqLYblE9xl_Zpaq43o1iEmrcOW
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  tcp-fast-open: true
-  servername: www.static-optimizer.click
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #47'
   type: trojan
@@ -516,6 +520,17 @@ proxies:
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #48'
   type: trojan
+  server: 130.94.97.140
+  port: 443
+  password: bNpSPq25FqLYblE9xl_Zpaq43o1iEmrcOW
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: www.static-optimizer.click
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #49'
+  type: trojan
   server: 144.31.55.10
   port: 10295
   password: c-SRHpnT4DGR3W3W639LbOUKHYR.Ls71kU
@@ -525,7 +540,7 @@ proxies:
   tcp-fast-open: true
   servername: www.spotwebs.click
   client-fingerprint: chrome
-- name: 'T.ME: @aristapnel #49'
+- name: 'T.ME: @aristapnel #50'
   type: trojan
   server: 162.159.21.120
   port: 443
@@ -540,14 +555,3 @@ proxies:
     path: /
     headers:
       Host: floral-violet-e5c7.asdasfgg233424.workers.dev
-- name: 'T.ME: @aristapnel #50'
-  type: trojan
-  server: 5.239.245.250
-  port: 443
-  password: ecd5e68e-92a5-4f85-afe1-1775ec84bf54
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  tcp-fast-open: true
-  servername: empty.node
-  client-fingerprint: chrome

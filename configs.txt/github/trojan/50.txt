@@ -1,7 +1,8 @@
 # GITHUB - Tier 50 - TROJAN
-# Updated: 2026-06-17 11:26:09
+# Updated: 2026-06-17 11:50:01
 # Count: 50
 
+trojan://humanity@45.80.111.7:443?path=%2Fassignment&security=tls&fp=chrome&type=ws&sni=www.calmlunch.com#T.ME: @aristapnel
 trojan://03mpolj39zyewzufal2r@51.75.86.196:55646?security=tls&fp=chrome&type=tcp&headerType=none&path=/&allow_insecure=1#T.ME: @aristapnel
 trojan://03mpolj39zyewzufal2r@51.75.86.196:55646?security=tls&sni=51.75.86.196&fp=chrome&type=tcp&headerType=none&path=/&allow_insecure=1#T.ME: @aristapnel
 trojan://03mpolj39zyewzufal2r@51.75.86.196:55646?security=tls&type=tcp&headerType=none&path=/&allow_insecure=1#T.ME: @aristapnel
@@ -51,4 +52,3 @@ trojan://bNpSPq25FqLYblE9xl_Zpaq43o1iEmrcOW@130.94.97.140:443?security=tls&sni=w
 trojan://bNpSPq25FqLYblE9xl_Zpaq43o1iEmrcOW@130.94.97.140:443?security=tls&sni=www.static-optimizer.click&path=/#T.ME: @aristapnel
 trojan://c-SRHpnT4DGR3W3W639LbOUKHYR.Ls71kU@144.31.55.10:10295?security=tls&sni=www.spotwebs.click&fp=chrome&type=tcp&headerType=none&path=/&allow_insecure=1#T.ME: @aristapnel
 trojan://e9c95d49-2e1e-4895-a164-69e2ec2830cb@162.159.21.120:443?fp=chrome&host=floral-violet-e5c7.asdasfgg233424.workers.dev&path=/&sni=floral-violet-e5c7.asdasfgg233424.workers.dev&type=ws#T.ME: @aristapnel
-trojan://ecd5e68e-92a5-4f85-afe1-1775ec84bf54@5.239.245.250:443?security=tls&sni=empty.node&type=tcp#T.ME: @aristapnel
