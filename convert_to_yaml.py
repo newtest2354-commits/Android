@@ -392,15 +392,6 @@ class ConfigToYAMLConverter:
                         f.write(f"# Count: {len(clash_configs)}\n")
                         f.write(f"# Failed conversions: {failed}\n\n")
                         yaml.dump(yaml_content, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
-                    
-                    if tier_name == 'ALL':
-                        all_output = os.path.join(output_dir, f"{category}_ALL.yaml")
-                        with open(all_output, 'w', encoding='utf-8') as f:
-                            f.write(f"# {source_name.upper()} - {category.upper()} - ALL\n")
-                            f.write(f"# Updated: {timestamp}\n")
-                            f.write(f"# Count: {len(clash_configs)}\n")
-                            f.write(f"# Failed conversions: {failed}\n\n")
-                            yaml.dump(yaml_content, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
         
         self.generate_summary_yaml(source_dir, output_dir, source_name)
     
