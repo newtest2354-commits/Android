@@ -1,5 +1,5 @@
 // GITHUB - HYSTERIA2 - Tier ALL
-// Updated: 2026-06-17 16:47:26
+// Updated: 2026-06-17 17:16:29
 // Count: 31
 
 {
@@ -28,11 +28,10 @@
     {
       "type": "tun",
       "tag": "tun-in",
-      "interface_name": "singbox-tun",
-      "inet4_address": "172.19.0.1/30",
       "auto_route": true,
       "strict_route": true,
-      "stack": "system"
+      "stack": "system",
+      "sniff": true
     }
   ],
   "outbounds": [

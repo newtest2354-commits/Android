@@ -1,5 +1,5 @@
 // GITHUB - ALL - Tier 50
-// Updated: 2026-06-17 16:47:26
+// Updated: 2026-06-17 17:16:29
 // Count: 50
 
 {
@@ -28,11 +28,10 @@
     {
       "type": "tun",
       "tag": "tun-in",
-      "interface_name": "singbox-tun",
-      "inet4_address": "172.19.0.1/30",
       "auto_route": true,
       "strict_route": true,
-      "stack": "system"
+      "stack": "system",
+      "sniff": true
     }
   ],
   "outbounds": [
@@ -439,6 +438,7 @@
       "server_port": 20521,
       "uuid": "3dbaa5c3-f493-4ad1-9c5d-8525f4962a6c",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": false
       },
@@ -457,6 +457,7 @@
       "server_port": 4728,
       "uuid": "a0e050ca-6d37-452f-bf5c-3e4e475ef36b",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": false
       },
@@ -475,6 +476,7 @@
       "server_port": 443,
       "uuid": "2c981164-9b93-4bca-94ff-b78d3f8498d7",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": false
       },
@@ -493,6 +495,7 @@
       "server_port": 28011,
       "uuid": "cfc5a87f-3c13-4e25-b556-176cdd6b5c6a",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": false
       }
@@ -504,6 +507,7 @@
       "server_port": 443,
       "uuid": "cd26abca-0d84-43d0-8f69-9c1143b569e9",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": true,
         "server_name": "n1744454498.lie5d.cyou",
@@ -528,6 +532,7 @@
       "server_port": 2082,
       "uuid": "112ac36f-3f53-4e26-8371-d25c028e1b9a",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": false
       },
@@ -546,6 +551,7 @@
       "server_port": 443,
       "uuid": "bed7b743-6bf8-46a2-b346-c60e60919220",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": true,
         "server_name": "n1744454501.4u9ma.icu",
@@ -570,6 +576,7 @@
       "server_port": 50475,
       "uuid": "f6c4588d-193d-47e1-9a50-2f42968c3820",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": false
       }
@@ -581,6 +588,7 @@
       "server_port": 3721,
       "uuid": "5f2f0765-f331-4d1e-8560-d2fb533dd6fe",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": false
       },
@@ -599,6 +607,7 @@
       "server_port": 443,
       "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": true,
         "server_name": "nm7386.teeoomboom.de",
@@ -636,7 +645,8 @@
           "short_id": "8bcfe256cf216fd8"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -657,7 +667,8 @@
           "public_key": "K0iITauuYEqIayR3IB5Ny8MVKyORDJ65rUSHc3tLe1E",
           "short_id": "42c0b628ba6a42a9"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -677,6 +688,7 @@
           "http/1.1"
         ]
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -705,7 +717,8 @@
           "short_id": "9eb31eb7572c0882"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -727,7 +740,8 @@
           "short_id": "cd57a927f6b72d81"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -749,7 +763,8 @@
           "short_id": "4a5b6c7d"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -770,7 +785,8 @@
           "public_key": "ve8spuAYBeV8j7QnofoqGecdYl1KZYYcykiyHHzNg1U",
           "short_id": "0bce"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -792,7 +808,8 @@
           "short_id": "9eb31eb7572c0882"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -811,7 +828,8 @@
         "alpn": [
           "http/1.1"
         ]
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -833,7 +851,8 @@
           "short_id": "9eb31eb7572c0882"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "dns",

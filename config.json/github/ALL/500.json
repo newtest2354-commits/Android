@@ -1,5 +1,5 @@
 // GITHUB - ALL - Tier 500
-// Updated: 2026-06-17 16:47:26
+// Updated: 2026-06-17 17:16:29
 // Count: 498
 
 {
@@ -28,11 +28,10 @@
     {
       "type": "tun",
       "tag": "tun-in",
-      "interface_name": "singbox-tun",
-      "inet4_address": "172.19.0.1/30",
       "auto_route": true,
       "strict_route": true,
-      "stack": "system"
+      "stack": "system",
+      "sniff": true
     }
   ],
   "outbounds": [
@@ -3853,29 +3852,22 @@
     {
       "type": "trojan",
       "tag": "T.ME: @aristapnel #191",
-      "server": "45.130.125.156",
-      "server_port": 8080,
-      "password": "VN3zRAL4Hq",
+      "server": "185.137.157.59",
+      "server_port": 443,
+      "password": "fFj7MAGy1VlAWmB_gMBG_27oPYTSHvV6MX",
       "tls": {
         "enabled": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/da",
-        "headers": {
-          "Host": "45.130.125.156"
-        }
       }
     },
     {
       "type": "trojan",
       "tag": "T.ME: @aristapnel #192",
-      "server": "188.253.12.96",
-      "server_port": 48697,
-      "password": "4f4d1167-ef14-4304-9bce-0740472503ef",
+      "server": "38.54.13.189",
+      "server_port": 443,
+      "password": "lhvfOzkRQqNd9cLDwpryrAkFGgqzlZR9Fi",
       "tls": {
         "enabled": true,
-        "server_name": "gh.01.naiun.bilibili.com",
+        "server_name": "38.54.13.189",
         "insecure": false,
         "utls": {
           "enabled": true,
@@ -3886,17 +3878,16 @@
     {
       "type": "trojan",
       "tag": "T.ME: @aristapnel #193",
-      "server": "43.207.87.133",
-      "server_port": 443,
-      "password": "hV66LcSGyxUdHq2aAeqxmLfpBDQmRYxo8Wte43oZr8L379SS",
+      "server": "188.253.12.90",
+      "server_port": 48697,
+      "password": "4f4d1167-ef14-4304-9bce-0740472503ef",
       "tls": {
-        "enabled": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/node2-node2-gu7bfd",
-        "headers": {
-          "Host": "node2.bw8848.org"
+        "enabled": true,
+        "server_name": "gh.01.naiun.bilibili.com",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
         }
       }
     },
@@ -4573,6 +4564,14 @@
     {
       "type": "shadowsocks",
       "tag": "T.ME: @aristapnel #263",
+      "server": "e1.cover20.ir",
+      "server_port": 51570,
+      "method": "chacha20-ietf-poly1305",
+      "password": "pH/JgEiIbopi90FB0E5FWGjTsmrSvUOQKkLGPwWD068="
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "T.ME: @aristapnel #264",
       "server": "15.204.254.187",
       "server_port": 12000,
       "method": "aes-256-gcm",
@@ -4580,7 +4579,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #264",
+      "tag": "T.ME: @aristapnel #265",
       "server": "r3mrcg00129437x.cybervena.com",
       "server_port": 50099,
       "method": "chacha20-ietf-poly1305",
@@ -4588,19 +4587,11 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #265",
+      "tag": "T.ME: @aristapnel #266",
       "server": "82.38.31.16",
       "server_port": 8080,
       "method": "chacha20-ietf-poly1305",
       "password": "oZIoA69Q8yhcQV8ka3Pa3A"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #266",
-      "server": "213.226.68.8",
-      "server_port": 31348,
-      "method": "chacha20-ietf-poly1305",
-      "password": "hkasb5cVrs4jE18jCEJxB4Gr55hVGW24y35gU9GIIeyT31Fw"
     },
     {
       "type": "shadowsocks",
@@ -4621,14 +4612,6 @@
     {
       "type": "shadowsocks",
       "tag": "T.ME: @aristapnel #269",
-      "server": "45.129.96.62",
-      "server_port": 41348,
-      "method": "chacha20-ietf-poly1305",
-      "password": "6U3psR0sQuQxWXoBHB4KTD3YacwQwS21XvSEy9"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #270",
       "server": "r3mrcg001286ek2.cybervena.com",
       "server_port": 50099,
       "method": "chacha20-ietf-poly1305",
@@ -4636,15 +4619,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #271",
-      "server": "r3mrcg001269pz2.cybervena.com",
-      "server_port": 50099,
-      "method": "chacha20-ietf-poly1305",
-      "password": "7e731ec3-f8e1-43f6-92cf-3978d14705c4"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #272",
+      "tag": "T.ME: @aristapnel #270",
       "server": "198.98.53.130",
       "server_port": 443,
       "method": "chacha20-ietf-poly1305",
@@ -4652,7 +4627,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #273",
+      "tag": "T.ME: @aristapnel #271",
       "server": "108.181.121.226",
       "server_port": 8388,
       "method": "chacha20-ietf-poly1305",
@@ -4660,7 +4635,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #274",
+      "tag": "T.ME: @aristapnel #272",
       "server": "161.129.71.148",
       "server_port": 17913,
       "method": "aes-128-gcm",
@@ -4668,7 +4643,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #275",
+      "tag": "T.ME: @aristapnel #273",
       "server": "47.80.24.245",
       "server_port": 8127,
       "method": "2022-blake3-aes-128-gcm",
@@ -4676,15 +4651,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #276",
-      "server": "r3mrcg00129437x.cybervena.com",
-      "server_port": 50099,
-      "method": "chacha20-ietf-poly1305",
-      "password": "7e731ec3-f8e1-43f6-92cf-3978d14705c4"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #277",
+      "tag": "T.ME: @aristapnel #274",
       "server": "103.130.147.40",
       "server_port": 1122,
       "method": "aes-256-gcm",
@@ -4692,15 +4659,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #278",
-      "server": "r3mrcg001269pz2.cybervena.com",
-      "server_port": 50099,
-      "method": "chacha20-ietf-poly1305",
-      "password": "7e731ec3-f8e1-43f6-92cf-3978d14705c4"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #279",
+      "tag": "T.ME: @aristapnel #275",
       "server": "168.138.175.92",
       "server_port": 9888,
       "method": "aes-128-gcm",
@@ -4708,7 +4667,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #280",
+      "tag": "T.ME: @aristapnel #276",
       "server": "82.38.31.2",
       "server_port": 8080,
       "method": "chacha20-ietf-poly1305",
@@ -4716,7 +4675,31 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #281",
+      "tag": "T.ME: @aristapnel #277",
+      "server": "82.38.31.15",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "T.ME: @aristapnel #278",
+      "server": "51.254.128.106",
+      "server_port": 2083,
+      "method": "aes-256-gcm",
+      "password": "FjG3IPbny+0ZYU4/p1vULP84GcKpGoZpWKAay16VhIw="
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "T.ME: @aristapnel #279",
+      "server": "de5.taskflowhub.org",
+      "server_port": 2083,
+      "method": "aes-256-gcm",
+      "password": "7NuB0Y5m3aNzkKMKlFoMwkiajsu6F36c9ok4VKEZnB4="
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "T.ME: @aristapnel #280",
       "server": "130.49.161.18",
       "server_port": 28474,
       "method": "chacha20-ietf-poly1305",
@@ -4724,7 +4707,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #282",
+      "tag": "T.ME: @aristapnel #281",
       "server": "86.106.84.198",
       "server_port": 13265,
       "method": "aes-128-gcm",
@@ -4732,7 +4715,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #283",
+      "tag": "T.ME: @aristapnel #282",
       "server": "46.225.30.16",
       "server_port": 49534,
       "method": "2022-blake3-aes-256-gcm",
@@ -4740,7 +4723,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #284",
+      "tag": "T.ME: @aristapnel #283",
       "server": "82.38.31.189",
       "server_port": 8080,
       "method": "chacha20-ietf-poly1305",
@@ -4748,7 +4731,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #285",
+      "tag": "T.ME: @aristapnel #284",
       "server": "156.146.38.167",
       "server_port": 443,
       "method": "aes-128-gcm",
@@ -4756,7 +4739,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #286",
+      "tag": "T.ME: @aristapnel #285",
       "server": "37.19.198.160",
       "server_port": 443,
       "method": "aes-128-gcm",
@@ -4764,7 +4747,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #287",
+      "tag": "T.ME: @aristapnel #286",
       "server": "71.19.148.74",
       "server_port": 443,
       "method": "chacha20-ietf-poly1305",
@@ -4772,7 +4755,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #288",
+      "tag": "T.ME: @aristapnel #287",
       "server": "46.249.109.128",
       "server_port": 56594,
       "method": "chacha20-ietf-poly1305",
@@ -4780,7 +4763,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #289",
+      "tag": "T.ME: @aristapnel #288",
       "server": "hackney-latest-strike.freesocks.work",
       "server_port": 443,
       "method": "chacha20-ietf-poly1305",
@@ -4788,11 +4771,31 @@
     },
     {
       "type": "vmess",
-      "tag": "T.ME: @aristapnel #290",
+      "tag": "T.ME: @aristapnel #289",
       "server": "45.89.107.51",
       "server_port": 20521,
       "uuid": "3dbaa5c3-f493-4ad1-9c5d-8525f4962a6c",
       "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": ""
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "T.ME: @aristapnel #290",
+      "server": "8.218.17.136",
+      "server_port": 4728,
+      "uuid": "a0e050ca-6d37-452f-bf5c-3e4e475ef36b",
+      "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": false
       },
@@ -4807,28 +4810,11 @@
     {
       "type": "vmess",
       "tag": "T.ME: @aristapnel #291",
-      "server": "8.218.17.136",
-      "server_port": 4728,
-      "uuid": "a0e050ca-6d37-452f-bf5c-3e4e475ef36b",
-      "security": "auto",
-      "tls": {
-        "enabled": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": ""
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "T.ME: @aristapnel #292",
       "server": "209.126.84.189",
       "server_port": 443,
       "uuid": "2c981164-9b93-4bca-94ff-b78d3f8498d7",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": false
       },
@@ -4842,22 +4828,24 @@
     },
     {
       "type": "vmess",
-      "tag": "T.ME: @aristapnel #293",
+      "tag": "T.ME: @aristapnel #292",
       "server": "62.146.235.193",
       "server_port": 28011,
       "uuid": "cfc5a87f-3c13-4e25-b556-176cdd6b5c6a",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": false
       }
     },
     {
       "type": "vmess",
-      "tag": "T.ME: @aristapnel #294",
+      "tag": "T.ME: @aristapnel #293",
       "server": "n1744454498.lie5d.cyou",
       "server_port": 443,
       "uuid": "cd26abca-0d84-43d0-8f69-9c1143b569e9",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": true,
         "server_name": "n1744454498.lie5d.cyou",
@@ -4877,11 +4865,12 @@
     },
     {
       "type": "vmess",
-      "tag": "T.ME: @aristapnel #295",
+      "tag": "T.ME: @aristapnel #294",
       "server": "5.196.29.123",
       "server_port": 2082,
       "uuid": "112ac36f-3f53-4e26-8371-d25c028e1b9a",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": false
       },
@@ -4895,11 +4884,12 @@
     },
     {
       "type": "vmess",
-      "tag": "T.ME: @aristapnel #296",
+      "tag": "T.ME: @aristapnel #295",
       "server": "n1744454501.4u9ma.icu",
       "server_port": 443,
       "uuid": "bed7b743-6bf8-46a2-b346-c60e60919220",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": true,
         "server_name": "n1744454501.4u9ma.icu",
@@ -4919,22 +4909,24 @@
     },
     {
       "type": "vmess",
-      "tag": "T.ME: @aristapnel #297",
+      "tag": "T.ME: @aristapnel #296",
       "server": "164.138.202.55",
       "server_port": 50475,
       "uuid": "f6c4588d-193d-47e1-9a50-2f42968c3820",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": false
       }
     },
     {
       "type": "vmess",
-      "tag": "T.ME: @aristapnel #298",
+      "tag": "T.ME: @aristapnel #297",
       "server": "5.231.56.98",
       "server_port": 3721,
       "uuid": "5f2f0765-f331-4d1e-8560-d2fb533dd6fe",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": false
       },
@@ -4948,11 +4940,12 @@
     },
     {
       "type": "vmess",
-      "tag": "T.ME: @aristapnel #299",
+      "tag": "T.ME: @aristapnel #298",
       "server": "nm7386.teeoomboom.de",
       "server_port": 443,
       "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": true,
         "server_name": "nm7386.teeoomboom.de",
@@ -4972,11 +4965,12 @@
     },
     {
       "type": "vmess",
-      "tag": "T.ME: @aristapnel #300",
+      "tag": "T.ME: @aristapnel #299",
       "server": "jl2klj.teeoomboom.de",
       "server_port": 443,
       "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": true,
         "server_name": "jl2klj.teeoomboom.de",
@@ -4996,51 +4990,24 @@
     },
     {
       "type": "vmess",
+      "tag": "T.ME: @aristapnel #300",
+      "server": "nlt.reata.ir",
+      "server_port": 1020,
+      "uuid": "6244c41a-f4c1-4733-a654-c38f7729b13c",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false
+      }
+    },
+    {
+      "type": "vmess",
       "tag": "T.ME: @aristapnel #301",
-      "server": "uk.vpnjantit.com",
-      "server_port": 10000,
-      "uuid": "3c05ef9e-6582-11f1-a6e5-1727059cff63",
-      "security": "auto",
-      "tls": {
-        "enabled": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vpnjantit",
-        "headers": {
-          "Host": ""
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "T.ME: @aristapnel #302",
-      "server": "65.109.221.245",
-      "server_port": 33366,
-      "uuid": "2ee7eb26-8118-4d0a-a300-8d0edcfde6e5",
-      "security": "auto",
-      "tls": {
-        "enabled": false
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "T.ME: @aristapnel #303",
-      "server": "89.167.82.102",
-      "server_port": 4443,
-      "uuid": "88553247-c1c8-4e80-9db6-56bff7efc33b",
-      "security": "auto",
-      "tls": {
-        "enabled": false
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "T.ME: @aristapnel #304",
       "server": "96.47.230.5",
       "server_port": 54840,
       "uuid": "b2da9920-b0a7-4354-9e26-3833ab8d00d0",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": true,
         "server_name": "imafake.locker",
@@ -5060,11 +5027,74 @@
     },
     {
       "type": "vmess",
+      "tag": "T.ME: @aristapnel #302",
+      "server": "8.211.149.30",
+      "server_port": 443,
+      "uuid": "bc82b8e0-026b-4b7e-8fa7-69977b6d9dc0",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "8.211.149.30",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws/",
+        "headers": {
+          "Host": "polartime.link"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "T.ME: @aristapnel #303",
+      "server": "57.151.100.27",
+      "server_port": 10086,
+      "uuid": "550e8400-e29b-41d4-a716-446655440000",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": false
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "T.ME: @aristapnel #304",
+      "server": "93.93.89.118",
+      "server_port": 443,
+      "uuid": "df9c9355-b02c-4c12-909d-0dbeb725d52b",
+      "security": "auto",
+      "alter_id": 0,
+      "tls": {
+        "enabled": true,
+        "server_name": "renderer-stream-1-411.mirra.now",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/api/v1/gpu-stream/socket",
+        "headers": {
+          "Host": "renderer-stream-1-411.mirra.now"
+        }
+      }
+    },
+    {
+      "type": "vmess",
       "tag": "T.ME: @aristapnel #305",
       "server": "de4.niekotin.de",
       "server_port": 80,
       "uuid": "38ed5d70-443e-4ac3-b877-ea21d97fed93",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": false
       },
@@ -5083,6 +5113,7 @@
       "server_port": 180,
       "uuid": "d13fc2f5-3e05-4795-81eb-44143a09e552",
       "security": null,
+      "alter_id": 0,
       "tls": {
         "enabled": false
       }
@@ -5094,6 +5125,7 @@
       "server_port": 1020,
       "uuid": "6244c41a-f4c1-4733-a654-c38f7729b13c",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": false
       }
@@ -5105,6 +5137,7 @@
       "server_port": 22301,
       "uuid": "16563c51-2db2-4b50-a3f1-572b632c7342",
       "security": "auto",
+      "alter_id": 0,
       "tls": {
         "enabled": false
       }
@@ -5129,7 +5162,8 @@
           "short_id": "8bcfe256cf216fd8"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5150,7 +5184,8 @@
           "public_key": "K0iITauuYEqIayR3IB5Ny8MVKyORDJ65rUSHc3tLe1E",
           "short_id": "42c0b628ba6a42a9"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5170,6 +5205,7 @@
           "http/1.1"
         ]
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -5198,7 +5234,8 @@
           "short_id": "9eb31eb7572c0882"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5220,7 +5257,8 @@
           "short_id": "cd57a927f6b72d81"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5242,7 +5280,8 @@
           "short_id": "4a5b6c7d"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5263,7 +5302,8 @@
           "public_key": "ve8spuAYBeV8j7QnofoqGecdYl1KZYYcykiyHHzNg1U",
           "short_id": "0bce"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5285,7 +5325,8 @@
           "short_id": "9eb31eb7572c0882"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5304,7 +5345,8 @@
         "alpn": [
           "http/1.1"
         ]
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5326,7 +5368,8 @@
           "short_id": "9eb31eb7572c0882"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5336,7 +5379,8 @@
       "uuid": "d3b5fdf3-bdcb-4dec-b46b-c06b5d828f73",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5353,6 +5397,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -5379,6 +5424,7 @@
           "http/1.1"
         ]
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -5405,6 +5451,7 @@
           "http/1.1"
         ]
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/5a7200cd",
@@ -5432,7 +5479,8 @@
           "public_key": "-zsPOGrZY1Dlb6eypa5V_OPaLBpT66FX3cSo0mNX8SI",
           "short_id": "47ee5c592c1672cf"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5454,7 +5502,8 @@
           "short_id": "39a1eb3ec417cd66"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5476,7 +5525,8 @@
           "short_id": "0f917152a871e9c0"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5498,7 +5548,8 @@
           "short_id": "701775cae5f3a793"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5519,7 +5570,8 @@
           "public_key": "xrzsSwm-PkWv-DgyaFCVd_QELA6YFBtvaDOlQCd7Sj8",
           "short_id": "e4656850eaed4e86"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5529,7 +5581,8 @@
       "uuid": "7007111a-c28b-4ab1-8d28-bc7b42681028",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5551,7 +5604,8 @@
           "short_id": "ead461"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5573,7 +5627,8 @@
           "short_id": "90a13f"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5583,7 +5638,8 @@
       "uuid": "d3b5fdf3-bdcb-4dec-b46b-c06b5d828f73",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5605,7 +5661,8 @@
           "short_id": "e164b85aec8a7422"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5626,7 +5683,8 @@
           "http/1.1"
         ]
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5647,7 +5705,8 @@
           "public_key": "L0T7BLyB6gtVckvnxryaK-GGd2XwgoJ3YFM9M8kXmho",
           "short_id": "7554"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5668,7 +5727,8 @@
           "public_key": "a3wxOmmJ95RHcuVYvxGusowLy8c6a4amlbS2OxMNTHc",
           "short_id": "52ad"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5689,7 +5749,8 @@
           "public_key": "1RJ2ulM9UyAC8PFy194dV0RTZI6xF6U4CGClhNz9fTg",
           "short_id": "50ed6f6007515d63"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5711,7 +5772,8 @@
           "short_id": "174c6cf22e22"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5733,7 +5795,8 @@
           "short_id": "d49d578f280fd83a"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5755,7 +5818,8 @@
           "short_id": "4fa44664f6a566d3"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5776,7 +5840,8 @@
           "public_key": "tMbRR1FTvBecmMv3GLv50T21hXHqHxulqWBKwNEW50Q",
           "short_id": "822d"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5787,6 +5852,7 @@
       "tls": {
         "enabled": false
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/vless/",
@@ -5815,7 +5881,8 @@
           "short_id": "8dc4fccb2bcfc99d"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5836,7 +5903,8 @@
           "public_key": "QRvZBf0tz7ij9V7L4MjXkHoMkdDAbwc-UzyDt-PLshU"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5858,7 +5926,8 @@
           "short_id": "33554379411b3219"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5880,7 +5949,8 @@
           "short_id": "65ce6cee3941af69"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5901,7 +5971,8 @@
           "public_key": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5923,7 +5994,8 @@
           "short_id": "6bb3c7f9f97b45b8"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5945,7 +6017,8 @@
           "short_id": "6354585c37827955"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5967,7 +6040,8 @@
           "short_id": "81"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -5989,7 +6063,8 @@
           "short_id": "a1b2c3d4e5f60789"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6011,7 +6086,8 @@
           "short_id": "8f222b3475800821"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6033,7 +6109,8 @@
           "short_id": "18e4d2d21241"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6055,7 +6132,8 @@
           "short_id": "a20d3ed244c76426"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6077,6 +6155,7 @@
           "short_id": "6ba85179e30d4fc2"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "grpc",
         "service_name": "grpc"
@@ -6102,7 +6181,8 @@
           "short_id": "1929ef620e9b34f5"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6124,7 +6204,8 @@
           "short_id": "1929ef620e9b34f5"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6146,7 +6227,8 @@
           "short_id": "f4b4a6365558ea2e"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6167,7 +6249,8 @@
           "public_key": "6_hMGHFRodRl4rUOlv0mJJBC-9en9gNpypLiNqBAuw0",
           "short_id": "281902"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6189,7 +6272,8 @@
           "short_id": "2715592069f36fe7"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6210,7 +6294,8 @@
           "public_key": "Qkso5vLwNsJx8xXmMfwzEYXey_XmDMriA9k4uP-negg",
           "short_id": "a9b6"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6232,7 +6317,8 @@
           "short_id": "a1b2c3d4e5f6789a"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6253,7 +6339,8 @@
           "public_key": "2Z2meC9rRAMD3k52ne8dh8PdfRNpOs5T9yObPyFkXyQ",
           "short_id": "f9fe"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6275,7 +6362,8 @@
           "short_id": "9f35da6c9412b832"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6297,7 +6385,8 @@
           "short_id": "2715592069f36fe7"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6319,7 +6408,8 @@
           "short_id": "f6e197a0b9f2"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6341,7 +6431,8 @@
           "short_id": "1929ef620e9b34f5"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6361,6 +6452,7 @@
           "h2"
         ]
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "grpc",
         "service_name": "GunService"
@@ -6381,6 +6473,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/Net3rffws",
@@ -6409,7 +6502,8 @@
           "short_id": "37e6f3e4339e"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6430,7 +6524,8 @@
           "public_key": "3iQ5QX52pIjouDXoPSfrQRvpqaOTqG26IJLctU7McAY",
           "short_id": "02"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6441,6 +6536,7 @@
       "tls": {
         "enabled": false
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "grpc",
         "service_name": "GunService"
@@ -6466,7 +6562,8 @@
           "short_id": "48fccabc158a4c22"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6488,6 +6585,7 @@
           "short_id": "ab1c1a11"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "grpc",
         "service_name": "vless"
@@ -6508,6 +6606,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/ws?ed=2560",
@@ -6536,7 +6635,8 @@
           "short_id": "04bf0403f96e5b4b"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6557,7 +6657,8 @@
           "public_key": "RravQN06gzsNsm5ojEhZGrxBgLGEpqEThtHEltdjpBk",
           "short_id": "b3d76d"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6568,6 +6669,7 @@
       "tls": {
         "enabled": false
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "grpc",
         "service_name": "GunService"
@@ -6582,6 +6684,7 @@
       "tls": {
         "enabled": false
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/39427/Nextlife",
@@ -6599,6 +6702,7 @@
       "tls": {
         "enabled": false
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "grpc",
         "service_name": "GunService"
@@ -6624,7 +6728,8 @@
           "short_id": "04bf0403f96e5b4b"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6646,7 +6751,8 @@
           "short_id": "f7aa9e61197d3ac6"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6663,6 +6769,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/AbRz6tBwBWo4gds7cXpDB5nO5",
@@ -6680,6 +6787,7 @@
       "tls": {
         "enabled": false
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/hBasD7EdpBQ0zGAzsYHmsMrnO",
@@ -6708,7 +6816,8 @@
           "short_id": "9eff19e0405a"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6728,7 +6837,8 @@
           "enabled": true,
           "public_key": "w28tNIWZCfW4X9aQDLwXECK3pU59zihJ0GIMA13u5X8"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6750,7 +6860,8 @@
           "short_id": "6bb3c7f9f97b45b8"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6771,7 +6882,8 @@
           "public_key": "1xMt7stxzh55Xy31H180TZNMvRYNkhEE86StqE4CtDs",
           "short_id": "2f2a"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6793,7 +6905,8 @@
           "short_id": "42237f32aba8"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6815,7 +6928,8 @@
           "short_id": "64318fb6091432"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6826,6 +6940,7 @@
       "tls": {
         "enabled": false
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/XR8So0uqFVa3vY9ZbxgW4",
@@ -6854,7 +6969,8 @@
           "short_id": "0ea9a621ae03e231"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6876,7 +6992,8 @@
           "short_id": "205748bc0f24a747"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6898,7 +7015,8 @@
           "short_id": "e49b4e3d5f46d5c2"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6920,7 +7038,8 @@
           "short_id": "1929ef620e9b34f5"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6942,7 +7061,8 @@
           "short_id": "9409f73c2fd7"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -6959,6 +7079,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/UzlFfVDyqJL3rI4BWzwNzcYz",
@@ -6987,7 +7108,8 @@
           "short_id": "205748bc0f24a747"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7008,7 +7130,8 @@
           "public_key": "Wvt6tuMcFY9rWF2BsdAD4DXgLAoxQJxHWlao2BPR23Y"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7025,6 +7148,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/1Aeip9N4V6m20grcpQ8L96b",
@@ -7047,7 +7171,8 @@
           "enabled": true,
           "fingerprint": "chrome"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7068,7 +7193,8 @@
           "public_key": "kKX1o7FhJLyDaVE6sqXUcYpUIuFUgij_ueRYc_E4JhM",
           "short_id": "1a24af87"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7089,7 +7215,8 @@
           "public_key": "SnWZg6ORcQepuWLI1EVCTTVc4KyfDiGWR4o_CXCMhgk",
           "short_id": "4ae260"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7111,7 +7238,8 @@
           "short_id": "afef94e2"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7133,7 +7261,8 @@
           "short_id": "d9c2d8"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7150,6 +7279,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/F24D1rlC85bVBOSONBms",
@@ -7177,7 +7307,8 @@
           "public_key": "3zn513ilYXOJngXLRP0MUnK23HuB9TKLjQ7YG20dzTQ"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7198,7 +7329,8 @@
           "public_key": "4cfuj5otn8-uhPUe23OhB6KY8I42AxxJNt4lWIpg_AU"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7219,7 +7351,8 @@
           "public_key": "-kDgSQgouE56cqDIDwgCco1LNQ-8q61WllL5egDI0yI",
           "short_id": "6670"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7236,6 +7369,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/s2VHv9VUVzg35A6ueyyZnWd",
@@ -7252,7 +7386,8 @@
       "uuid": "d29a7cee-acd1-4821-adbf-517f8681040e",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7273,7 +7408,8 @@
           "public_key": "4cfuj5otn8-uhPUe23OhB6KY8I42AxxJNt4lWIpg_AU"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7284,6 +7420,7 @@
       "tls": {
         "enabled": false
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -7311,7 +7448,8 @@
           "public_key": "y167aJhpgWWjltY4UCir_uu8Mj__Hkc1W4etD0QXYH4",
           "short_id": "860705e716cbe6ed"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7328,6 +7466,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/15ZYK3adOPjqSc7fzeJr",
@@ -7355,7 +7494,8 @@
           "public_key": "WH0kgqh8uI7zBktvnmEhMOKqmxWMfgspWUzXtDlW3Qk",
           "short_id": "cafe"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7372,6 +7512,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/185.186.245.40:81",
@@ -7399,7 +7540,8 @@
           "public_key": "XxphGtGbyJegOM0QIy65eyC8g3dzlKOMY0tWFBnTCWc",
           "short_id": "a0cb"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7421,7 +7563,8 @@
           "short_id": "a1b2c3d4e5f60789"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7443,7 +7586,8 @@
           "short_id": "28b11f1e725a23ad"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7460,6 +7604,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/57ba2ab1",
@@ -7487,7 +7632,8 @@
           "public_key": "JlMOb8hVg1VOrRlMLdXpv8IADp-R4I-cIT856hz_Cg0",
           "short_id": "f686d19cd7b8b3df"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7508,6 +7654,7 @@
           "public_key": "zkeQCEkz7LlrzwzeG26Ae_HEk3_QlgM9CbiWJx5iWh0"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "grpc",
         "service_name": "GunService"
@@ -7532,7 +7679,8 @@
           "public_key": "kjuk6kiPzQdy7aBA9-6RM2tJU2Ke2s_aN8pucLeOg3Q",
           "short_id": "37da"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7554,7 +7702,8 @@
           "short_id": "d91248fbca"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7576,7 +7725,8 @@
           "short_id": "01"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7597,7 +7747,8 @@
           "public_key": "2s4DLPlhc3evv3LN-qV-nXdjQtJ7jQ35i--PE8JeeG4"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7608,6 +7759,7 @@
       "tls": {
         "enabled": false
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/t.me.V2RayyNGvpn?ed=1024",
@@ -7635,7 +7787,8 @@
           "public_key": "08TPrmO6ClQQvBeWPVKuotkRZ_WKD6jL3aFeeRlVVVM",
           "short_id": "0bee"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7657,7 +7810,8 @@
           "short_id": "6ba85179e30d4fc2"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7674,6 +7828,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/AbRz6tBwBWo4gds7cXpDB5nO5",
@@ -7702,7 +7857,8 @@
           "short_id": "4fa44664f6a566d3"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7719,6 +7875,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/s2VHv9VUVzg35A6ueyyZnWd",
@@ -7746,6 +7903,7 @@
           "public_key": "wSQIBnAc0cYO9JitaNcgZ2LwkTix0_dXVpDjnZxDrCE"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "grpc",
         "service_name": "xyz"
@@ -7766,6 +7924,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/eDVWlsljXYWmzP5D1vsO",
@@ -7794,7 +7953,8 @@
           "short_id": "2715592069f36fe7"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7805,6 +7965,7 @@
       "tls": {
         "enabled": false
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -7833,7 +7994,8 @@
           "short_id": "4e2dc2056ed45d12"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7850,6 +8012,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -7873,6 +8036,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/?ed=2560",
@@ -7903,7 +8067,8 @@
           "public_key": "ckRcueERkPqqjZABwxqni_J_Nbb70Q6k5fEEUAjoImw"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7925,7 +8090,8 @@
           "short_id": "9f35da6c9412b832"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7942,6 +8108,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/N4XLnUcJW0HJfbCLo",
@@ -7970,7 +8137,8 @@
           "short_id": "e57932a42872a362"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -7992,7 +8160,8 @@
           "short_id": "4fa44664f6a566d3"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8003,6 +8172,7 @@
       "tls": {
         "enabled": false
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-Telegramjoin:@V2Ray_Rolly-",
@@ -8019,7 +8189,8 @@
       "uuid": "22470ee7-74b2-4b23-b164-bc87930d7e96",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8040,7 +8211,8 @@
           "public_key": "_WB4K6w5EoQuBAan6fsS9NPJf5wa6ggmxIa8No93ghM",
           "short_id": "6553e6d9"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8050,7 +8222,8 @@
       "uuid": "20adc847-4159-4f39-b79f-d563b660945f",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8072,7 +8245,8 @@
           "short_id": "1a3236d7"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8092,6 +8266,7 @@
           "http/1.1"
         ]
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/391sfnZ2bBhmKb8nOkg",
@@ -8109,6 +8284,7 @@
       "tls": {
         "enabled": false
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "grpc",
         "service_name": "GunService"
@@ -8134,7 +8310,8 @@
           "short_id": "8b4c2d5a1e3f"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8151,6 +8328,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/VUEhrz1FFlVljj0Fy6bojk",
@@ -8168,6 +8346,7 @@
       "tls": {
         "enabled": false
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "grpc",
         "service_name": "GunService"
@@ -8191,6 +8370,7 @@
           "http/1.1"
         ]
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/?ed=2560",
@@ -8214,6 +8394,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/185.186.245.40:81",
@@ -8237,6 +8418,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/7ZHQqqDZuBdYKaAHx8c",
@@ -8263,6 +8445,7 @@
           "h2"
         ]
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "grpc",
         "service_name": "GunService"
@@ -8276,7 +8459,8 @@
       "uuid": "19a1e5b1-6289-4fe6-9aad-be285510942d",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8286,7 +8470,8 @@
       "uuid": "27b6068a-e1e6-4675-ab14-87143c690390",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8297,6 +8482,7 @@
       "tls": {
         "enabled": false
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/157.245.215.195=8443",
@@ -8314,6 +8500,7 @@
       "tls": {
         "enabled": false
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/hBasD7EdpBQ0zGAzsYHmsMrnO",
@@ -8342,7 +8529,8 @@
           "short_id": "4fa44664f6a566d3"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8359,6 +8547,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/185.186.245.40:81",
@@ -8390,7 +8579,8 @@
           "short_id": "b8b4fb16"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8412,7 +8602,8 @@
           "short_id": "e49b4e3d5f46d5c2"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8434,6 +8625,7 @@
           "short_id": "7dcd0c337708"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "grpc",
         "service_name": "GunService"
@@ -8447,7 +8639,8 @@
       "uuid": "a2626d27-e0f8-490d-b23c-c9ca0dea4ea9",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8457,7 +8650,8 @@
       "uuid": "ef14978e-33e8-43a4-a2e4-a7b6dc1e5f1c",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8467,7 +8661,8 @@
       "uuid": "5070f55f-1666-4d55-8817-8200dd4f7ea1",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8477,7 +8672,8 @@
       "uuid": "3b65b745-db95-494c-838d-026a4023a194",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8498,7 +8694,8 @@
           "public_key": "K0iITauuYEqIayR3IB5Ny8MVKyORDJ65rUSHc3tLe1E",
           "short_id": "42c0b628ba6a42a9"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8520,7 +8717,8 @@
           "short_id": "1da66e71"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8537,6 +8735,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -8560,6 +8759,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -8576,7 +8776,8 @@
       "uuid": "6bf2c61f-db69-4e00-9dc5-249b83e69d73",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8593,6 +8794,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -8616,6 +8818,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -8639,6 +8842,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/?ed=2560",
@@ -8662,6 +8866,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/pa",
@@ -8685,6 +8890,7 @@
           "fingerprint": "firefox"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -8708,6 +8914,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -8731,6 +8938,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -8748,6 +8956,7 @@
       "tls": {
         "enabled": false
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/ALMAS4",
@@ -8775,7 +8984,8 @@
           "public_key": "4cfuj5otn8-uhPUe23OhB6KY8I42AxxJNt4lWIpg_AU"
         }
       },
-      "flow": "xtls-rprx-vision"
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8796,7 +9006,8 @@
           "public_key": "zjv3djnsCKDqP7zZFIrJ9ImzgdPE3zFMCYrOvdWqkEE",
           "short_id": "1f9364"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8806,7 +9017,8 @@
       "uuid": "76519b4d-f880-4fa5-e02f-77df232fa79e",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8816,7 +9028,8 @@
       "uuid": "4ba18e09-571e-4b81-a360-8d74bb3a903e",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8826,7 +9039,8 @@
       "uuid": "d28e35d3-2c23-4be5-c7a0-721bb001a76c",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8843,6 +9057,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -8859,7 +9074,8 @@
       "uuid": "3655caf2-a709-4e44-f353-773ddda24d7b",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8869,7 +9085,8 @@
       "uuid": "6bf2c61f-db69-4e00-9dc5-249b83e69d73",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8879,7 +9096,8 @@
       "uuid": "6bf2c61f-db69-4e00-9dc5-249b83e69d73",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8896,6 +9114,7 @@
           "fingerprint": "chrome"
         }
       },
+      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -8912,7 +9131,8 @@
       "uuid": "e42513dd-e4de-446f-a7df-2bc23db90ba1",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8933,7 +9153,8 @@
           "public_key": "XcaJjk49Yof0-ZTuwFlFvBqd_QJC_uabiIWC1g6rvAk",
           "short_id": "1f7bfe"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8954,7 +9175,8 @@
           "public_key": "527jKuAA9NDmBT1awVij74Qdfl4aRk_pqcGQSOvfbCM",
           "short_id": "cdb321e1bb50034a"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -8964,7 +9186,8 @@
       "uuid": "3b41690a-41f7-4d22-88b6-dd6bd4d3ed04",
       "tls": {
         "enabled": false
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "dns",
