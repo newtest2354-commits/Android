@@ -1,6 +1,6 @@
 // GITHUB - ALL - Tier 50
-// Updated: 2026-06-17 20:43:37
-// Count: 50
+// Updated: 2026-06-17 21:19:07
+// Count: 40
 
 {
   "log": {
@@ -340,86 +340,6 @@
         "server_name": "lundun1.nezhasu.com",
         "insecure": true
       }
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #21",
-      "server": "61.171.92.202",
-      "server_port": 1001,
-      "method": "aes-256-gcm",
-      "password": "123"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #22",
-      "server": "62.133.60.43",
-      "server_port": 36456,
-      "method": "chacha20-ietf-poly1305",
-      "password": "AHFn8RPF2GSxX4BX9i9a16"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #23",
-      "server": "89.185.84.185",
-      "server_port": 443,
-      "method": "chacha20-ietf-poly1305",
-      "password": "zyzuJ2H4Tp5Cr8T9nnPKv2"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #24",
-      "server": "62.133.60.43",
-      "server_port": 36456,
-      "method": "chacha20-ietf-poly1305",
-      "password": "OV8W2iqb56WrreJE0psqm5"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #25",
-      "server": "89.185.84.185",
-      "server_port": 443,
-      "method": "chacha20-ietf-poly1305",
-      "password": "c0rALV8bvjaRHD1hg8SmuN"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #26",
-      "server": "46.246.97.195",
-      "server_port": 23931,
-      "method": "chacha20-ietf-poly1305",
-      "password": "omCK6FBFuN5SGgX0gClju9"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #27",
-      "server": "51.195.119.47",
-      "server_port": 1080,
-      "method": "chacha20-ietf-poly1305",
-      "password": "qXvO7zYU7KeaB0Md7DQLow"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #28",
-      "server": "95.164.123.197",
-      "server_port": 36611,
-      "method": "chacha20-ietf-poly1305",
-      "password": "OhHa5AsD1WcV61f15843WK"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #29",
-      "server": "171.22.254.129",
-      "server_port": 990,
-      "method": "chacha20-ietf-poly1305",
-      "password": "ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44="
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "T.ME: @aristapnel #30",
-      "server": "45.87.175.190",
-      "server_port": 8080,
-      "method": "chacha20-ietf-poly1305",
-      "password": "cvII85TrW6n0OGyfpHVS1u"
     },
     {
       "type": "vmess",
@@ -856,16 +776,6 @@
         "T.ME: @aristapnel #18",
         "T.ME: @aristapnel #19",
         "T.ME: @aristapnel #20",
-        "T.ME: @aristapnel #21",
-        "T.ME: @aristapnel #22",
-        "T.ME: @aristapnel #23",
-        "T.ME: @aristapnel #24",
-        "T.ME: @aristapnel #25",
-        "T.ME: @aristapnel #26",
-        "T.ME: @aristapnel #27",
-        "T.ME: @aristapnel #28",
-        "T.ME: @aristapnel #29",
-        "T.ME: @aristapnel #30",
         "T.ME: @aristapnel #31",
         "T.ME: @aristapnel #32",
         "T.ME: @aristapnel #33",
@@ -914,16 +824,6 @@
         "T.ME: @aristapnel #18",
         "T.ME: @aristapnel #19",
         "T.ME: @aristapnel #20",
-        "T.ME: @aristapnel #21",
-        "T.ME: @aristapnel #22",
-        "T.ME: @aristapnel #23",
-        "T.ME: @aristapnel #24",
-        "T.ME: @aristapnel #25",
-        "T.ME: @aristapnel #26",
-        "T.ME: @aristapnel #27",
-        "T.ME: @aristapnel #28",
-        "T.ME: @aristapnel #29",
-        "T.ME: @aristapnel #30",
         "T.ME: @aristapnel #31",
         "T.ME: @aristapnel #32",
         "T.ME: @aristapnel #33",
