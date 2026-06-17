@@ -1,5 +1,5 @@
 # COMBINED - HYSTERIA2 - Tier ALL
-# Updated: 2026-06-17 05:59:57
+# Updated: 2026-06-17 06:34:41
 # Count: 37
 # Failed conversions: 0
 
@@ -17,13 +17,15 @@ proxies:
   obfs-password: V2RayyNGvpn%24miracle%24krouky
 - name: 'ARISTA #2'
   type: hysteria2
-  server: vpn-de-002.fastervpn.world
-  port: 443
-  password: qQe1z5kU8kN6SlKnDt9Ru3Qp
-  sni: vpn-de-002.fastervpn.world
+  server: endpoint.neoservers.ir
+  port: 30781
+  password: zZlPDO5jYeaE9rYtNnjlBI0igvbIdjRX
+  sni: endpoint.neoservers.ir
   skip-cert-verify: false
   fast-open: true
   client-fingerprint: chrome
+  obfs: salamander
+  obfs-password: 8s7t1sNDH36vU8_Ixd7MckIY
 - name: 'ARISTA #3'
   type: hysteria2
   server: 130.49.161.70
@@ -37,15 +39,13 @@ proxies:
   obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
 - name: 'ARISTA #4'
   type: hysteria2
-  server: endpoint.neoservers.ir
-  port: 30781
-  password: zZlPDO5jYeaE9rYtNnjlBI0igvbIdjRX
-  sni: endpoint.neoservers.ir
+  server: vpn-de-002.fastervpn.world
+  port: 443
+  password: qQe1z5kU8kN6SlKnDt9Ru3Qp
+  sni: vpn-de-002.fastervpn.world
   skip-cert-verify: false
   fast-open: true
   client-fingerprint: chrome
-  obfs: salamander
-  obfs-password: 8s7t1sNDH36vU8_Ixd7MckIY
 - name: 'ARISTA #5'
   type: hysteria2
   server: …
