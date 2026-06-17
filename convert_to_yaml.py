@@ -388,7 +388,44 @@ class ConfigToYAMLConverter:
                     f.write(f"# Count: {len(converted_configs)}\n\n")
                     yaml.dump(yaml_content, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
 
+        self.convert_all_tiers(source_dir, output_dir, source_name)
         self.generate_summary_yaml(source_dir, output_dir, source_name)
+
+    def convert_all_tiers(self, source_dir, output_dir, source_name):
+        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        all_dir = os.path.join(source_dir, 'ALL')
+        if not os.path.exists(all_dir):
+            return
+
+        output_all_dir = os.path.join(output_dir, 'ALL')
+        os.makedirs(output_all_dir, exist_ok=True)
+
+        for tier_file in os.listdir(all_dir):
+            if tier_file.endswith('.txt'):
+                filepath = os.path.join(all_dir, tier_file)
+                configs = self.read_config_file(filepath)
+                if not configs:
+                    continue
+
+                tier_name = tier_file.replace('.txt', '')
+                converted_configs = []
+                for idx, config in enumerate(configs):
+                    converted = self.convert_config_to_clashmeta(config, idx)
+                    if converted:
+                        converted_configs.append(converted)
+
+                if not converted_configs:
+                    continue
+
+                output_filename = os.path.join(output_all_dir, f"{tier_name}.yaml")
+                yaml_content = {
+                    'proxies': converted_configs
+                }
+                with open(output_filename, 'w', encoding='utf-8') as f:
+                    f.write(f"# {source_name.upper()} - ALL - Tier {tier_name}\n")
+                    f.write(f"# Updated: {timestamp}\n")
+                    f.write(f"# Count: {len(converted_configs)}\n\n")
+                    yaml.dump(yaml_content, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
 
     def generate_summary_yaml(self, source_dir, output_dir, source_name):
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -410,6 +447,18 @@ class ConfigToYAMLConverter:
                         category_data[tier_name] = len(configs)
                 if category_data:
                     summary_data['categories'][category] = category_data
+
+        all_dir = os.path.join(source_dir, 'ALL')
+        if os.path.exists(all_dir):
+            all_data = {}
+            for tier_file in os.listdir(all_dir):
+                if tier_file.endswith('.txt'):
+                    tier_name = tier_file.replace('.txt', '')
+                    filepath = os.path.join(all_dir, tier_file)
+                    configs = self.read_config_file(filepath)
+                    all_data[tier_name] = len(configs)
+            if all_data:
+                summary_data['ALL'] = all_data
 
         output_filename = os.path.join(output_dir, f"{source_name}_summary.yaml")
         with open(output_filename, 'w', encoding='utf-8') as f:
@@ -442,28 +491,48 @@ class ConfigToYAMLConverter:
 
             for category in self.categories:
                 cat_dir = os.path.join(source_dir, category)
-                if not os.path.exists(cat_dir):
-                    continue
+                if os.path.exists(cat_dir):
+                    for yaml_file in os.listdir(cat_dir):
+                        if yaml_file.endswith('.yaml'):
+                            filepath = os.path.join(cat_dir, yaml_file)
+                            try:
+                                with open(filepath, 'r', encoding='utf-8') as f:
+                                    content = f.read()
+                                    lines = content.split('\n')
+                                    yaml_start = 0
+                                    for i, line in enumerate(lines):
+                                        if line.startswith('proxies:'):
+                                            yaml_start = i
+                                            break
+                                    if yaml_start > 0:
+                                        yaml_content = '\n'.join(lines[yaml_start:])
+                                        data = yaml.safe_load(yaml_content)
+                                        if data and 'proxies' in data:
+                                            all_proxies.extend(data['proxies'])
+                            except:
+                                continue
 
-                for yaml_file in os.listdir(cat_dir):
-                    if yaml_file.endswith('.yaml'):
-                        filepath = os.path.join(cat_dir, yaml_file)
-                        try:
-                            with open(filepath, 'r', encoding='utf-8') as f:
-                                content = f.read()
-                                lines = content.split('\n')
-                                yaml_start = 0
-                                for i, line in enumerate(lines):
-                                    if line.startswith('proxies:'):
-                                        yaml_start = i
-                                        break
-                                if yaml_start > 0:
-                                    yaml_content = '\n'.join(lines[yaml_start:])
-                                    data = yaml.safe_load(yaml_content)
-                                    if data and 'proxies' in data:
-                                        all_proxies.extend(data['proxies'])
-                        except:
-                            continue
+                all_dir = os.path.join(source_dir, 'ALL')
+                if os.path.exists(all_dir):
+                    for yaml_file in os.listdir(all_dir):
+                        if yaml_file.endswith('.yaml'):
+                            filepath = os.path.join(all_dir, yaml_file)
+                            try:
+                                with open(filepath, 'r', encoding='utf-8') as f:
+                                    content = f.read()
+                                    lines = content.split('\n')
+                                    yaml_start = 0
+                                    for i, line in enumerate(lines):
+                                        if line.startswith('proxies:'):
+                                            yaml_start = i
+                                            break
+                                    if yaml_start > 0:
+                                        yaml_content = '\n'.join(lines[yaml_start:])
+                                        data = yaml.safe_load(yaml_content)
+                                        if data and 'proxies' in data:
+                                            all_proxies.extend(data['proxies'])
+                            except:
+                                continue
 
         master_file = os.path.join(output_dir, 'master.yaml')
         if all_proxies:
