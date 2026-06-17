@@ -36,8 +36,13 @@ jobs:
 
     - name: Clean old config files
       run: |
-        rm -rf configs/
-        mkdir -p configs/telegram configs/github configs/combined configs/yaml
+        rm -rf configs.txt/
+        mkdir -p configs.txt/telegram configs.txt/github configs.txt/combined
+
+    - name: Clean old yaml files
+      run: |
+        rm -rf config.yaml/
+        mkdir -p config.yaml
 
     - name: Run Telegram Config Extractor
       run: python telegram_extractor.py
@@ -50,8 +55,8 @@ jobs:
     - name: Combine Configs
       run: python combine_configs.py
 
-    - name: Convert to YAML
-      run: python yaml_converter.py
+    - name: Convert to YAML (Clash Meta)
+      run: python convert_to_yaml.py
 
     - name: Create summary
       run: |
