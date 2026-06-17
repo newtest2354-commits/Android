@@ -1,5 +1,5 @@
 // GITHUB - VLESS - Tier 100
-// Updated: 2026-06-17 16:13:31
+// Updated: 2026-06-17 16:47:26
 // Count: 100
 
 {
@@ -10,14 +10,16 @@
   "dns": {
     "servers": [
       {
+        "type": "udp",
         "tag": "google",
-        "address": "8.8.8.8",
-        "type": "udp"
+        "server": "8.8.8.8",
+        "server_port": 53
       },
       {
+        "type": "udp",
         "tag": "cloudflare",
-        "address": "1.1.1.1",
-        "type": "udp"
+        "server": "1.1.1.1",
+        "server_port": 53
       }
     ],
     "final": "google"
@@ -26,10 +28,11 @@
     {
       "type": "tun",
       "tag": "tun-in",
+      "interface_name": "singbox-tun",
+      "inet4_address": "172.19.0.1/30",
       "auto_route": true,
       "strict_route": true,
-      "stack": "system",
-      "sniff": true
+      "stack": "system"
     }
   ],
   "outbounds": [
@@ -53,8 +56,7 @@
           "short_id": "8bcfe256cf216fd8"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -75,8 +77,7 @@
           "public_key": "K0iITauuYEqIayR3IB5Ny8MVKyORDJ65rUSHc3tLe1E",
           "short_id": "42c0b628ba6a42a9"
         }
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -96,7 +97,6 @@
           "http/1.1"
         ]
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -125,8 +125,7 @@
           "short_id": "9eb31eb7572c0882"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -148,8 +147,7 @@
           "short_id": "cd57a927f6b72d81"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -171,8 +169,7 @@
           "short_id": "4a5b6c7d"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -193,8 +190,7 @@
           "public_key": "ve8spuAYBeV8j7QnofoqGecdYl1KZYYcykiyHHzNg1U",
           "short_id": "0bce"
         }
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -216,8 +212,7 @@
           "short_id": "9eb31eb7572c0882"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -236,8 +231,7 @@
         "alpn": [
           "http/1.1"
         ]
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -259,8 +253,7 @@
           "short_id": "9eb31eb7572c0882"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -270,8 +263,7 @@
       "uuid": "d3b5fdf3-bdcb-4dec-b46b-c06b5d828f73",
       "tls": {
         "enabled": false
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -288,7 +280,6 @@
           "fingerprint": "chrome"
         }
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -315,7 +306,6 @@
           "http/1.1"
         ]
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/",
@@ -342,7 +332,6 @@
           "http/1.1"
         ]
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/5a7200cd",
@@ -370,8 +359,7 @@
           "public_key": "-zsPOGrZY1Dlb6eypa5V_OPaLBpT66FX3cSo0mNX8SI",
           "short_id": "47ee5c592c1672cf"
         }
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -393,8 +381,7 @@
           "short_id": "39a1eb3ec417cd66"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -416,8 +403,7 @@
           "short_id": "0f917152a871e9c0"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -439,8 +425,7 @@
           "short_id": "701775cae5f3a793"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -461,8 +446,7 @@
           "public_key": "xrzsSwm-PkWv-DgyaFCVd_QELA6YFBtvaDOlQCd7Sj8",
           "short_id": "e4656850eaed4e86"
         }
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -472,8 +456,7 @@
       "uuid": "7007111a-c28b-4ab1-8d28-bc7b42681028",
       "tls": {
         "enabled": false
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -495,8 +478,7 @@
           "short_id": "ead461"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -518,8 +500,7 @@
           "short_id": "90a13f"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -529,8 +510,7 @@
       "uuid": "d3b5fdf3-bdcb-4dec-b46b-c06b5d828f73",
       "tls": {
         "enabled": false
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -552,8 +532,7 @@
           "short_id": "e164b85aec8a7422"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -574,8 +553,7 @@
           "http/1.1"
         ]
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -596,8 +574,7 @@
           "public_key": "L0T7BLyB6gtVckvnxryaK-GGd2XwgoJ3YFM9M8kXmho",
           "short_id": "7554"
         }
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -618,8 +595,7 @@
           "public_key": "a3wxOmmJ95RHcuVYvxGusowLy8c6a4amlbS2OxMNTHc",
           "short_id": "52ad"
         }
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -640,8 +616,7 @@
           "public_key": "1RJ2ulM9UyAC8PFy194dV0RTZI6xF6U4CGClhNz9fTg",
           "short_id": "50ed6f6007515d63"
         }
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -663,8 +638,7 @@
           "short_id": "174c6cf22e22"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -686,8 +660,7 @@
           "short_id": "d49d578f280fd83a"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -709,8 +682,7 @@
           "short_id": "4fa44664f6a566d3"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -731,8 +703,7 @@
           "public_key": "tMbRR1FTvBecmMv3GLv50T21hXHqHxulqWBKwNEW50Q",
           "short_id": "822d"
         }
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -743,7 +714,6 @@
       "tls": {
         "enabled": false
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/vless/",
@@ -772,8 +742,7 @@
           "short_id": "8dc4fccb2bcfc99d"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -794,8 +763,7 @@
           "public_key": "QRvZBf0tz7ij9V7L4MjXkHoMkdDAbwc-UzyDt-PLshU"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -817,8 +785,7 @@
           "short_id": "33554379411b3219"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -840,8 +807,7 @@
           "short_id": "65ce6cee3941af69"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -862,8 +828,7 @@
           "public_key": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -885,8 +850,7 @@
           "short_id": "6bb3c7f9f97b45b8"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -908,8 +872,7 @@
           "short_id": "6354585c37827955"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -931,8 +894,7 @@
           "short_id": "81"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -954,8 +916,7 @@
           "short_id": "a1b2c3d4e5f60789"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -977,8 +938,7 @@
           "short_id": "8f222b3475800821"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1000,8 +960,7 @@
           "short_id": "18e4d2d21241"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1023,8 +982,7 @@
           "short_id": "a20d3ed244c76426"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1046,7 +1004,6 @@
           "short_id": "6ba85179e30d4fc2"
         }
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "grpc",
         "service_name": "grpc"
@@ -1072,8 +1029,7 @@
           "short_id": "1929ef620e9b34f5"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1095,8 +1051,7 @@
           "short_id": "1929ef620e9b34f5"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1118,8 +1073,7 @@
           "short_id": "f4b4a6365558ea2e"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1140,8 +1094,7 @@
           "public_key": "6_hMGHFRodRl4rUOlv0mJJBC-9en9gNpypLiNqBAuw0",
           "short_id": "281902"
         }
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -1163,8 +1116,7 @@
           "short_id": "2715592069f36fe7"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1185,8 +1137,7 @@
           "public_key": "Qkso5vLwNsJx8xXmMfwzEYXey_XmDMriA9k4uP-negg",
           "short_id": "a9b6"
         }
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -1208,8 +1159,7 @@
           "short_id": "a1b2c3d4e5f6789a"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1230,8 +1180,7 @@
           "public_key": "2Z2meC9rRAMD3k52ne8dh8PdfRNpOs5T9yObPyFkXyQ",
           "short_id": "f9fe"
         }
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -1253,8 +1202,7 @@
           "short_id": "9f35da6c9412b832"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1276,8 +1224,7 @@
           "short_id": "2715592069f36fe7"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1299,8 +1246,7 @@
           "short_id": "f6e197a0b9f2"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1322,8 +1268,7 @@
           "short_id": "1929ef620e9b34f5"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1343,7 +1288,6 @@
           "h2"
         ]
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "grpc",
         "service_name": "GunService"
@@ -1364,7 +1308,6 @@
           "fingerprint": "chrome"
         }
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/Net3rffws",
@@ -1393,8 +1336,7 @@
           "short_id": "37e6f3e4339e"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1415,8 +1357,7 @@
           "public_key": "3iQ5QX52pIjouDXoPSfrQRvpqaOTqG26IJLctU7McAY",
           "short_id": "02"
         }
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -1427,7 +1368,6 @@
       "tls": {
         "enabled": false
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "grpc",
         "service_name": "GunService"
@@ -1453,8 +1393,7 @@
           "short_id": "48fccabc158a4c22"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1476,7 +1415,6 @@
           "short_id": "ab1c1a11"
         }
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "grpc",
         "service_name": "vless"
@@ -1497,7 +1435,6 @@
           "fingerprint": "chrome"
         }
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/ws?ed=2560",
@@ -1526,8 +1463,7 @@
           "short_id": "04bf0403f96e5b4b"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1548,8 +1484,7 @@
           "public_key": "RravQN06gzsNsm5ojEhZGrxBgLGEpqEThtHEltdjpBk",
           "short_id": "b3d76d"
         }
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -1560,7 +1495,6 @@
       "tls": {
         "enabled": false
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "grpc",
         "service_name": "GunService"
@@ -1575,7 +1509,6 @@
       "tls": {
         "enabled": false
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/39427/Nextlife",
@@ -1593,7 +1526,6 @@
       "tls": {
         "enabled": false
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "grpc",
         "service_name": "GunService"
@@ -1619,8 +1551,7 @@
           "short_id": "04bf0403f96e5b4b"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1642,8 +1573,7 @@
           "short_id": "f7aa9e61197d3ac6"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1660,7 +1590,6 @@
           "fingerprint": "chrome"
         }
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/AbRz6tBwBWo4gds7cXpDB5nO5",
@@ -1678,7 +1607,6 @@
       "tls": {
         "enabled": false
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/hBasD7EdpBQ0zGAzsYHmsMrnO",
@@ -1707,8 +1635,7 @@
           "short_id": "9eff19e0405a"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1728,8 +1655,7 @@
           "enabled": true,
           "public_key": "w28tNIWZCfW4X9aQDLwXECK3pU59zihJ0GIMA13u5X8"
         }
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -1751,8 +1677,7 @@
           "short_id": "6bb3c7f9f97b45b8"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1773,8 +1698,7 @@
           "public_key": "1xMt7stxzh55Xy31H180TZNMvRYNkhEE86StqE4CtDs",
           "short_id": "2f2a"
         }
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -1796,8 +1720,7 @@
           "short_id": "42237f32aba8"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1819,8 +1742,7 @@
           "short_id": "64318fb6091432"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1831,7 +1753,6 @@
       "tls": {
         "enabled": false
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/XR8So0uqFVa3vY9ZbxgW4",
@@ -1860,8 +1781,7 @@
           "short_id": "0ea9a621ae03e231"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1883,8 +1803,7 @@
           "short_id": "205748bc0f24a747"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1906,8 +1825,7 @@
           "short_id": "e49b4e3d5f46d5c2"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1929,8 +1847,7 @@
           "short_id": "1929ef620e9b34f5"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1952,8 +1869,7 @@
           "short_id": "9409f73c2fd7"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1970,7 +1886,6 @@
           "fingerprint": "chrome"
         }
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/UzlFfVDyqJL3rI4BWzwNzcYz",
@@ -1999,8 +1914,7 @@
           "short_id": "205748bc0f24a747"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -2021,8 +1935,7 @@
           "public_key": "Wvt6tuMcFY9rWF2BsdAD4DXgLAoxQJxHWlao2BPR23Y"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -2039,7 +1952,6 @@
           "fingerprint": "chrome"
         }
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/1Aeip9N4V6m20grcpQ8L96b",
@@ -2062,8 +1974,7 @@
           "enabled": true,
           "fingerprint": "chrome"
         }
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -2084,8 +1995,7 @@
           "public_key": "kKX1o7FhJLyDaVE6sqXUcYpUIuFUgij_ueRYc_E4JhM",
           "short_id": "1a24af87"
         }
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -2106,8 +2016,7 @@
           "public_key": "SnWZg6ORcQepuWLI1EVCTTVc4KyfDiGWR4o_CXCMhgk",
           "short_id": "4ae260"
         }
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
@@ -2129,8 +2038,7 @@
           "short_id": "afef94e2"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -2152,8 +2060,7 @@
           "short_id": "d9c2d8"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -2170,7 +2077,6 @@
           "fingerprint": "chrome"
         }
       },
-      "packet_encoding": "xudp",
       "transport": {
         "type": "ws",
         "path": "/F24D1rlC85bVBOSONBms",
@@ -2198,8 +2104,7 @@
           "public_key": "3zn513ilYXOJngXLRP0MUnK23HuB9TKLjQ7YG20dzTQ"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -2220,8 +2125,7 @@
           "public_key": "4cfuj5otn8-uhPUe23OhB6KY8I42AxxJNt4lWIpg_AU"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "packet_encoding": "xudp"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -2242,8 +2146,11 @@
           "public_key": "-kDgSQgouE56cqDIDwgCco1LNQ-8q61WllL5egDI0yI",
           "short_id": "6670"
         }
-      },
-      "packet_encoding": "xudp"
+      }
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
     },
     {
       "type": "direct",
@@ -2477,12 +2384,12 @@
     "rules": [
       {
         "protocol": "dns",
-        "outbound": "direct"
+        "outbound": "dns-out"
       },
       {
         "network": "udp",
         "port": 53,
-        "outbound": "direct"
+        "outbound": "dns-out"
       }
     ]
   }

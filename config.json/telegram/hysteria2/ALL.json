@@ -1,6 +1,6 @@
 // TELEGRAM - HYSTERIA2 - Tier ALL
-// Updated: 2026-06-17 16:13:31
-// Count: 6
+// Updated: 2026-06-17 16:47:26
+// Count: 8
 
 {
   "log": {
@@ -10,14 +10,16 @@
   "dns": {
     "servers": [
       {
+        "type": "udp",
         "tag": "google",
-        "address": "8.8.8.8",
-        "type": "udp"
+        "server": "8.8.8.8",
+        "server_port": 53
       },
       {
+        "type": "udp",
         "tag": "cloudflare",
-        "address": "1.1.1.1",
-        "type": "udp"
+        "server": "1.1.1.1",
+        "server_port": 53
       }
     ],
     "final": "google"
@@ -26,10 +28,11 @@
     {
       "type": "tun",
       "tag": "tun-in",
+      "interface_name": "singbox-tun",
+      "inet4_address": "172.19.0.1/30",
       "auto_route": true,
       "strict_route": true,
-      "stack": "system",
-      "sniff": true
+      "stack": "system"
     }
   ],
   "outbounds": [
@@ -70,22 +73,12 @@
     {
       "type": "hysteria2",
       "tag": "ARISTA #3",
-      "server": "vpn-de-002.fastervpn.world",
+      "server": "213.156.152.76",
       "server_port": 443,
-      "password": "qQe1z5kU8kN6SlKnDt9Ru3Qp",
-      "tls": {
-        "enabled": false
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "ARISTA #4",
-      "server": "18.157.222.169",
-      "server_port": 54040,
-      "password": "%40Masir_Sefid",
+      "password": "@V2RayyNGvpn",
       "tls": {
         "enabled": true,
-        "server_name": "free.masir-sefid.shop",
+        "server_name": "www.wordreference.com",
         "insecure": false,
         "utls": {
           "enabled": true,
@@ -94,7 +87,17 @@
       },
       "obfs": {
         "type": "salamander",
-        "password": "Masir_Sefid"
+        "password": "V2RayyNGvpn$miracle$krouky"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "ARISTA #4",
+      "server": "vpn-de-002.fastervpn.world",
+      "server_port": 443,
+      "password": "qQe1z5kU8kN6SlKnDt9Ru3Qp",
+      "tls": {
+        "enabled": false
       }
     },
     {
@@ -120,12 +123,12 @@
     {
       "type": "hysteria2",
       "tag": "ARISTA #6",
-      "server": "213.156.152.76",
-      "server_port": 443,
-      "password": "%40V2RayyNGvpn",
+      "server": "104.252.19.102",
+      "server_port": 54040,
+      "password": "odnvqb4ihg396e5z",
       "tls": {
         "enabled": true,
-        "server_name": "www.wordreference.com",
+        "server_name": "104.252.19.102",
         "insecure": false,
         "utls": {
           "enabled": true,
@@ -134,8 +137,42 @@
       },
       "obfs": {
         "type": "salamander",
-        "password": "V2RayyNGvpn$miracle$krouky"
+        "password": "@JynMarket"
       }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "ARISTA #7",
+      "server": "18.157.222.169",
+      "server_port": 54040,
+      "password": "@Masir_Sefid",
+      "tls": {
+        "enabled": true,
+        "server_name": "free.masir-sefid.shop",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "Masir_Sefid"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "ARISTA #8",
+      "server": "202.61.205.86",
+      "server_port": 4433,
+      "password": "18cf8030-1ceb-4b7d-8c0c-c036413c144e",
+      "tls": {
+        "enabled": false
+      }
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
     },
     {
       "type": "direct",
@@ -155,6 +192,8 @@
         "ARISTA #4",
         "ARISTA #5",
         "ARISTA #6",
+        "ARISTA #7",
+        "ARISTA #8",
         "direct"
       ],
       "default": "ARISTA #1"
@@ -168,7 +207,9 @@
         "ARISTA #3",
         "ARISTA #4",
         "ARISTA #5",
-        "ARISTA #6"
+        "ARISTA #6",
+        "ARISTA #7",
+        "ARISTA #8"
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "5m0s",
@@ -181,12 +222,12 @@
     "rules": [
       {
         "protocol": "dns",
-        "outbound": "direct"
+        "outbound": "dns-out"
       },
       {
         "network": "udp",
         "port": 53,
-        "outbound": "direct"
+        "outbound": "dns-out"
       }
     ]
   }

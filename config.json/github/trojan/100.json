@@ -1,5 +1,5 @@
 // GITHUB - TROJAN - Tier 100
-// Updated: 2026-06-17 16:13:31
+// Updated: 2026-06-17 16:47:26
 // Count: 100
 
 {
@@ -10,14 +10,16 @@
   "dns": {
     "servers": [
       {
+        "type": "udp",
         "tag": "google",
-        "address": "8.8.8.8",
-        "type": "udp"
+        "server": "8.8.8.8",
+        "server_port": 53
       },
       {
+        "type": "udp",
         "tag": "cloudflare",
-        "address": "1.1.1.1",
-        "type": "udp"
+        "server": "1.1.1.1",
+        "server_port": 53
       }
     ],
     "final": "google"
@@ -26,10 +28,11 @@
     {
       "type": "tun",
       "tag": "tun-in",
+      "interface_name": "singbox-tun",
+      "inet4_address": "172.19.0.1/30",
       "auto_route": true,
       "strict_route": true,
-      "stack": "system",
-      "sniff": true
+      "stack": "system"
     }
   ],
   "outbounds": [
@@ -207,7 +210,7 @@
       "tag": "T.ME: @aristapnel #9",
       "server": "213.176.113.98",
       "server_port": 2053,
-      "password": "8r%3C%5B9%27l6hAO%238ZQi",
+      "password": "8r<[9'l6hAO#8ZQi",
       "tls": {
         "enabled": true,
         "server_name": "Koma-YT.PAGeS.Dev",
@@ -1960,6 +1963,10 @@
       }
     },
     {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
       "type": "direct",
       "tag": "direct"
     },
@@ -2191,12 +2198,12 @@
     "rules": [
       {
         "protocol": "dns",
-        "outbound": "direct"
+        "outbound": "dns-out"
       },
       {
         "network": "udp",
         "port": 53,
-        "outbound": "direct"
+        "outbound": "dns-out"
       }
     ]
   }
