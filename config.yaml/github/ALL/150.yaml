@@ -1,6 +1,6 @@
 # GITHUB - ALL - Tier 150
-# Updated: 2026-06-17 09:48:47
-# Count: 148
+# Updated: 2026-06-17 10:56:17
+# Count: 142
 
 proxies:
 - name: 'T.ME: @aristapnel #1'
@@ -795,28 +795,12 @@ proxies:
   password: uEWM15tCrQ9BekoAVWQg0z
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #83'
-  type: ss
-  server: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpFYXhwMWRkbU1lYWNKZ0lCYjRJaUF5
-  port: 8388
-  cipher: aes-256-gcm
-  password: ''
-  udp: true
-  tcp-fast-open: true
 - name: 'T.ME: @aristapnel #84'
   type: ss
   server: 185.193.49.88
   port: 989
   cipher: aes-256-cfb
   password: f8f7aCzcPKbsF8p3
-  udp: true
-  tcp-fast-open: true
-- name: 'T.ME: @aristapnel #85'
-  type: ss
-  server: YWVzLTI1Ni1jZmI6VFBxWDhlZGdiQVVSY0FNYg==
-  port: 8388
-  cipher: aes-256-gcm
-  password: ''
   udp: true
   tcp-fast-open: true
 - name: 'T.ME: @aristapnel #86'
@@ -859,14 +843,6 @@ proxies:
   password: rpgbNnU9rDDU4aWZ
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #91'
-  type: ss
-  server: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTp3c2NBZklQdVROUm1tc1UxRTJJajhs
-  port: 8388
-  cipher: aes-256-gcm
-  password: ''
-  udp: true
-  tcp-fast-open: true
 - name: 'T.ME: @aristapnel #92'
   type: ss
   server: 217.30.10.18
@@ -875,36 +851,12 @@ proxies:
   password: GA9KzeEgvfxNrgmM
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #93'
-  type: ss
-  server: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpMVkJZUmtTa0hsVHFlYlNKckdjMkM3
-  port: 8388
-  cipher: aes-256-gcm
-  password: ''
-  udp: true
-  tcp-fast-open: true
-- name: 'T.ME: @aristapnel #94'
-  type: ss
-  server: YWVzLTI1Ni1jZmI6YzNOdEhKNXVqVjJ0R0Rmag==
-  port: 8388
-  cipher: aes-256-gcm
-  password: ''
-  udp: true
-  tcp-fast-open: true
 - name: 'T.ME: @aristapnel #95'
   type: ss
   server: 45.87.175.177
   port: 8080
   cipher: chacha20-ietf-poly1305
   password: k1dBOmOB4oqi7Ump37a1bQ
-  udp: true
-  tcp-fast-open: true
-- name: 'T.ME: @aristapnel #96'
-  type: ss
-  server: Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpMWWxjanJabUE2eFJsQTVTdnRKSTly
-  port: 8388
-  cipher: aes-256-gcm
-  password: ''
   udp: true
   tcp-fast-open: true
 - name: 'T.ME: @aristapnel #97'
