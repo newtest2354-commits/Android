@@ -201,7 +201,7 @@ class ConfigToJSONConverter:
                 if not str(port).isdigit():
                     return None
                 password = str(password).strip()
-                if not password:
+                if len(password) < 2:
                     return None
                 return {
                     "method": method,
@@ -211,27 +211,29 @@ class ConfigToJSONConverter:
                     "name": name
                 }
 
-            if "@" in raw:
-                method_password, server_port = raw.split("@", 1)
+            try:
+                decoded_full = self.safe_b64_decode(raw.split("@")[0])
+                if decoded_full and "@" in decoded_full:
+                    mp, sp = decoded_full.split("@", 1)
+                    if ":" in mp and ":" in sp:
+                        method, password = mp.split(":", 1)
+                        server, port = sp.split(":", 1)
+                        result = build_result(method, password, server, port)
+                        if result:
+                            return result
+            except:
+                pass
 
-                decoded = self.safe_b64_decode(method_password)
-                if decoded and ":" in decoded:
-                    method, password = decoded.split(":", 1)
+            if "@" in raw and ":" in raw.split("@")[0]:
+                try:
+                    method_password, server_port = raw.split("@", 1)
+                    method, password = method_password.split(":", 1)
                     server, port = server_port.split(":", 1)
                     result = build_result(method, password, server, port)
                     if result:
                         return result
-
-                method_password_base64 = raw.split("@", 1)[0]
-                full_decoded = self.safe_b64_decode(method_password_base64)
-                if full_decoded and "@" in full_decoded:
-                    method_password_part, server_port_part = full_decoded.split("@", 1)
-                    if ":" in method_password_part:
-                        method, password = method_password_part.split(":", 1)
-                        server, port = server_port_part.split(":", 1)
-                        result = build_result(method, password, server, port)
-                        if result:
-                            return result
+                except:
+                    pass
 
             if raw.startswith("method:") or ("@" in raw and ":" in raw):
                 method_password, server_port = raw.split("@", 1)
@@ -299,7 +301,7 @@ class ConfigToJSONConverter:
                 return None
 
             password = str(d.get("password", "")).strip()
-            if not password:
+            if not password or len(password) < 2:
                 return None
 
             method = d.get("method", "")
