@@ -28,6 +28,22 @@ class ConfigToJSONConverter:
             "2022-blake3-aes-128-gcm", "2022-blake3-aes-256-gcm",
             "2022-blake3-chacha20-poly1305"
         }
+        self.allowed_fp = {
+            "chrome", "firefox", "safari", "ios", "android",
+            "edge", "qq", "random", "randomized"
+        }
+
+    def clean_host(self, value: str) -> str:
+        if not value:
+            return ""
+        value = unquote(value)
+        md = re.match(r'\[(.*?)\]\((.*?)\)', value)
+        if md:
+            return md.group(1)
+        value = value.replace("http://", "")
+        value = value.replace("https://", "")
+        value = value.strip("/")
+        return value
 
     def read_config_file(self, filepath):
         if not os.path.exists(filepath):
@@ -82,25 +98,32 @@ class ConfigToJSONConverter:
         security = self.get_first(qs, "security", "none")
         if security not in ("tls", "reality"):
             return {"enabled": False}
+        fp = self.get_first(qs, "fp", "chrome")
+        if fp not in self.allowed_fp:
+            fp = "chrome"
         tls = {
             "enabled": True,
-            "server_name": self.get_first(qs, "sni", host),
+            "server_name": self.clean_host(self.get_first(qs, "sni", host)),
             "insecure": False,
             "utls": {
                 "enabled": True,
-                "fingerprint": self.get_first(qs, "fp", "chrome")
+                "fingerprint": fp
             }
         }
         alpn = self.get_first(qs, "alpn")
         if alpn:
-            tls["alpn"] = [a.strip() for a in alpn.split(",")]
+            tls["alpn"] = [
+                unquote(a.strip())
+                for a in alpn.split(",")
+                if a.strip()
+            ]
         if security == "reality":
             pbk = self.get_first(qs, "pbk")
             if not pbk:
                 return {"enabled": False}
             reality = {
                 "enabled": True,
-                "public_key": pbk.replace("=", "")
+                "public_key": pbk
             }
             sid = self.get_first(qs, "sid")
             if sid:
@@ -113,19 +136,19 @@ class ConfigToJSONConverter:
         if network == "ws":
             return {
                 "type": "ws",
-                "path": self.get_first(qs, "path", "/"),
-                "headers": {"Host": self.get_first(qs, "host", host)}
+                "path": unquote(self.get_first(qs, "path", "/")),
+                "headers": {"Host": self.clean_host(self.get_first(qs, "host", host))}
             }
         elif network == "grpc":
             return {
                 "type": "grpc",
-                "service_name": self.get_first(qs, "serviceName", "GunService")
+                "service_name": unquote(self.get_first(qs, "serviceName", "GunService"))
             }
         elif network == "http":
             return {
                 "type": "http",
-                "host": [self.get_first(qs, "host", host)],
-                "path": self.get_first(qs, "path", "/")
+                "host": [self.clean_host(self.get_first(qs, "host", host))],
+                "path": unquote(self.get_first(qs, "path", "/"))
             }
         return None
 
@@ -134,19 +157,19 @@ class ConfigToJSONConverter:
         if network == "ws":
             return {
                 "type": "ws",
-                "path": c.get("path", "/"),
-                "headers": {"Host": c.get("host", c["add"])}
+                "path": unquote(c.get("path", "/")),
+                "headers": {"Host": self.clean_host(c.get("host", c["add"]))}
             }
         elif network in ("h2", "http"):
             return {
                 "type": "http",
-                "host": [c.get("host", c["add"])],
-                "path": c.get("path", "/")
+                "host": [self.clean_host(c.get("host", c["add"]))],
+                "path": unquote(c.get("path", "/"))
             }
         elif network == "grpc":
             return {
                 "type": "grpc",
-                "service_name": c.get("path", "GunService").lstrip("/")
+                "service_name": unquote(c.get("path", "GunService").lstrip("/"))
             }
         return None
 
@@ -155,39 +178,67 @@ class ConfigToJSONConverter:
         if network == "ws":
             return {
                 "type": "ws",
-                "path": self.get_first(qs, "path", "/"),
-                "headers": {"Host": self.get_first(qs, "sni", host)}
+                "path": unquote(self.get_first(qs, "path", "/")),
+                "headers": {"Host": self.clean_host(self.get_first(qs, "sni", host))}
             }
         elif network == "grpc":
             return {
                 "type": "grpc",
-                "service_name": self.get_first(qs, "serviceName", "GunService")
+                "service_name": unquote(self.get_first(qs, "serviceName", "GunService"))
             }
         return None
 
     def decode_ss_config(self, ss_url: str) -> Optional[Dict]:
         try:
             raw = ss_url.replace("ss://", "").split("#")[0]
-            if "@" not in raw:
-                return None
-            method_password, server_port = raw.split("@", 1)
-            decoded = self.safe_b64_decode(method_password)
-            if not decoded or ":" not in decoded:
-                return None
-            method, password = decoded.split(":", 1)
-            if method not in self.allowed_ss_ciphers:
-                return None
-            server, port = server_port.split(":", 1)
-            if not port.isdigit():
-                return None
             name = unquote(ss_url.split("#", 1)[1]) if "#" in ss_url else ""
-            return {
-                "method": method,
-                "password": password,
-                "server": server,
-                "port": int(port),
-                "name": name
-            }
+            if "@" in raw:
+                method_password, server_port = raw.split("@", 1)
+                decoded = self.safe_b64_decode(method_password)
+                if decoded and ":" in decoded:
+                    method, password = decoded.split(":", 1)
+                    if method in self.allowed_ss_ciphers:
+                        server, port = server_port.split(":", 1)
+                        if port.isdigit():
+                            return {
+                                "method": method,
+                                "password": password,
+                                "server": server,
+                                "port": int(port),
+                                "name": name
+                            }
+                method_password_base64 = raw.split("@", 1)[0]
+                if self.safe_b64_decode(method_password_base64):
+                    full_decoded = self.safe_b64_decode(method_password_base64)
+                    if full_decoded and "@" in full_decoded:
+                        method_password_part, server_port_part = full_decoded.split("@", 1)
+                        if ":" in method_password_part:
+                            method, password = method_password_part.split(":", 1)
+                            if method in self.allowed_ss_ciphers:
+                                server, port = server_port_part.split(":", 1)
+                                if port.isdigit():
+                                    return {
+                                        "method": method,
+                                        "password": password,
+                                        "server": server,
+                                        "port": int(port),
+                                        "name": name
+                                    }
+            if raw.startswith("method:") or ":" in raw and "@" in raw:
+                method_password, server_port = raw.split("@", 1)
+                if ":" in method_password:
+                    method, password = method_password.split(":", 1)
+                    if method in self.allowed_ss_ciphers:
+                        server, port = server_port.split(":", 1)
+                        if port.isdigit():
+                            return {
+                                "method": method,
+                                "password": password,
+                                "server": server,
+                                "port": int(port),
+                                "name": name
+                            }
+            return None
         except:
             return None
 
@@ -224,8 +275,9 @@ class ConfigToJSONConverter:
             flow = self.get_first(qs, "flow")
             if flow in ["xtls-rprx-vision", "xtls-rprx-udp443", "xtls-rprx"]:
                 config["flow"] = flow
-            if self.get_first(qs, "udp", "true") != "false":
-                config["packet_encoding"] = "xudp"
+            packet_encoding = self.get_first(qs, "packetEncoding")
+            if packet_encoding:
+                config["packet_encoding"] = packet_encoding
             transport = self.build_transport_vless(qs, parsed.hostname)
             if transport:
                 config["transport"] = transport
@@ -267,9 +319,11 @@ class ConfigToJSONConverter:
                 "server": c["add"],
                 "server_port": int(c["port"]),
                 "uuid": c["id"],
-                "security": c.get("scy", "auto"),
-                "alter_id": int(c.get("aid", 0))
+                "security": c.get("scy", "auto")
             }
+            aid = int(c.get("aid", 0))
+            if aid > 0:
+                config["alter_id"] = aid
             tls_qs = {}
             if c.get("tls") == "tls":
                 tls_qs["security"] = ["tls"]
@@ -301,7 +355,7 @@ class ConfigToJSONConverter:
                 "tag": name,
                 "server": p.hostname,
                 "server_port": int(p.port),
-                "password": p.username,
+                "password": unquote(p.username),
                 "tls": self.build_tls(q, p.hostname)
             }
             transport = self.build_transport_trojan(q, p.hostname)
@@ -326,7 +380,7 @@ class ConfigToJSONConverter:
                 "tag": name,
                 "server": p.hostname,
                 "server_port": int(p.port),
-                "password": p.username or "",
+                "password": unquote(p.username or ""),
                 "tls": self.build_tls(q, p.hostname)
             }
             obfs = self.get_first(q, "obfs")
@@ -334,7 +388,7 @@ class ConfigToJSONConverter:
             if obfs and obfs_pass:
                 config["obfs"] = {
                     "type": obfs,
-                    "password": obfs_pass
+                    "password": unquote(obfs_pass)
                 }
             up = self.get_first(q, "up")
             down = self.get_first(q, "down")
@@ -377,8 +431,18 @@ class ConfigToJSONConverter:
             "log": {"level": "info", "timestamp": True},
             "dns": {
                 "servers": [
-                    {"tag": "google", "address": "8.8.8.8", "type": "udp"},
-                    {"tag": "cloudflare", "address": "1.1.1.1", "type": "udp"}
+                    {
+                        "type": "udp",
+                        "tag": "google",
+                        "server": "8.8.8.8",
+                        "server_port": 53
+                    },
+                    {
+                        "type": "udp",
+                        "tag": "cloudflare",
+                        "server": "1.1.1.1",
+                        "server_port": 53
+                    }
                 ],
                 "final": "google"
             },
@@ -386,13 +450,15 @@ class ConfigToJSONConverter:
                 {
                     "type": "tun",
                     "tag": "tun-in",
+                    "interface_name": "singbox-tun",
+                    "inet4_address": "172.19.0.1/30",
                     "auto_route": True,
                     "strict_route": True,
-                    "stack": "system",
-                    "sniff": True
+                    "stack": "system"
                 }
             ],
             "outbounds": outbounds + [
+                {"type": "dns", "tag": "dns-out"},
                 {"type": "direct", "tag": "direct"},
                 {"type": "block", "tag": "block"},
                 {
@@ -414,8 +480,8 @@ class ConfigToJSONConverter:
                 "auto_detect_interface": True,
                 "final": "proxy",
                 "rules": [
-                    {"protocol": "dns", "outbound": "direct"},
-                    {"network": "udp", "port": 53, "outbound": "direct"}
+                    {"protocol": "dns", "outbound": "dns-out"},
+                    {"network": "udp", "port": 53, "outbound": "dns-out"}
                 ]
             }
         }
