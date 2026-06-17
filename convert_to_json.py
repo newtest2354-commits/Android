@@ -2,10 +2,10 @@ import os
 import re
 import json
 import base64
-import hashlib
 import uuid
 from datetime import datetime
-from urllib.parse import urlparse, unquote
+from urllib.parse import urlparse, parse_qs, unquote
+from typing import Optional, Dict, Any, List
 
 class ConfigToJSONConverter:
     def __init__(self):
@@ -15,6 +15,19 @@ class ConfigToJSONConverter:
             'wireguard', 'other'
         ]
         self.tiers = [50, 100, 150, 200, 250, 300, 400, 500, "ALL"]
+        self.uuid_re = re.compile(
+            r"^[0-9a-fA-F]{8}-"
+            r"[0-9a-fA-F]{4}-"
+            r"[0-9a-fA-F]{4}-"
+            r"[0-9a-fA-F]{4}-"
+            r"[0-9a-fA-F]{12}$"
+        )
+        self.allowed_ss_ciphers = {
+            "aes-128-gcm", "aes-256-gcm", "chacha20-ietf-poly1305",
+            "aes-128-cfb", "aes-256-cfb", "chacha20", "chacha20-ietf",
+            "2022-blake3-aes-128-gcm", "2022-blake3-aes-256-gcm",
+            "2022-blake3-chacha20-poly1305"
+        }
 
     def read_config_file(self, filepath):
         if not os.path.exists(filepath):
@@ -53,508 +66,367 @@ class ConfigToJSONConverter:
         except:
             return ""
 
-    def is_ip(self, value):
-        ip_pattern = re.compile(r'^(\d{1,3}\.){3}\d{1,3}$|^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$')
-        return bool(ip_pattern.match(value))
-
-    def decode_ss_config(self, ss_url):
+    def safe_b64_decode(self, data: str) -> Optional[str]:
         try:
-            if not ss_url.startswith("ss://"):
+            data = data.replace("-", "+").replace("_", "/")
+            data += "=" * (-len(data) % 4)
+            return base64.b64decode(data).decode("utf-8", errors="ignore")
+        except:
+            return None
+
+    def get_first(self, qs: Dict, key: str, default: Any = None) -> Any:
+        values = qs.get(key, [])
+        return values[0] if values else default
+
+    def build_tls(self, qs: Dict, host: str) -> Dict:
+        security = self.get_first(qs, "security", "none")
+        if security not in ("tls", "reality"):
+            return {"enabled": False}
+        tls = {
+            "enabled": True,
+            "server_name": self.get_first(qs, "sni", host),
+            "insecure": False,
+            "utls": {
+                "enabled": True,
+                "fingerprint": self.get_first(qs, "fp", "chrome")
+            }
+        }
+        alpn = self.get_first(qs, "alpn")
+        if alpn:
+            tls["alpn"] = [a.strip() for a in alpn.split(",")]
+        if security == "reality":
+            pbk = self.get_first(qs, "pbk")
+            if not pbk:
+                return {"enabled": False}
+            reality = {
+                "enabled": True,
+                "public_key": pbk.replace("=", "")
+            }
+            sid = self.get_first(qs, "sid")
+            if sid:
+                reality["short_id"] = sid.lower()
+            tls["reality"] = reality
+        return tls
+
+    def build_transport_vless(self, qs: Dict, host: str) -> Optional[Dict]:
+        network = self.get_first(qs, "type", "tcp")
+        if network == "ws":
+            return {
+                "type": "ws",
+                "path": self.get_first(qs, "path", "/"),
+                "headers": {"Host": self.get_first(qs, "host", host)}
+            }
+        elif network == "grpc":
+            return {
+                "type": "grpc",
+                "service_name": self.get_first(qs, "serviceName", "GunService")
+            }
+        elif network == "http":
+            return {
+                "type": "http",
+                "host": [self.get_first(qs, "host", host)],
+                "path": self.get_first(qs, "path", "/")
+            }
+        return None
+
+    def build_transport_vmess(self, c: Dict) -> Optional[Dict]:
+        network = c.get("net", "tcp")
+        if network == "ws":
+            return {
+                "type": "ws",
+                "path": c.get("path", "/"),
+                "headers": {"Host": c.get("host", c["add"])}
+            }
+        elif network in ("h2", "http"):
+            return {
+                "type": "http",
+                "host": [c.get("host", c["add"])],
+                "path": c.get("path", "/")
+            }
+        elif network == "grpc":
+            return {
+                "type": "grpc",
+                "service_name": c.get("path", "GunService").lstrip("/")
+            }
+        return None
+
+    def build_transport_trojan(self, qs: Dict, host: str) -> Optional[Dict]:
+        network = self.get_first(qs, "type", "tcp")
+        if network == "ws":
+            return {
+                "type": "ws",
+                "path": self.get_first(qs, "path", "/"),
+                "headers": {"Host": self.get_first(qs, "sni", host)}
+            }
+        elif network == "grpc":
+            return {
+                "type": "grpc",
+                "service_name": self.get_first(qs, "serviceName", "GunService")
+            }
+        return None
+
+    def decode_ss_config(self, ss_url: str) -> Optional[Dict]:
+        try:
+            raw = ss_url.replace("ss://", "").split("#")[0]
+            if "@" not in raw:
                 return None
-
-            raw = ss_url[5:]
-            raw = raw.split("#")[0]
-            raw = raw.split("?")[0]
-
-            try:
-                padding = "=" * ((4 - len(raw) % 4) % 4)
-                decoded = base64.b64decode(raw + padding).decode("utf-8")
-
-                if "@" in decoded:
-                    creds, server_port = decoded.rsplit("@", 1)
-
-                    if ":" in creds and ":" in server_port:
-                        method, password = creds.split(":", 1)
-                        server, port = server_port.rsplit(":", 1)
-
-                        return {
-                            "method": method.strip(),
-                            "password": password,
-                            "server": server.strip(),
-                            "port": int(port),
-                            "name": self.get_original_tag(ss_url)
-                        }
-            except:
-                pass
-
-            if "@" in raw:
-                encoded_part, server_port = raw.rsplit("@", 1)
-
-                try:
-                    padding = "=" * ((4 - len(encoded_part) % 4) % 4)
-                    decoded = base64.b64decode(
-                        encoded_part + padding
-                    ).decode("utf-8")
-
-                    method, password = decoded.split(":", 1)
-                    server, port = server_port.rsplit(":", 1)
-
-                    return {
-                        "method": method.strip(),
-                        "password": password,
-                        "server": server.strip(),
-                        "port": int(port),
-                        "name": self.get_original_tag(ss_url)
-                    }
-                except:
-                    pass
-
-            if "@" in raw and ":" in raw:
-                creds, server_port = raw.rsplit("@", 1)
-
-                if ":" in creds and ":" in server_port:
-                    method, password = creds.split(":", 1)
-                    server, port = server_port.rsplit(":", 1)
-
-                    return {
-                        "method": method.strip(),
-                        "password": password,
-                        "server": server.strip(),
-                        "port": int(port),
-                        "name": self.get_original_tag(ss_url)
-                    }
-
-            return None
-
+            method_password, server_port = raw.split("@", 1)
+            decoded = self.safe_b64_decode(method_password)
+            if not decoded or ":" not in decoded:
+                return None
+            method, password = decoded.split(":", 1)
+            if method not in self.allowed_ss_ciphers:
+                return None
+            server, port = server_port.split(":", 1)
+            if not port.isdigit():
+                return None
+            name = unquote(ss_url.split("#", 1)[1]) if "#" in ss_url else ""
+            return {
+                "method": method,
+                "password": password,
+                "server": server,
+                "port": int(port),
+                "name": name
+            }
         except:
             return None
 
-    def decode_vmess_config(self, vmess_url):
+    def decode_vmess(self, raw: str) -> Optional[Dict]:
         try:
-            base64_data = vmess_url.replace('vmess://', '')
-            if len(base64_data) % 4 != 0:
-                base64_data += '=' * (4 - len(base64_data) % 4)
-            decoded = base64.b64decode(base64_data).decode('utf-8')
-            return json.loads(decoded)
+            data = raw.replace("vmess://", "")
+            decoded = base64.b64decode(data + "=" * (-len(data) % 4)).decode("utf-8", errors="ignore")
+            obj = json.loads(decoded)
+            if "add" not in obj and "host" in obj:
+                obj["add"] = obj["host"]
+            return obj
         except:
             return None
 
-    def vless_to_singbox(self, url_str, index, settings=None):
+    def vless_to_singbox(self, index: int, raw: str) -> Optional[Dict]:
         try:
-            if settings is None:
-                settings = {}
-            url = urlparse(url_str)
-            params = dict(pair.split('=') for pair in url.query.split('&') if '=' in pair)
-            original_name = self.get_original_tag(url_str) or "VLESS"
-            config_name = f"{original_name} #{index + 1}"
-
-            def get_priority_value(setting_key, param_key):
-                if settings.get(setting_key) and settings.get(setting_key) != 'none':
-                    return settings.get(setting_key)
-                return params.get(param_key)
-
-            cleanip_value = get_priority_value('cleanip', 'cleanip')
-            domain_value = get_priority_value('domain', 'domain')
-            host_value = get_priority_value('domain', 'host') or domain_value
-            sni_value = get_priority_value('sni', 'sni')
-
-            cleanip_list = (cleanip_value or '').split(',') if cleanip_value else []
-            cleanip_list = [i.strip() for i in cleanip_list if i.strip()]
-            final_server = cleanip_list[0] if cleanip_list else url.hostname
-
-            final_sni = sni_value or domain_value or host_value or params.get('sni') or params.get('host') or url.hostname
-            if self.is_ip(final_server) and (not final_sni or self.is_ip(final_sni)):
-                final_sni = domain_value or host_value or params.get('host') or url.hostname or 'cloudflare.com'
-
-            fingerprint_value = get_priority_value('fingerprint', 'fp') or "chrome"
-            alpn_value = get_priority_value('alpn', 'alpn')
-            network_type = get_priority_value('network', 'type')
-            tls_enabled = get_priority_value('tls', 'security')
-            udp_enabled = get_priority_value('udp', 'udp')
-            ipver_value = get_priority_value('ipver', 'ipver')
-
+            if not raw.startswith("vless://"):
+                return None
+            parsed = urlparse(raw)
+            qs = parse_qs(parsed.query)
+            if not all([parsed.hostname, parsed.port, parsed.username]):
+                return None
+            if not self.uuid_re.match(parsed.username):
+                return None
+            name = f"{unquote(parsed.fragment or 'VLESS')} #{index + 1}"
             config = {
                 "type": "vless",
-                "tag": config_name,
-                "server": final_server,
-                "server_port": int(url.port) if url.port else 443,
-                "uuid": url.username or ''
+                "tag": name,
+                "server": parsed.hostname,
+                "server_port": int(parsed.port),
+                "uuid": parsed.username,
+                "tls": self.build_tls(qs, parsed.hostname)
             }
-
-            if ipver_value and ipver_value != 'none' and ipver_value != 'auto':
-                config["domain_resolver"] = {
-                    "server": "local-dns",
-                    "strategy": "ipv4_only" if ipver_value == "ipv4" else "ipv6_only" if ipver_value == "ipv6" else ipver_value
-                }
-
-            if tls_enabled != 'disabled' and (params.get('security') == 'tls' or params.get('security') == 'reality'):
-                config["tls"] = {
-                    "enabled": True,
-                    "server_name": final_sni,
-                    "insecure": False,
-                    "utls": {
-                        "enabled": True,
-                        "fingerprint": fingerprint_value
-                    }
-                }
-
-                if alpn_value and alpn_value != 'none':
-                    config["tls"]["alpn"] = [s.strip() for s in alpn_value.split(',') if s.strip()]
-
-                if params.get('security') == "reality" and params.get('pbk'):
-                    pbk = params.get('pbk', '').replace('=', '')
-                    if re.match(r'^[A-Za-z0-9_-]+$', pbk):
-                        reality = {
-                            "enabled": True,
-                            "public_key": pbk
-                        }
-                        if params.get('sid') and re.match(r'^[0-9a-fA-F]{2,16}$', params.get('sid')):
-                            reality["short_id"] = params.get('sid').lower()
-                        config["tls"]["reality"] = reality
-            else:
-                config["tls"] = {"enabled": False}
-
-            final_network_type = network_type if network_type and network_type != 'none' else params.get('type', 'tcp')
-
-            if udp_enabled != 'disabled':
+            flow = self.get_first(qs, "flow")
+            if flow in ["xtls-rprx-vision", "xtls-rprx-udp443", "xtls-rprx"]:
+                config["flow"] = flow
+            if self.get_first(qs, "udp", "true") != "false":
                 config["packet_encoding"] = "xudp"
-
-            if final_network_type == "ws":
-                config["transport"] = {
-                    "type": "ws",
-                    "path": params.get('path', '/'),
-                    "headers": {"Host": final_sni}
-                }
-            elif final_network_type == "grpc":
-                config["transport"] = {
-                    "type": "grpc",
-                    "service_name": domain_value or params.get('serviceName') or "GunService"
-                }
-            elif final_network_type == "http":
-                config["transport"] = {
-                    "type": "http",
-                    "host": [final_sni],
-                    "path": params.get('path', '/')
-                }
-
+            transport = self.build_transport_vless(qs, parsed.hostname)
+            if transport:
+                config["transport"] = transport
             return config
         except Exception as e:
             return None
 
-    def ss_to_singbox(self, ss_url, index, settings=None):
+    def ss_to_singbox(self, index: int, raw: str) -> Optional[Dict]:
         try:
-            if settings is None:
-                settings = {}
-            decoded = self.decode_ss_config(ss_url)
-            if not decoded:
+            if not raw.startswith("ss://"):
                 return None
-
-            original_name = decoded.get('name') or "Shadowsocks"
-            config_name = f"{original_name} #{index + 1}"
-
-            allowed_methods = [
-                "aes-128-gcm", "aes-256-gcm", "chacha20-ietf-poly1305",
-                "aes-128-cfb", "aes-256-cfb", "chacha20", "chacha20-ietf",
-                "xchacha20-ietf-poly1305", "2022-blake3-aes-128-gcm",
-                "2022-blake3-aes-256-gcm", "2022-blake3-chacha20-poly1305"
-            ]
-
-            method = decoded.get('method')
-            if method not in allowed_methods:
+            d = self.decode_ss_config(raw)
+            if not d:
                 return None
-
             return {
                 "type": "shadowsocks",
-                "tag": config_name,
-                "server": decoded.get('server'),
-                "server_port": decoded.get('port'),
-                "method": method,
-                "password": decoded.get('password')
+                "tag": f"{d['name'] or 'SS'} #{index + 1}",
+                "server": d["server"],
+                "server_port": d["port"],
+                "method": d["method"],
+                "password": d["password"]
             }
         except:
             return None
 
-    def hysteria2_to_singbox(self, url_str, index, settings=None):
+    def vmess_to_singbox(self, index: int, raw: str) -> Optional[Dict]:
         try:
-            if settings is None:
-                settings = {}
-            if url_str.startswith('hy2://'):
-                url_str = url_str.replace('hy2://', 'hysteria2://')
-            url = urlparse(url_str)
-            params = dict(pair.split('=') for pair in url.query.split('&') if '=' in pair)
-            original_name = self.get_original_tag(url_str) or "Hysteria2"
-            config_name = f"{original_name} #{index + 1}"
-
-            def get_priority_value(setting_key, param_key):
-                if settings.get(setting_key) and settings.get(setting_key) != "none":
-                    return settings.get(setting_key)
-                return params.get(param_key)
-
-            cleanip_value = get_priority_value("cleanip", "cleanip")
-            cleanip_list = (cleanip_value or "").split(",") if cleanip_value else []
-            cleanip_list = [i.strip() for i in cleanip_list if i.strip()]
-            final_server = cleanip_list[0] if cleanip_list else url.hostname
-
-            domain_value = get_priority_value("domain", "domain")
-            host_value = get_priority_value("domain", "host") or domain_value
-            sni_value = get_priority_value("sni", "sni") or host_value or domain_value or url.hostname
-            fingerprint_value = get_priority_value("fingerprint", "fingerprint") or "chrome"
-            alpn_value = get_priority_value("alpn", "alpn")
-            ipver_value = get_priority_value("ipver", "ipver")
-
-            config = {
-                "type": "hysteria2",
-                "tag": config_name,
-                "server": final_server,
-                "server_port": int(url.port) if url.port else 443,
-                "password": url.username or "",
-                "tls": {
-                    "enabled": True,
-                    "server_name": sni_value,
-                    "insecure": False,
-                    "utls": {
-                        "enabled": True,
-                        "fingerprint": fingerprint_value
-                    }
-                }
-            }
-
-            if ipver_value and ipver_value != "none" and ipver_value != "auto":
-                config["domain_resolver"] = {
-                    "server": "local-dns",
-                    "strategy": "ipv4_only" if ipver_value == "ipv4" else "ipv6_only" if ipver_value == "ipv6" else ipver_value
-                }
-
-            if alpn_value and alpn_value != "none":
-                config["tls"]["alpn"] = [v.strip() for v in alpn_value.split(",") if v.strip()]
-
-            obfs_type = params.get("obfs")
-            obfs_password = params.get("obfs-password")
-            if obfs_type and obfs_password:
-                config["obfs"] = {
-                    "type": obfs_type,
-                    "password": obfs_password
-                }
-
-            if params.get("up") or params.get("down"):
-                config["up"] = params.get("up") or "100 Mbps"
-                config["down"] = params.get("down") or "100 Mbps"
-
-            if params.get("ports"):
-                config["ports"] = params.get("ports")
-
-            return config
-        except:
-            return None
-
-    def vmess_to_singbox(self, vmess_url, index, settings=None):
-        try:
-            if settings is None:
-                settings = {}
-            vmess_config = self.decode_vmess_config(vmess_url)
-            if not vmess_config:
+            if not raw.startswith("vmess://"):
                 return None
-
-            original_name = vmess_config.get('ps') or "VMess"
-            config_name = f"{original_name} #{index + 1}"
-
-            def get_priority_value(setting_key, param_key):
-                if settings.get(setting_key) and settings.get(setting_key) != "none":
-                    return settings.get(setting_key)
-                return vmess_config.get(param_key)
-
-            cleanip_value = get_priority_value("cleanip", "add") or vmess_config.get("add")
-            cleanip_list = (cleanip_value or "").split(",") if cleanip_value else []
-            cleanip_list = [ip.strip() for ip in cleanip_list if ip.strip()]
-            final_server = cleanip_list[0] if cleanip_list else vmess_config.get("add")
-
-            domain_value = get_priority_value("domain", "host") or vmess_config.get("host")
-            host_value = get_priority_value("domain", "host") or domain_value or vmess_config.get("host")
-            sni_value = get_priority_value("sni", "sni") or host_value or domain_value or vmess_config.get("sni") or vmess_config.get("add")
-
-            fingerprint_value = get_priority_value("fingerprint", "fp") or vmess_config.get("fp") or "chrome"
-            alpn_value = get_priority_value("alpn", "alpn") or vmess_config.get("alpn")
-            network_type = get_priority_value("network", "net") or vmess_config.get("net") or "tcp"
-            tls_enabled = get_priority_value("tls", "tls") == "tls"
-            ipver_value = get_priority_value("ipver", "ipver")
-
+            c = self.decode_vmess(raw)
+            if not c:
+                return None
+            if not all(k in c for k in ("add", "port", "id")):
+                return None
+            name = f"{c.get('ps', 'VMess')} #{index + 1}"
             config = {
                 "type": "vmess",
-                "tag": config_name,
-                "server": final_server,
-                "server_port": int(vmess_config.get("port")) if vmess_config.get("port") else 443,
-                "uuid": vmess_config.get("id"),
-                "security": vmess_config.get("scy") or "auto",
-                "alter_id": int(vmess_config.get("aid") or 0)
+                "tag": name,
+                "server": c["add"],
+                "server_port": int(c["port"]),
+                "uuid": c["id"],
+                "security": c.get("scy", "auto"),
+                "alter_id": int(c.get("aid", 0))
             }
-
-            if ipver_value and ipver_value != "none" and ipver_value != "auto":
-                config["domain_resolver"] = {
-                    "server": "local-dns",
-                    "strategy": "ipv4_only" if ipver_value == "ipv4" else "ipv6_only" if ipver_value == "ipv6" else ipver_value
-                }
-
-            if tls_enabled:
-                config["tls"] = {
-                    "enabled": True,
-                    "server_name": sni_value,
-                    "insecure": False,
-                    "utls": {
-                        "enabled": True,
-                        "fingerprint": fingerprint_value
-                    }
-                }
-                if alpn_value and alpn_value != "none":
-                    config["tls"]["alpn"] = [v.strip() for v in alpn_value.split(",") if v.strip()]
-            else:
-                config["tls"] = {"enabled": False}
-
-            if network_type == "ws":
-                config["transport"] = {
-                    "type": "ws",
-                    "path": vmess_config.get("path") or "/",
-                    "headers": {
-                        "Host": host_value or sni_value or final_server
-                    }
-                }
-            elif network_type == "h2":
-                config["transport"] = {
-                    "type": "http",
-                    "host": [host_value or sni_value or final_server],
-                    "path": vmess_config.get("path") or "/"
-                }
-            elif network_type == "grpc":
-                config["transport"] = {
-                    "type": "grpc",
-                    "service_name": vmess_config.get("path") or "GunService"
-                }
-
+            tls_qs = {}
+            if c.get("tls") == "tls":
+                tls_qs["security"] = ["tls"]
+                if c.get("sni"):
+                    tls_qs["sni"] = [c["sni"]]
+                if c.get("fp"):
+                    tls_qs["fp"] = [c["fp"]]
+                if c.get("alpn"):
+                    tls_qs["alpn"] = [c["alpn"]]
+            config["tls"] = self.build_tls(tls_qs, c["add"])
+            transport = self.build_transport_vmess(c)
+            if transport:
+                config["transport"] = transport
             return config
-        except:
+        except Exception as e:
             return None
 
-    def trojan_to_singbox(self, trojan_url, index, settings=None):
+    def trojan_to_singbox(self, index: int, raw: str) -> Optional[Dict]:
         try:
-            if settings is None:
-                settings = {}
-            url = urlparse(trojan_url)
-            params = dict(pair.split('=') for pair in url.query.split('&') if '=' in pair)
-            original_name = self.get_original_tag(trojan_url) or "Trojan"
-            config_name = f"{original_name} #{index + 1}"
-
-            def get_priority_value(setting_key, param_key):
-                if settings.get(setting_key) and settings.get(setting_key) != "none":
-                    return settings.get(setting_key)
-                return params.get(param_key)
-
-            cleanip_value = get_priority_value("cleanip", "cleanip")
-            cleanip_list = (cleanip_value or "").split(",") if cleanip_value else []
-            cleanip_list = [ip.strip() for ip in cleanip_list if ip.strip()]
-            final_server = cleanip_list[0] if cleanip_list else url.hostname
-
-            domain_value = get_priority_value("domain", "domain")
-            host_value = get_priority_value("domain", "host") or domain_value
-            sni_value = get_priority_value("sni", "sni") or host_value or domain_value or params.get("host") or url.hostname
-            fingerprint_value = get_priority_value("fingerprint", "fp") or "chrome"
-            alpn_value = get_priority_value("alpn", "alpn")
-            network_type = get_priority_value("network", "type") or "tcp"
-            ipver_value = get_priority_value("ipver", "ipver")
-
+            if not raw.startswith("trojan://"):
+                return None
+            p = urlparse(raw)
+            q = parse_qs(p.query)
+            if not all([p.hostname, p.port, p.username]):
+                return None
+            name = f"{unquote(p.fragment or 'Trojan')} #{index + 1}"
             config = {
                 "type": "trojan",
-                "tag": config_name,
-                "server": final_server,
-                "server_port": int(url.port) if url.port else 443,
-                "password": url.username or ""
+                "tag": name,
+                "server": p.hostname,
+                "server_port": int(p.port),
+                "password": p.username,
+                "tls": self.build_tls(q, p.hostname)
             }
-
-            if ipver_value and ipver_value != "none" and ipver_value != "auto":
-                config["domain_resolver"] = {
-                    "server": "local-dns",
-                    "strategy": "ipv4_only" if ipver_value == "ipv4" else "ipv6_only" if ipver_value == "ipv6" else ipver_value
-                }
-
-            config["tls"] = {
-                "enabled": True,
-                "server_name": sni_value,
-                "insecure": False,
-                "utls": {
-                    "enabled": True,
-                    "fingerprint": fingerprint_value
-                }
-            }
-
-            if alpn_value and alpn_value != "none":
-                config["tls"]["alpn"] = [v.strip() for v in alpn_value.split(",") if v.strip()]
-
-            if network_type == "ws":
-                config["transport"] = {
-                    "type": "ws",
-                    "path": params.get("path") or "/",
-                    "headers": {
-                        "Host": sni_value
-                    }
-                }
-            elif network_type == "grpc":
-                config["transport"] = {
-                    "type": "grpc",
-                    "service_name": params.get("serviceName") or "GunService"
-                }
-
+            transport = self.build_transport_trojan(q, p.hostname)
+            if transport:
+                config["transport"] = transport
             return config
-        except:
+        except Exception as e:
             return None
 
-    def convert_config_to_singbox(self, config_str, index, settings=None):
+    def hysteria2_to_singbox(self, index: int, raw: str) -> Optional[Dict]:
+        try:
+            if not (raw.startswith("hysteria2://") or raw.startswith("hy2://")):
+                return None
+            raw = raw.replace("hy2://", "hysteria2://")
+            p = urlparse(raw)
+            q = parse_qs(p.query)
+            if not all([p.hostname, p.port]):
+                return None
+            name = f"{unquote(p.fragment or 'Hysteria2')} #{index + 1}"
+            config = {
+                "type": "hysteria2",
+                "tag": name,
+                "server": p.hostname,
+                "server_port": int(p.port),
+                "password": p.username or "",
+                "tls": self.build_tls(q, p.hostname)
+            }
+            obfs = self.get_first(q, "obfs")
+            obfs_pass = self.get_first(q, "obfs-password")
+            if obfs and obfs_pass:
+                config["obfs"] = {
+                    "type": obfs,
+                    "password": obfs_pass
+                }
+            up = self.get_first(q, "up")
+            down = self.get_first(q, "down")
+            if up:
+                config["up"] = up
+            if down:
+                config["down"] = down
+            ports = self.get_first(q, "ports")
+            if ports:
+                config["ports"] = ports
+            return config
+        except Exception as e:
+            return None
+
+    def convert_config_to_singbox(self, config_str: str, index: int) -> Optional[Dict]:
         if config_str.startswith('vless://'):
-            return self.vless_to_singbox(config_str, index, settings)
+            return self.vless_to_singbox(index, config_str)
         elif config_str.startswith('ss://'):
-            return self.ss_to_singbox(config_str, index, settings)
+            return self.ss_to_singbox(index, config_str)
         elif config_str.startswith('hysteria2://') or config_str.startswith('hy2://'):
-            return self.hysteria2_to_singbox(config_str, index, settings)
+            return self.hysteria2_to_singbox(index, config_str)
         elif config_str.startswith('vmess://'):
-            return self.vmess_to_singbox(config_str, index, settings)
+            return self.vmess_to_singbox(index, config_str)
         elif config_str.startswith('trojan://'):
-            return self.trojan_to_singbox(config_str, index, settings)
+            return self.trojan_to_singbox(index, config_str)
         else:
             return None
 
-    def generate_singbox_outbounds(self, proxies):
+    def build_singbox_config(self, proxies: List[Dict]) -> Dict:
         if not proxies:
-            return []
-
-        outbounds = []
-        for proxy in proxies:
-            if proxy.get("type") and proxy.get("tag"):
-                outbounds.append(proxy)
-
-        return outbounds
-
-    def generate_singbox_config(self, proxies, source_name, category, tier_name):
-        outbounds = self.generate_singbox_outbounds(proxies)
-
-        singbox_config = {
-            "log": {
-                "level": "info"
-            },
+            return {
+                "log": {"level": "info"},
+                "inbounds": [],
+                "outbounds": [{"type": "direct", "tag": "direct"}],
+                "route": {"rules": []}
+            }
+        outbounds = proxies.copy()
+        tags = [p["tag"] for p in proxies]
+        return {
+            "log": {"level": "info", "timestamp": True},
             "dns": {
-                "servers": []
+                "servers": [
+                    {"tag": "google", "address": "8.8.8.8", "type": "udp"},
+                    {"tag": "cloudflare", "address": "1.1.1.1", "type": "udp"}
+                ],
+                "final": "google"
             },
-            "inbounds": [],
-            "outbounds": outbounds
+            "inbounds": [
+                {
+                    "type": "tun",
+                    "tag": "tun-in",
+                    "auto_route": True,
+                    "strict_route": True,
+                    "stack": "system",
+                    "sniff": True
+                }
+            ],
+            "outbounds": outbounds + [
+                {"type": "direct", "tag": "direct"},
+                {"type": "block", "tag": "block"},
+                {
+                    "type": "selector",
+                    "tag": "proxy",
+                    "outbounds": tags + ["direct"],
+                    "default": tags[0] if tags else "direct"
+                },
+                {
+                    "type": "urltest",
+                    "tag": "auto",
+                    "outbounds": tags,
+                    "url": "http://www.gstatic.com/generate_204",
+                    "interval": "5m0s",
+                    "tolerance": 50
+                }
+            ],
+            "route": {
+                "auto_detect_interface": True,
+                "final": "proxy",
+                "rules": [
+                    {"protocol": "dns", "outbound": "direct"},
+                    {"network": "udp", "port": 53, "outbound": "direct"}
+                ]
+            }
         }
-
-        return singbox_config
 
     def convert_source_configs(self, source_dir, output_dir, source_name):
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         os.makedirs(output_dir, exist_ok=True)
-
         for category in self.categories:
             cat_dir = os.path.join(source_dir, category)
             if not os.path.exists(cat_dir):
                 continue
-
             all_configs = []
             tier_files = {}
             for tier_file in os.listdir(cat_dir):
@@ -565,10 +437,8 @@ class ConfigToJSONConverter:
                         tier_name = tier_file.replace('.txt', '')
                         tier_files[tier_name] = configs
                         all_configs.extend(configs)
-
             if not all_configs:
                 continue
-
             converted_by_tier = {}
             for tier_name, configs in tier_files.items():
                 converted_configs = []
@@ -578,24 +448,18 @@ class ConfigToJSONConverter:
                         converted_configs.append(converted)
                 if converted_configs:
                     converted_by_tier[tier_name] = converted_configs
-
             if not converted_by_tier:
                 continue
-
             output_cat_dir = os.path.join(output_dir, category)
             os.makedirs(output_cat_dir, exist_ok=True)
-
             for tier_name, converted_configs in converted_by_tier.items():
+                full_config = self.build_singbox_config(converted_configs)
                 output_filename = os.path.join(output_cat_dir, f"{tier_name}.json")
-                singbox_config = self.generate_singbox_config(
-                    converted_configs, source_name, category, tier_name
-                )
                 with open(output_filename, 'w', encoding='utf-8') as f:
                     f.write(f"// {source_name.upper()} - {category.upper()} - Tier {tier_name}\n")
                     f.write(f"// Updated: {timestamp}\n")
-                    f.write(f"// Count: {len(converted_configs)}\n")
-                    json.dump(singbox_config, f, indent=2, ensure_ascii=False)
-
+                    f.write(f"// Count: {len(converted_configs)}\n\n")
+                    json.dump(full_config, f, indent=2, ensure_ascii=False)
         self.convert_all_tiers(source_dir, output_dir, source_name)
         self.generate_summary_json(source_dir, output_dir, source_name)
 
@@ -604,36 +468,29 @@ class ConfigToJSONConverter:
         all_dir = os.path.join(source_dir, 'ALL')
         if not os.path.exists(all_dir):
             return
-
         output_all_dir = os.path.join(output_dir, 'ALL')
         os.makedirs(output_all_dir, exist_ok=True)
-
         for tier_file in os.listdir(all_dir):
             if tier_file.endswith('.txt'):
                 filepath = os.path.join(all_dir, tier_file)
                 configs = self.read_config_file(filepath)
                 if not configs:
                     continue
-
                 tier_name = tier_file.replace('.txt', '')
                 converted_configs = []
                 for idx, config in enumerate(configs):
                     converted = self.convert_config_to_singbox(config, idx)
                     if converted:
                         converted_configs.append(converted)
-
                 if not converted_configs:
                     continue
-
+                full_config = self.build_singbox_config(converted_configs)
                 output_filename = os.path.join(output_all_dir, f"{tier_name}.json")
-                singbox_config = self.generate_singbox_config(
-                    converted_configs, source_name, "ALL", tier_name
-                )
                 with open(output_filename, 'w', encoding='utf-8') as f:
                     f.write(f"// {source_name.upper()} - ALL - Tier {tier_name}\n")
                     f.write(f"// Updated: {timestamp}\n")
-                    f.write(f"// Count: {len(converted_configs)}\n")
-                    json.dump(singbox_config, f, indent=2, ensure_ascii=False)
+                    f.write(f"// Count: {len(converted_configs)}\n\n")
+                    json.dump(full_config, f, indent=2, ensure_ascii=False)
 
     def generate_summary_json(self, source_dir, output_dir, source_name):
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -642,7 +499,6 @@ class ConfigToJSONConverter:
             'updated': timestamp,
             'categories': {}
         }
-
         for category in self.categories:
             cat_dir = os.path.join(source_dir, category)
             if os.path.exists(cat_dir):
@@ -655,7 +511,6 @@ class ConfigToJSONConverter:
                         category_data[tier_name] = len(configs)
                 if category_data:
                     summary_data['categories'][category] = category_data
-
         all_dir = os.path.join(source_dir, 'ALL')
         if os.path.exists(all_dir):
             all_data = {}
@@ -667,11 +522,10 @@ class ConfigToJSONConverter:
                     all_data[tier_name] = len(configs)
             if all_data:
                 summary_data['ALL'] = all_data
-
         output_filename = os.path.join(output_dir, f"{source_name}_summary.json")
         with open(output_filename, 'w', encoding='utf-8') as f:
             f.write(f"// {source_name.upper()} JSON Conversion Summary\n")
-            f.write(f"// Updated: {timestamp}\n")
+            f.write(f"// Updated: {timestamp}\n\n")
             json.dump(summary_data, f, indent=2, ensure_ascii=False)
 
     def convert_all(self):
@@ -680,25 +534,19 @@ class ConfigToJSONConverter:
             ('configs.txt/telegram', 'config.json/telegram', 'telegram'),
             ('configs.txt/github', 'config.json/github', 'github')
         ]
-
         for source_dir, output_dir, source_name in sources:
             if os.path.exists(source_dir):
                 self.convert_source_configs(source_dir, output_dir, source_name)
-
         self.create_master_json()
 
     def create_master_json(self):
         output_dir = 'config.json'
         os.makedirs(output_dir, exist_ok=True)
-
         all_proxies = []
-        all_proxy_tags = set()
-
         for source in ['combined', 'telegram', 'github']:
             source_dir = os.path.join(output_dir, source)
             if not os.path.exists(source_dir):
                 continue
-
             for category in self.categories:
                 cat_dir = os.path.join(source_dir, category)
                 if os.path.exists(cat_dir):
@@ -708,16 +556,16 @@ class ConfigToJSONConverter:
                             try:
                                 with open(filepath, 'r', encoding='utf-8') as f:
                                     content = f.read()
-                                    content = re.sub(r'^//.*$', '', content, flags=re.MULTILINE)
-                                    data = json.loads(content)
-                                    if data and 'outbounds' in data:
-                                        for proxy in data['outbounds']:
-                                            if proxy.get('tag') and proxy.get('tag') not in all_proxy_tags:
-                                                all_proxy_tags.add(proxy.get('tag'))
-                                                all_proxies.append(proxy)
+                                    json_start = content.find('{')
+                                    if json_start > 0:
+                                        json_content = content[json_start:]
+                                        data = json.loads(json_content)
+                                        if data and 'outbounds' in data:
+                                            for outbound in data['outbounds']:
+                                                if outbound.get('type') in ['vless', 'vmess', 'trojan', 'shadowsocks', 'hysteria2']:
+                                                    all_proxies.append(outbound)
                             except:
                                 continue
-
                 all_dir = os.path.join(source_dir, 'ALL')
                 if os.path.exists(all_dir):
                     for json_file in os.listdir(all_dir):
@@ -726,41 +574,30 @@ class ConfigToJSONConverter:
                             try:
                                 with open(filepath, 'r', encoding='utf-8') as f:
                                     content = f.read()
-                                    content = re.sub(r'^//.*$', '', content, flags=re.MULTILINE)
-                                    data = json.loads(content)
-                                    if data and 'outbounds' in data:
-                                        for proxy in data['outbounds']:
-                                            if proxy.get('tag') and proxy.get('tag') not in all_proxy_tags:
-                                                all_proxy_tags.add(proxy.get('tag'))
-                                                all_proxies.append(proxy)
+                                    json_start = content.find('{')
+                                    if json_start > 0:
+                                        json_content = content[json_start:]
+                                        data = json.loads(json_content)
+                                        if data and 'outbounds' in data:
+                                            for outbound in data['outbounds']:
+                                                if outbound.get('type') in ['vless', 'vmess', 'trojan', 'shadowsocks', 'hysteria2']:
+                                                    all_proxies.append(outbound)
                             except:
                                 continue
-
         master_file = os.path.join(output_dir, 'master.json')
-        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
-        master_config = {
-            "log": {
-                "level": "info"
-            },
-            "dns": {
-                "servers": []
-            },
-            "inbounds": [],
-            "outbounds": all_proxies
-        }
-
-        with open(master_file, 'w', encoding='utf-8') as f:
-            f.write(f"// MASTER JSON - ALL CONFIGURATIONS\n")
-            f.write(f"// Updated: {timestamp}\n")
-            f.write(f"// Total Proxies: {len(all_proxies)}\n")
-            json.dump(master_config, f, indent=2, ensure_ascii=False)
+        if all_proxies:
+            timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            full_config = self.build_singbox_config(all_proxies)
+            with open(master_file, 'w', encoding='utf-8') as f:
+                f.write(f"// MASTER JSON - ALL CONFIGURATIONS\n")
+                f.write(f"// Updated: {timestamp}\n")
+                f.write(f"// Total Proxies: {len(all_proxies)}\n\n")
+                json.dump(full_config, f, indent=2, ensure_ascii=False)
 
 def main():
     print("=" * 60)
     print("CONFIG TO JSON (Sing-Box) CONVERTER")
     print("=" * 60)
-
     try:
         converter = ConfigToJSONConverter()
         converter.convert_all()
