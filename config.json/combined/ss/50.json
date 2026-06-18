@@ -1,5 +1,5 @@
 // COMBINED - SS - Tier 50
-// Updated: 2026-06-18 13:31:51
+// Updated: 2026-06-18 14:26:45
 // Count: 2
 
 {
@@ -10,25 +10,34 @@
   "dns": {
     "servers": [
       {
-        "tag": "google",
         "type": "udp",
+        "tag": "quad9",
+        "server": "9.9.9.9"
+      },
+      {
+        "type": "udp",
+        "tag": "google",
         "server": "8.8.8.8"
       },
       {
-        "tag": "cloudflare",
-        "type": "udp",
-        "server": "1.1.1.1"
+        "type": "local",
+        "tag": "local"
       }
     ],
     "rules": [
       {
+        "outbound": "any",
+        "server": "quad9"
+      },
+      {
         "domain": [
           "geosite:private"
         ],
-        "server": "google"
+        "server": "local"
       }
     ],
-    "final": "cloudflare"
+    "final": "quad9",
+    "strategy": "prefer_ipv4"
   },
   "inbounds": [
     {
@@ -47,19 +56,19 @@
   "outbounds": [
     {
       "type": "shadowsocks",
-      "tag": "ARISTA #44",
-      "server": "admin.c1.havij.co",
-      "server_port": 443,
+      "tag": "ARISTA #16",
+      "server": "82.38.31.7",
+      "server_port": 8080,
       "method": "chacha20-ietf-poly1305",
-      "password": "1kVr0KATIJI7mwOF"
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
     },
     {
       "type": "shadowsocks",
-      "tag": "ARISTA #45",
-      "server": "series-a1.samanehha.co",
-      "server_port": 443,
-      "method": "chacha20-ietf-poly1305",
-      "password": "W74XFALLLuw6m5IA"
+      "tag": "ARISTA #18",
+      "server": "3.8.48.222",
+      "server_port": 80,
+      "method": "aes-256-gcm",
+      "password": "dada1203"
     },
     {
       "type": "direct",
@@ -70,32 +79,43 @@
       "tag": "block"
     },
     {
-      "type": "selector",
-      "tag": "proxy",
+      "type": "urltest",
+      "tag": "🚀 ARISTA AUTO BEST",
       "outbounds": [
-        "ARISTA #44",
-        "ARISTA #45",
-        "direct"
+        "ARISTA #16",
+        "ARISTA #18"
       ],
-      "default": "ARISTA #44"
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "2m",
+      "tolerance": 30,
+      "idle_timeout": "20m",
+      "interrupt_exist_connections": true
     },
     {
       "type": "urltest",
-      "tag": "auto",
+      "tag": "🎯 ARISTA MANUAL TESTED",
       "outbounds": [
-        "ARISTA #44",
-        "ARISTA #45"
+        "ARISTA #16",
+        "ARISTA #18"
       ],
       "url": "http://www.gstatic.com/generate_204",
-      "interval": "5m",
-      "tolerance": 50
+      "interval": "3m",
+      "tolerance": 50,
+      "idle_timeout": "20m",
+      "interrupt_exist_connections": true
     }
   ],
   "route": {
     "auto_detect_interface": true,
-    "final": "proxy",
-    "default_domain_resolver": "cloudflare",
+    "final": "🚀 ARISTA AUTO BEST",
+    "default_domain_resolver": {
+      "server": "quad9",
+      "strategy": "prefer_ipv4"
+    },
     "rules": [
+      {
+        "action": "sniff"
+      },
       {
         "action": "hijack-dns"
       }

@@ -1,5 +1,5 @@
 // GITHUB - ALL - Tier 50
-// Updated: 2026-06-18 13:31:51
+// Updated: 2026-06-18 14:26:46
 // Count: 40
 
 {
@@ -10,25 +10,34 @@
   "dns": {
     "servers": [
       {
-        "tag": "google",
         "type": "udp",
+        "tag": "quad9",
+        "server": "9.9.9.9"
+      },
+      {
+        "type": "udp",
+        "tag": "google",
         "server": "8.8.8.8"
       },
       {
-        "tag": "cloudflare",
-        "type": "udp",
-        "server": "1.1.1.1"
+        "type": "local",
+        "tag": "local"
       }
     ],
     "rules": [
       {
+        "outbound": "any",
+        "server": "quad9"
+      },
+      {
         "domain": [
           "geosite:private"
         ],
-        "server": "google"
+        "server": "local"
       }
     ],
-    "final": "cloudflare"
+    "final": "quad9",
+    "strategy": "prefer_ipv4"
   },
   "inbounds": [
     {
@@ -827,56 +836,8 @@
       "tag": "block"
     },
     {
-      "type": "selector",
-      "tag": "proxy",
-      "outbounds": [
-        "T.ME: @aristapnel #1",
-        "T.ME: @aristapnel #2",
-        "T.ME: @aristapnel #3",
-        "T.ME: @aristapnel #4",
-        "T.ME: @aristapnel #5",
-        "T.ME: @aristapnel #6",
-        "T.ME: @aristapnel #7",
-        "T.ME: @aristapnel #8",
-        "T.ME: @aristapnel #9",
-        "T.ME: @aristapnel #10",
-        "T.ME: @aristapnel #11",
-        "T.ME: @aristapnel #12",
-        "T.ME: @aristapnel #13",
-        "T.ME: @aristapnel #14",
-        "T.ME: @aristapnel #15",
-        "T.ME: @aristapnel #16",
-        "T.ME: @aristapnel #17",
-        "T.ME: @aristapnel #18",
-        "T.ME: @aristapnel #19",
-        "T.ME: @aristapnel #20",
-        "T.ME: @aristapnel #31",
-        "T.ME: @aristapnel #32",
-        "T.ME: @aristapnel #33",
-        "T.ME: @aristapnel #34",
-        "T.ME: @aristapnel #35",
-        "T.ME: @aristapnel #36",
-        "T.ME: @aristapnel #37",
-        "T.ME: @aristapnel #38",
-        "T.ME: @aristapnel #39",
-        "T.ME: @aristapnel #40",
-        "T.ME: @aristapnel #41",
-        "T.ME: @aristapnel #42",
-        "T.ME: @aristapnel #43",
-        "T.ME: @aristapnel #44",
-        "T.ME: @aristapnel #45",
-        "T.ME: @aristapnel #46",
-        "T.ME: @aristapnel #47",
-        "T.ME: @aristapnel #48",
-        "T.ME: @aristapnel #49",
-        "T.ME: @aristapnel #50",
-        "direct"
-      ],
-      "default": "T.ME: @aristapnel #1"
-    },
-    {
       "type": "urltest",
-      "tag": "auto",
+      "tag": "🚀 ARISTA AUTO BEST",
       "outbounds": [
         "T.ME: @aristapnel #1",
         "T.ME: @aristapnel #2",
@@ -920,15 +881,74 @@
         "T.ME: @aristapnel #50"
       ],
       "url": "http://www.gstatic.com/generate_204",
-      "interval": "5m",
-      "tolerance": 50
+      "interval": "2m",
+      "tolerance": 30,
+      "idle_timeout": "20m",
+      "interrupt_exist_connections": true
+    },
+    {
+      "type": "urltest",
+      "tag": "🎯 ARISTA MANUAL TESTED",
+      "outbounds": [
+        "T.ME: @aristapnel #1",
+        "T.ME: @aristapnel #2",
+        "T.ME: @aristapnel #3",
+        "T.ME: @aristapnel #4",
+        "T.ME: @aristapnel #5",
+        "T.ME: @aristapnel #6",
+        "T.ME: @aristapnel #7",
+        "T.ME: @aristapnel #8",
+        "T.ME: @aristapnel #9",
+        "T.ME: @aristapnel #10",
+        "T.ME: @aristapnel #11",
+        "T.ME: @aristapnel #12",
+        "T.ME: @aristapnel #13",
+        "T.ME: @aristapnel #14",
+        "T.ME: @aristapnel #15",
+        "T.ME: @aristapnel #16",
+        "T.ME: @aristapnel #17",
+        "T.ME: @aristapnel #18",
+        "T.ME: @aristapnel #19",
+        "T.ME: @aristapnel #20",
+        "T.ME: @aristapnel #31",
+        "T.ME: @aristapnel #32",
+        "T.ME: @aristapnel #33",
+        "T.ME: @aristapnel #34",
+        "T.ME: @aristapnel #35",
+        "T.ME: @aristapnel #36",
+        "T.ME: @aristapnel #37",
+        "T.ME: @aristapnel #38",
+        "T.ME: @aristapnel #39",
+        "T.ME: @aristapnel #40",
+        "T.ME: @aristapnel #41",
+        "T.ME: @aristapnel #42",
+        "T.ME: @aristapnel #43",
+        "T.ME: @aristapnel #44",
+        "T.ME: @aristapnel #45",
+        "T.ME: @aristapnel #46",
+        "T.ME: @aristapnel #47",
+        "T.ME: @aristapnel #48",
+        "T.ME: @aristapnel #49",
+        "T.ME: @aristapnel #50"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "3m",
+      "tolerance": 50,
+      "idle_timeout": "20m",
+      "interrupt_exist_connections": true
     }
   ],
   "route": {
     "auto_detect_interface": true,
-    "final": "proxy",
-    "default_domain_resolver": "cloudflare",
+    "final": "🚀 ARISTA AUTO BEST",
+    "default_domain_resolver": {
+      "server": "quad9",
+      "strategy": "prefer_ipv4"
+    },
     "rules": [
+      {
+        "action": "sniff"
+      },
       {
         "action": "hijack-dns"
       }
