@@ -1,0 +1,501 @@
+// TELEGRAM - VMESS - Tier ALL
+// Updated: 2026-06-18 06:32:56
+// Count: 21
+
+{
+  "log": {
+    "level": "info",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "google",
+        "type": "udp",
+        "server": "8.8.8.8"
+      },
+      {
+        "tag": "cloudflare",
+        "type": "udp",
+        "server": "1.1.1.1"
+      },
+      {
+        "tag": "fakeip",
+        "type": "fakeip",
+        "inet4_range": "198.18.0.0/15",
+        "inet6_range": "fc00::/18"
+      }
+    ],
+    "independent_cache": true,
+    "rules": [
+      {
+        "domain": [
+          "geosite:private"
+        ],
+        "server": "google"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "singbox-tun",
+      "address": [
+        "172.19.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "mixed"
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "vmess",
+      "tag": "ARISTA #1",
+      "server": "cf.scpnb.top",
+      "server_port": 443,
+      "uuid": "7fd8d1db-96ec-4e46-80a8-74ad9472384e",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "graph-keep-beds-catalog.trycloudflare.com",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/7fd8d1db-96ec-4e46-80a8-74ad9472384e-vm",
+        "headers": {
+          "Host": "graph-keep-beds-catalog.trycloudflare.com"
+        }
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #2",
+      "server": "cf.scpnb.top",
+      "server_port": 443,
+      "uuid": "7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "vienna-bread-threats-amendment.trycloudflare.com",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm",
+        "headers": {
+          "Host": "vienna-bread-threats-amendment.trycloudflare.com"
+        }
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #3",
+      "server": "31.56.178.107",
+      "server_port": 443,
+      "uuid": "185a3bb6-a1a7-4a43-da37-659026c79aea",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #4",
+      "server": "78.141.215.62",
+      "server_port": 443,
+      "uuid": "afd45419-cffa-4f1b-990a-511aab6ee9ab",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #5",
+      "server": "188.114.97.6",
+      "server_port": 443,
+      "uuid": "b4a65611-4969-42b2-bc74-5768b940bd9e",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "vyvzyhgz.com",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "vyvzyhgz.com"
+        }
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #6",
+      "server": "57.131.32.191",
+      "server_port": 8443,
+      "uuid": "848af33c-81f2-40c9-93b2-4681d056936b",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "OV-Italy1.09vpn.com",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess/",
+        "headers": {
+          "Host": "OV-Italy1.09vpn.com"
+        }
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #7",
+      "server": "65.109.221.245",
+      "server_port": 33366,
+      "uuid": "2ee7eb26-8118-4d0a-a300-8d0edcfde6e5",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #8",
+      "server": "51.195.235.71",
+      "server_port": 2052,
+      "uuid": "59e28f78-c31b-4613-9d9f-1e6732a31f46",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #9",
+      "server": "172.104.80.66",
+      "server_port": 22324,
+      "uuid": "04621bae-ab36-11ec-b909-0242ac120002",
+      "security": "auto",
+      "alter_id": 1,
+      "tls": {
+        "enabled": false
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #10",
+      "server": "23.162.200.198",
+      "server_port": 18000,
+      "uuid": "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #11",
+      "server": "de5.niekotin.de",
+      "server_port": 80,
+      "uuid": "85bf5801-4658-441c-a2e5-842c6c71a521",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vmess",
+        "headers": {
+          "Host": "de5.niekotin.de"
+        }
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #12",
+      "server": "104.16.52.150",
+      "server_port": 2053,
+      "uuid": "f2db9be8-4caa-4e03-a8ba-b9d678e8bcc2",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "gErtOw1.lOolOolOolOo.cOM",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "random"
+        },
+        "alpn": [
+          "h2",
+          "http/1.1"
+        ]
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #13",
+      "server": "uk.vpnjantit.com",
+      "server_port": 10000,
+      "uuid": "3c05ef9e-6582-11f1-a6e5-1727059cff63",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/vpnjantit",
+        "headers": {
+          "Host": ""
+        }
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #14",
+      "server": "digi21.ez0535.com",
+      "server_port": 443,
+      "uuid": "b5406cd3-1a11-4c78-b346-7763fcc9e476",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #15",
+      "server": "172.233.17.76",
+      "server_port": 22324,
+      "uuid": "04621bae-ab36-11ec-b909-0242ac120002",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #16",
+      "server": "57.151.100.27",
+      "server_port": 10086,
+      "uuid": "550e8400-e29b-41d4-a716-446655440000",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #17",
+      "server": "104.17.77.77",
+      "server_port": 8443,
+      "uuid": "60441548-b68e-43b2-8191-e3b884be4b3c",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "v2ray1.dozapp.xyz",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/lMnsZUN4/",
+        "headers": {
+          "Host": "v2ray1.dozapp.xyz"
+        }
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #18",
+      "server": "104.21.89.181",
+      "server_port": 80,
+      "uuid": "65b17c0b-0a52-4b54-9bc9-60e31397b841",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/65b17c0b-0a52-4b54-9bc9-60e31397b841-vmess",
+        "headers": {
+          "Host": "accklsj.bufu.us.ci"
+        }
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #19",
+      "server": "uk5.taskflowhub.org",
+      "server_port": 2053,
+      "uuid": "89371dfc-2618-40d7-a558-693ff4f7f1eb",
+      "security": "auto",
+      "tls": {
+        "enabled": true,
+        "server_name": "uk5.taskflowhub.org",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "alpn": [
+          "h3",
+          "h2",
+          "http/1.1"
+        ]
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #20",
+      "server": "47.250.45.234",
+      "server_port": 8613,
+      "uuid": "80039b4d-bac0-4f89-82c7-54fad3b0a1ea",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/arki?ed=2048",
+        "headers": {
+          "Host": ""
+        }
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "vmess",
+      "tag": "ARISTA #21",
+      "server": "65.109.221.245",
+      "server_port": 33366,
+      "uuid": "2ee7eb26-8118-4d0a-a300-8d0edcfde6e5",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      },
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    },
+    {
+      "type": "selector",
+      "tag": "proxy",
+      "outbounds": [
+        "ARISTA #1",
+        "ARISTA #2",
+        "ARISTA #3",
+        "ARISTA #4",
+        "ARISTA #5",
+        "ARISTA #6",
+        "ARISTA #7",
+        "ARISTA #8",
+        "ARISTA #9",
+        "ARISTA #10",
+        "ARISTA #11",
+        "ARISTA #12",
+        "ARISTA #13",
+        "ARISTA #14",
+        "ARISTA #15",
+        "ARISTA #16",
+        "ARISTA #17",
+        "ARISTA #18",
+        "ARISTA #19",
+        "ARISTA #20",
+        "ARISTA #21",
+        "direct"
+      ],
+      "default": "ARISTA #1",
+      "domain_resolver": "dns"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "ARISTA #1",
+        "ARISTA #2",
+        "ARISTA #3",
+        "ARISTA #4",
+        "ARISTA #5",
+        "ARISTA #6",
+        "ARISTA #7",
+        "ARISTA #8",
+        "ARISTA #9",
+        "ARISTA #10",
+        "ARISTA #11",
+        "ARISTA #12",
+        "ARISTA #13",
+        "ARISTA #14",
+        "ARISTA #15",
+        "ARISTA #16",
+        "ARISTA #17",
+        "ARISTA #18",
+        "ARISTA #19",
+        "ARISTA #20",
+        "ARISTA #21"
+      ],
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "5m",
+      "tolerance": 50,
+      "domain_resolver": "dns"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "final": "proxy",
+    "default_domain_resolver": "dns",
+    "rules": [
+      {
+        "action": "hijack-dns"
+      }
+    ]
+  }
+}
