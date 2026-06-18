@@ -441,12 +441,22 @@ class ConfigToJSONConverter:
         return [
             {
                 "type": "urltest",
-                "tag": "🚀 ARISTA AUTO",
+                "tag": "🚀 ARISTA AUTO BEST",
                 "outbounds": proxy_tags,
                 "url": "http://www.gstatic.com/generate_204",
                 "interval": "2m",
                 "tolerance": 30,
-                "idle_timeout": "0m",
+                "idle_timeout": "20m",
+                "interrupt_exist_connections": True
+            },
+            {
+                "type": "urltest",
+                "tag": "🎯 ARISTA MANUAL TESTED",
+                "outbounds": proxy_tags,
+                "url": "http://www.gstatic.com/generate_204",
+                "interval": "3m",
+                "tolerance": 50,
+                "idle_timeout": "20m",
                 "interrupt_exist_connections": True
             }
         ]
@@ -525,7 +535,7 @@ class ConfigToJSONConverter:
 
             "route": {
                 "auto_detect_interface": True,
-                "final": "🚀 ARISTA AUTO",
+                "final": "🚀 ARISTA AUTO BEST",
                 "default_domain_resolver": "cloudflare",
                 "rules": [
                     {
