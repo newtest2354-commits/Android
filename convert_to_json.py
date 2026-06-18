@@ -455,38 +455,37 @@ class ConfigToJSONConverter:
                 "route": {"final": "direct", "rules": []}
             }
 
+        cleaned_proxies = []
         for p in proxies:
-            if isinstance(p, dict):
-                p.pop("domain_resolver", None)
-                p.pop("default_domain_resolver", None)
+            if not isinstance(p, dict):
+                continue
+            p = dict(p)
+            p.pop("domain_resolver", None)
+            p.pop("default_domain_resolver", None)
+            cleaned_proxies.append(p)
 
-        tags = [p.get("tag") for p in proxies if isinstance(p, dict) and p.get("tag")]
+        tags = [p.get("tag") for p in cleaned_proxies if p.get("tag")]
 
         return {
             "log": {
                 "level": "info",
                 "timestamp": True
             },
+
             "dns": {
                 "servers": [
-                    {
-                        "tag": "google",
-                        "type": "udp",
-                        "server": "8.8.8.8"
-                    },
-                    {
-                        "tag": "cloudflare",
-                        "type": "udp",
-                        "server": "1.1.1.1"
-                    }
+                    {"tag": "google", "type": "udp", "server": "8.8.8.8"},
+                    {"tag": "cloudflare", "type": "udp", "server": "1.1.1.1"}
                 ],
                 "rules": [
                     {
                         "domain": ["geosite:private"],
                         "server": "google"
                     }
-                ]
+                ],
+                "final": "cloudflare"
             },
+
             "inbounds": [
                 {
                     "type": "tun",
@@ -501,15 +500,10 @@ class ConfigToJSONConverter:
                     "stack": "mixed"
                 }
             ],
-            "outbounds": proxies + [
-                {
-                    "type": "direct",
-                    "tag": "direct"
-                },
-                {
-                    "type": "block",
-                    "tag": "block"
-                },
+
+            "outbounds": cleaned_proxies + [
+                {"type": "direct", "tag": "direct"},
+                {"type": "block", "tag": "block"},
                 {
                     "type": "selector",
                     "tag": "proxy",
@@ -525,9 +519,11 @@ class ConfigToJSONConverter:
                     "tolerance": 50
                 }
             ],
+
             "route": {
                 "auto_detect_interface": True,
                 "final": "proxy",
+                "default_domain_resolver": "cloudflare",
                 "rules": [
                     {
                         "action": "hijack-dns"
