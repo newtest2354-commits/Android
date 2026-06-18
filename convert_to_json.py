@@ -446,93 +446,105 @@ class ConfigToJSONConverter:
         else:
             return None
 
-    def build_singbox_config(self, proxies: List[Dict]) -> Dict:
-        if not proxies:
-            return {
-                "log": {"level": "info"},
-                "inbounds": [],
-                "outbounds": [{"type": "direct", "tag": "direct"}],
-                "route": {"rules": []}
-            }
-        tags = [p["tag"] for p in proxies]
+def build_singbox_config(self, proxies: List[Dict]) -> Dict:
+    if not proxies:
         return {
-            "log": {"level": "info", "timestamp": True},
-            "dns": {
-                "servers": [
-                    {
-                        "tag": "google",
-                        "type": "udp",
-                        "server": "8.8.8.8"
-                    },
-                    {
-                        "tag": "cloudflare",
-                        "type": "udp",
-                        "server": "1.1.1.1"
-                    }
-                ],
-                "fakeip": {
-                    "enabled": True,
-                    "inet4_range": "198.18.0.0/15",
-                    "inet6_range": "fc00::/18"
-                },
-                "independent_cache": True,
-                "rules": [
-                    {
-                        "domain": ["geosite:private"],
-                        "server": "google"
-                    }
-                ]
-            },
-            "inbounds": [
-                {
-                    "type": "tun",
-                    "tag": "tun-in",
-                    "interface_name": "singbox-tun",
-                    "address": [
-                        "172.19.0.1/30",
-                        "fdfe:dcba:9876::1/126"
-                    ],
-                    "auto_route": True,
-                    "strict_route": True,
-                    "stack": "mixed"
-                }
-            ],
-            "outbounds": proxies + [
-                {"type": "direct", "tag": "direct"},
-                {"type": "block", "tag": "block"},
-                {
-                    "type": "selector",
-                    "tag": "proxy",
-                    "outbounds": tags + ["direct"],
-                    "default": tags[0] if tags else "direct"
-                },
-                {
-                    "type": "urltest",
-                    "tag": "auto",
-                    "outbounds": tags,
-                    "url": "http://www.gstatic.com/generate_204",
-                    "interval": "5m",
-                    "tolerance": 50
-                }
-            ],
+            "log": {"level": "info"},
+            "inbounds": [],
+            "outbounds": [{"type": "direct", "tag": "direct"}],
             "route": {
-                "auto_detect_interface": True,
-                "final": "proxy",
-                "rules": [
-                    {"action": "hijack-dns"},
-                    {
-                        "type": "logical",
-                        "mode": "or",
-                        "rules": [
-                            {"domain_suffix": ["google.com", "youtube.com", "telegram.org"]},
-                            {"domain_keyword": ["google", "youtube", "telegram"]}
-                        ],
-                        "outbound": "proxy"
-                    }
-                ]
+                "rules": [],
+                "domain_resolver": "local"
             }
         }
 
+    tags = [p["tag"] for p in proxies]
+
+    return {
+        "log": {
+            "level": "info",
+            "timestamp": True
+        },
+
+        "dns": {
+            "servers": [
+                {
+                    "tag": "google",
+                    "type": "udp",
+                    "server": "8.8.8.8"
+                },
+                {
+                    "tag": "cloudflare",
+                    "type": "udp",
+                    "server": "1.1.1.1"
+                }
+            ],
+
+            "fakeip": {
+                "enabled": True,
+                "strategy": "prefer_ipv4",
+                "inet4_range": "198.18.0.0/15",
+                "inet6_range": "fc00::/18"
+            },
+
+            "independent_cache": True,
+
+            "rules": [
+                {
+                    "domain": ["geosite:private"],
+                    "server": "google"
+                }
+            ]
+        },
+
+        "inbounds": [
+            {
+                "type": "tun",
+                "tag": "tun-in",
+                "interface_name": "singbox-tun",
+                "address": [
+                    "172.19.0.1/30",
+                    "fdfe:dcba:9876::1/126"
+                ],
+                "auto_route": True,
+                "strict_route": True,
+                "stack": "mixed"
+            }
+        ],
+
+        "outbounds": proxies + [
+            {"type": "direct", "tag": "direct"},
+            {"type": "block", "tag": "block"},
+
+            {
+                "type": "selector",
+                "tag": "proxy",
+                "outbounds": tags + ["direct"],
+                "default": tags[0] if tags else "direct"
+            },
+
+            {
+                "type": "urltest",
+                "tag": "auto",
+                "outbounds": tags,
+                "url": "http://www.gstatic.com/generate_204",
+                "interval": "5m",
+                "tolerance": 50
+            }
+        ],
+
+        "route": {
+            "auto_detect_interface": True,
+            "final": "proxy",
+
+            "domain_resolver": "local",
+
+            "rules": [
+                {"action": "hijack-dns"}
+            ]
+        }
+    }
+    
     def convert_source_configs(self, source_dir, output_dir, source_name):
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         os.makedirs(output_dir, exist_ok=True)
