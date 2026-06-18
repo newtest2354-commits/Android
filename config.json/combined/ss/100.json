@@ -1,5 +1,5 @@
 // COMBINED - SS - Tier 100
-// Updated: 2026-06-18 09:16:05
+// Updated: 2026-06-18 09:45:27
 // Count: 4
 
 {
@@ -47,7 +47,7 @@
   "outbounds": [
     {
       "type": "shadowsocks",
-      "tag": "ARISTA #13",
+      "tag": "ARISTA #1",
       "server": "3.8.48.222",
       "server_port": 80,
       "method": "aes-256-gcm",
@@ -55,7 +55,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "ARISTA #61",
+      "tag": "ARISTA #4",
       "server": "admin.c1.havij.co",
       "server_port": 443,
       "method": "chacha20-ietf-poly1305",
@@ -63,7 +63,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "ARISTA #62",
+      "tag": "ARISTA #5",
       "server": "series-a1.samanehha.co",
       "server_port": 443,
       "method": "chacha20-ietf-poly1305",
@@ -71,7 +71,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "ARISTA #68",
+      "tag": "ARISTA #58",
       "server": "82.38.31.7",
       "server_port": 8080,
       "method": "chacha20-ietf-poly1305",
@@ -86,34 +86,69 @@
       "tag": "block"
     },
     {
-      "type": "selector",
-      "tag": "proxy",
+      "type": "urltest",
+      "tag": "🚀 ARISTA LOW LATENCY",
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "300s",
+      "tolerance": 50,
+      "idle_timeout": "30s",
       "outbounds": [
-        "ARISTA #13",
-        "ARISTA #61",
-        "ARISTA #62",
-        "ARISTA #68",
-        "direct"
-      ],
-      "default": "ARISTA #13"
+        "ARISTA #1",
+        "ARISTA #4",
+        "ARISTA #5",
+        "ARISTA #58"
+      ]
     },
     {
-      "type": "urltest",
-      "tag": "auto",
+      "type": "selector",
+      "tag": "🎬 ARISTA STREAM",
       "outbounds": [
-        "ARISTA #13",
-        "ARISTA #61",
-        "ARISTA #62",
-        "ARISTA #68"
+        "ARISTA #1",
+        "ARISTA #4",
+        "ARISTA #5",
+        "ARISTA #58"
       ],
-      "url": "http://www.gstatic.com/generate_204",
-      "interval": "5m",
-      "tolerance": 50
+      "default": "ARISTA #1"
+    },
+    {
+      "type": "load_balance",
+      "tag": "⚖️ ARISTA BALANCE",
+      "strategy": "consistent_hashing",
+      "outbounds": [
+        "ARISTA #1",
+        "ARISTA #4",
+        "ARISTA #5",
+        "ARISTA #58"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🛡 ARISTA BACKUP",
+      "outbounds": [
+        "ARISTA #1",
+        "ARISTA #4",
+        "ARISTA #5",
+        "ARISTA #58"
+      ],
+      "default": "ARISTA #1"
+    },
+    {
+      "type": "selector",
+      "tag": "🎯 ARISTA CORE",
+      "outbounds": [
+        "🚀 ARISTA LOW LATENCY",
+        "🎬 ARISTA STREAM",
+        "⚖️ ARISTA BALANCE",
+        "🛡 ARISTA BACKUP",
+        "direct",
+        "block"
+      ],
+      "default": "🚀 ARISTA LOW LATENCY"
     }
   ],
   "route": {
     "auto_detect_interface": true,
-    "final": "proxy",
+    "final": "🎯 ARISTA CORE",
     "default_domain_resolver": "cloudflare",
     "rules": [
       {

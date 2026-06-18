@@ -1,5 +1,5 @@
 // COMBINED - HYSTERIA2 - Tier ALL
-// Updated: 2026-06-18 09:16:05
+// Updated: 2026-06-18 09:45:27
 // Count: 41
 
 {
@@ -48,22 +48,6 @@
     {
       "type": "hysteria2",
       "tag": "ARISTA #1",
-      "server": "80.66.81.78",
-      "server_port": 9443,
-      "password": "rs2mR3g9bZiMloftx6lZQ59Um1Ld",
-      "tls": {
-        "enabled": true,
-        "server_name": "80.66.81.78",
-        "insecure": true
-      },
-      "obfs": {
-        "type": "salamander",
-        "password": "oMgvuBy5Lj5kYM57sGsnjpjNcSEQ"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "ARISTA #2",
       "server": "130.49.161.70",
       "server_port": 443,
       "password": "p7Q76LzlnS4hIzr1W3staBOnUe_WwSkR",
@@ -83,71 +67,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "ARISTA #3",
-      "server": "202.61.205.86",
-      "server_port": 4433,
-      "password": "18cf8030-1ceb-4b7d-8c0c-c036413c144e",
-      "tls": {
-        "enabled": true,
-        "server_name": "202.61.205.86",
-        "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "ARISTA #4",
-      "server": "vpn-de-002.fastervpn.world",
-      "server_port": 443,
-      "password": "qQe1z5kU8kN6SlKnDt9Ru3Qp",
-      "tls": {
-        "enabled": true,
-        "server_name": "vpn-de-002.fastervpn.world",
-        "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "ARISTA #5",
-      "server": "endpoint.neoservers.ir",
-      "server_port": 30781,
-      "password": "zZlPDO5jYeaE9rYtNnjlBI0igvbIdjRX",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.microsoft.com",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "obfs": {
-        "type": "salamander",
-        "password": "8s7t1sNDH36vU8_Ixd7MckIY"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "ARISTA #6",
-      "server": "213.156.152.76",
-      "server_port": 443,
-      "password": "@V2RayyNGvpn",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.wordreference.com",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "obfs": {
-        "type": "salamander",
-        "password": "V2RayyNGvpn$miracle$krouky"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "ARISTA #7",
+      "tag": "ARISTA #2",
       "server": "181.214.99.162",
       "server_port": 35000,
       "password": "b4bd0613-ff7c-4f2f-954d-185915e6ddad",
@@ -167,7 +87,43 @@
     },
     {
       "type": "hysteria2",
-      "tag": "ARISTA #8",
+      "tag": "ARISTA #3",
+      "server": "80.66.81.78",
+      "server_port": 9443,
+      "password": "rs2mR3g9bZiMloftx6lZQ59Um1Ld",
+      "tls": {
+        "enabled": true,
+        "server_name": "80.66.81.78",
+        "insecure": true
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "oMgvuBy5Lj5kYM57sGsnjpjNcSEQ"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "ARISTA #4",
+      "server": "endpoint.neoservers.ir",
+      "server_port": 30781,
+      "password": "zZlPDO5jYeaE9rYtNnjlBI0igvbIdjRX",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.microsoft.com",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "8s7t1sNDH36vU8_Ixd7MckIY"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "ARISTA #5",
       "server": "207.154.242.160",
       "server_port": 443,
       "password": "Masir_Sefid",
@@ -187,7 +143,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "ARISTA #9",
+      "tag": "ARISTA #6",
       "server": "206.189.58.246",
       "server_port": 443,
       "password": "Masir_Sefid",
@@ -203,6 +159,50 @@
       "obfs": {
         "type": "salamander",
         "password": "Masir_Sefid"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "ARISTA #7",
+      "server": "vpn-de-002.fastervpn.world",
+      "server_port": 443,
+      "password": "qQe1z5kU8kN6SlKnDt9Ru3Qp",
+      "tls": {
+        "enabled": true,
+        "server_name": "vpn-de-002.fastervpn.world",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "ARISTA #8",
+      "server": "202.61.205.86",
+      "server_port": 4433,
+      "password": "18cf8030-1ceb-4b7d-8c0c-c036413c144e",
+      "tls": {
+        "enabled": true,
+        "server_name": "202.61.205.86",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "ARISTA #9",
+      "server": "213.156.152.76",
+      "server_port": 443,
+      "password": "@V2RayyNGvpn",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.wordreference.com",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "V2RayyNGvpn$miracle$krouky"
       }
     },
     {
@@ -654,8 +654,12 @@
       "tag": "block"
     },
     {
-      "type": "selector",
-      "tag": "proxy",
+      "type": "urltest",
+      "tag": "🚀 ARISTA LOW LATENCY",
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "300s",
+      "tolerance": 50,
+      "idle_timeout": "30s",
       "outbounds": [
         "ARISTA #1",
         "ARISTA #2",
@@ -697,14 +701,12 @@
         "T.ME: @aristapnel #38",
         "T.ME: @aristapnel #39",
         "T.ME: @aristapnel #40",
-        "T.ME: @aristapnel #41",
-        "direct"
-      ],
-      "default": "ARISTA #1"
+        "T.ME: @aristapnel #41"
+      ]
     },
     {
-      "type": "urltest",
-      "tag": "auto",
+      "type": "selector",
+      "tag": "🎬 ARISTA STREAM",
       "outbounds": [
         "ARISTA #1",
         "ARISTA #2",
@@ -748,14 +750,121 @@
         "T.ME: @aristapnel #40",
         "T.ME: @aristapnel #41"
       ],
-      "url": "http://www.gstatic.com/generate_204",
-      "interval": "5m",
-      "tolerance": 50
+      "default": "ARISTA #1"
+    },
+    {
+      "type": "load_balance",
+      "tag": "⚖️ ARISTA BALANCE",
+      "strategy": "consistent_hashing",
+      "outbounds": [
+        "ARISTA #1",
+        "ARISTA #2",
+        "ARISTA #3",
+        "ARISTA #4",
+        "ARISTA #5",
+        "ARISTA #6",
+        "ARISTA #7",
+        "ARISTA #8",
+        "ARISTA #9",
+        "ARISTA #10",
+        "T.ME: @aristapnel #11",
+        "T.ME: @aristapnel #12",
+        "T.ME: @aristapnel #13",
+        "T.ME: @aristapnel #14",
+        "T.ME: @aristapnel #15",
+        "T.ME: @aristapnel #16",
+        "T.ME: @aristapnel #17",
+        "T.ME: @aristapnel #18",
+        "T.ME: @aristapnel #19",
+        "T.ME: @aristapnel #20",
+        "T.ME: @aristapnel #21",
+        "T.ME: @aristapnel #22",
+        "T.ME: @aristapnel #23",
+        "T.ME: @aristapnel #24",
+        "T.ME: @aristapnel #25",
+        "T.ME: @aristapnel #26",
+        "T.ME: @aristapnel #27",
+        "T.ME: @aristapnel #28",
+        "T.ME: @aristapnel #29",
+        "T.ME: @aristapnel #30",
+        "T.ME: @aristapnel #31",
+        "T.ME: @aristapnel #32",
+        "T.ME: @aristapnel #33",
+        "T.ME: @aristapnel #34",
+        "T.ME: @aristapnel #35",
+        "T.ME: @aristapnel #36",
+        "T.ME: @aristapnel #37",
+        "T.ME: @aristapnel #38",
+        "T.ME: @aristapnel #39",
+        "T.ME: @aristapnel #40",
+        "T.ME: @aristapnel #41"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🛡 ARISTA BACKUP",
+      "outbounds": [
+        "ARISTA #1",
+        "ARISTA #2",
+        "ARISTA #3",
+        "ARISTA #4",
+        "ARISTA #5",
+        "ARISTA #6",
+        "ARISTA #7",
+        "ARISTA #8",
+        "ARISTA #9",
+        "ARISTA #10",
+        "T.ME: @aristapnel #11",
+        "T.ME: @aristapnel #12",
+        "T.ME: @aristapnel #13",
+        "T.ME: @aristapnel #14",
+        "T.ME: @aristapnel #15",
+        "T.ME: @aristapnel #16",
+        "T.ME: @aristapnel #17",
+        "T.ME: @aristapnel #18",
+        "T.ME: @aristapnel #19",
+        "T.ME: @aristapnel #20",
+        "T.ME: @aristapnel #21",
+        "T.ME: @aristapnel #22",
+        "T.ME: @aristapnel #23",
+        "T.ME: @aristapnel #24",
+        "T.ME: @aristapnel #25",
+        "T.ME: @aristapnel #26",
+        "T.ME: @aristapnel #27",
+        "T.ME: @aristapnel #28",
+        "T.ME: @aristapnel #29",
+        "T.ME: @aristapnel #30",
+        "T.ME: @aristapnel #31",
+        "T.ME: @aristapnel #32",
+        "T.ME: @aristapnel #33",
+        "T.ME: @aristapnel #34",
+        "T.ME: @aristapnel #35",
+        "T.ME: @aristapnel #36",
+        "T.ME: @aristapnel #37",
+        "T.ME: @aristapnel #38",
+        "T.ME: @aristapnel #39",
+        "T.ME: @aristapnel #40",
+        "T.ME: @aristapnel #41"
+      ],
+      "default": "ARISTA #1"
+    },
+    {
+      "type": "selector",
+      "tag": "🎯 ARISTA CORE",
+      "outbounds": [
+        "🚀 ARISTA LOW LATENCY",
+        "🎬 ARISTA STREAM",
+        "⚖️ ARISTA BALANCE",
+        "🛡 ARISTA BACKUP",
+        "direct",
+        "block"
+      ],
+      "default": "🚀 ARISTA LOW LATENCY"
     }
   ],
   "route": {
     "auto_detect_interface": true,
-    "final": "proxy",
+    "final": "🎯 ARISTA CORE",
     "default_domain_resolver": "cloudflare",
     "rules": [
       {

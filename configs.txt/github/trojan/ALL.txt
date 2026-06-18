@@ -1,6 +1,6 @@
 # GITHUB - ALL - TROJAN
-# Updated: 2026-06-18 09:13:22
-# Count: 226
+# Updated: 2026-06-18 09:43:17
+# Count: 230
 
 trojan://humanity@45.80.111.7:443?path=%2Fassignment&security=tls&fp=chrome&type=ws&sni=www.calmlunch.com#T.ME: @aristapnel
 trojan://%{q@104.21.37.101:443?path=/eyJqdW5rIjoia3lhOG5VQlY2NU1tZyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560&security=tls&alpn=http/1.1&host=lumosconfig.codmdemonyt1.workers.dev&fp=chrome&allowinsecure=0&type=ws&sni=LUmOscoNfig.codmDemOnYt1.WORKeRS.DEV#T.ME: @aristapnel
@@ -194,24 +194,28 @@ trojan://telegram-id-privatevpns@3.77.229.95:22222?security=tls&alpn=http/1.1&he
 trojan://telegram-id-privatevpns@35.181.85.57:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#T.ME: @aristapnel
 trojan://tpCznR-P5%3DjZUb%23c@66.245.193.152:17126?security=tls&headerType=none&type=tcp&sni=ctaldikgfyw.uefahpgsyz.click#T.ME: @aristapnel
 trojan://dd2f25b4c70689de8bc0f7fa9d6591cb@202.181.103.246:1334?security=tls&insecure=1&headerType=none&type=tcp&allowInsecure=1&sni=www.nintendogames.net#T.ME: @aristapnel
-trojan://PoSQBShqwNV9wKX4WHxDoLxbvp4eQYnD8v@130.94.78.17:443?security=tls&amp;insecure=0&amp;headerType=none&amp;type=tcp&amp;allowInsecure=0#T.ME: @aristapnel
-trojan://telegram-id-privatevpns@18.157.199.79:22222?security=tls&amp;alpn=http/1.1&amp;headerType=none&amp;type=tcp&amp;sni=trojan.burgerip.co.uk#T.ME: @aristapnel
-trojan://telegram-id-privatevpns@18.197.78.165:22222?security=tls&amp;alpn=http/1.1&amp;headerType=none&amp;type=tcp&amp;sni=trojan.burgerip.co.uk#T.ME: @aristapnel
 trojan://VN3zRAL4Hq@45.130.125.156:8080?type=ws&security=none&path=/da&host=s3.aananas.ir#T.ME: @aristapnel
-trojan://fFj7MAGy1VlAWmB_gMBG_27oPYTSHvV6MX@185.137.157.59:443?type=tcp&security=tls&headerType=none&sni=www.lateralio.click&fp=chrome&insecure=1&allowInsecure=1#T.ME: @aristapnel
-trojan://lhvfOzkRQqNd9cLDwpryrAkFGgqzlZR9Fi@38.54.13.189:443?security=tls&headerType=none&type=tcp&sni=38.54.13.189#T.ME: @aristapnel
+trojan://4f4d1167-ef14-4304-9bce-0740472503ef@188.253.12.90:46424?security=tls&sni=de.01.naiun.bilibili.com#T.ME: @aristapnel
+trojan://fFj7MAGy1VlAWmB_gMBG_27oPYTSHvV6MX@185.137.157.59:443?security=tls&sni=www.lateralio.click#T.ME: @aristapnel
+trojan://lhvfOzkRQqNd9cLDwpryrAkFGgqzlZR9Fi@38.54.13.189:443?type=tcp&security=tls&headerType=none&sni=38.54.13.189&fp=chrome&insecure=1&allowInsecure=1#T.ME: @aristapnel
 trojan://4f4d1167-ef14-4304-9bce-0740472503ef@188.253.12.93:48697?security=tls&sni=gh.01.naiun.bilibili.com#T.ME: @aristapnel
 trojan://GTCCjtvCtuy03-aV1mwF0OkG2q6yL+Fc5K@207.126.167.241:443?type=tcp&security=tls&headerType=none&sni=207.126.167.241&fp=chrome&insecure=1&allowInsecure=1#T.ME: @aristapnel
-trojan://s75Gtmy56sptTA39hmBH965YYx4ZgfQR_I@103.125.219.70:443?security=tls&headerType=none&type=tcp&sni=103.125.219.70#T.ME: @aristapnel
+trojan://s75Gtmy56sptTA39hmBH965YYx4ZgfQR_I@103.125.219.70:443?type=tcp&security=tls&headerType=none&sni=103.125.219.70&fp=chrome&insecure=1&allowInsecure=1#T.ME: @aristapnel
 trojan://tUtK5TKdjxsPnOyritLtv8OQWHAK8f8yNR@130.94.94.15:443?type=tcp&security=tls&headerType=none&sni=130.94.94.15&fp=chrome&insecure=1&allowInsecure=1#T.ME: @aristapnel
-trojan://hF7uSJfeBPtSNXKtuYvTRNaBdGkkXHpKJfLRfbpaDWovomSL@3.8.238.251:443?path=%2Fuk1-uk1-gcjtze&amp;security=tls&amp;insecure=0&amp;type=ws&amp;allowInsecure=0&amp;sni=uk1.bw8848.org#T.ME: @aristapnel
+trojan://4f4d1167-ef14-4304-9bce-0740472503ef@188.253.12.99:45553?security=tls&sni=ch.01.naiun.bilibili.com#T.ME: @aristapnel
+trojan://4f4d1167-ef14-4304-9bce-0740472503ef@188.253.12.90:45553?security=tls&sni=ch.01.naiun.bilibili.com#T.ME: @aristapnel
+trojan://hF7uSJfeBPtSNXKtuYvTRNaBdGkkXHpKJfLRfbpaDWovomSL@3.8.238.251:443?path=%2Fuk1-uk1-gcjtze&security=tls&insecure=0&host=uk1.bw8848.org&type=ws&allowInsecure=0&sni=uk1.bw8848.org#T.ME: @aristapnel
 trojan://4f4d1167-ef14-4304-9bce-0740472503ef@188.253.12.96:46424?security=tls&sni=de.01.naiun.bilibili.com#T.ME: @aristapnel
-trojan://5JKj82yC2BNxy8LAZha8Gsj2BAexJJU7ttTfeFcuHzmLjAiZ@46.137.202.140:443?security=tls&sni=node1.bw8848.org&type=ws&host=node1.bw8848.org&path=/node1-node1-5sczzi#T.ME: @aristapnel
-trojan://4f4d1167-ef14-4304-9bce-0740472503ef@103.177.136.42:41943?security=tls&sni=az.01.naiun.bilibili.com#T.ME: @aristapnel
 trojan://4f4d1167-ef14-4304-9bce-0740472503ef@103.177.136.42:45553?security=tls&sni=ch.01.naiun.bilibili.com#T.ME: @aristapnel
-trojan://4f4d1167-ef14-4304-9bce-0740472503ef@103.177.136.42:45619?security=tls&sni=fr.01.naiun.bilibili.com#T.ME: @aristapnel
-trojan://4f4d1167-ef14-4304-9bce-0740472503ef@103.177.136.45:48697?security=tls&sni=gh.01.naiun.bilibili.com#T.ME: @aristapnel
-trojan://4f4d1167-ef14-4304-9bce-0740472503ef@103.177.136.42:47909?security=tls&sni=is.01.naiun.bilibili.com#T.ME: @aristapnel
+trojan://4f4d1167-ef14-4304-9bce-0740472503ef@188.253.12.99:46424?security=tls&sni=de.01.naiun.bilibili.com#T.ME: @aristapnel
+trojan://4f4d1167-ef14-4304-9bce-0740472503ef@103.177.136.45:47909?security=tls&sni=is.01.naiun.bilibili.com#T.ME: @aristapnel
+trojan://5JKj82yC2BNxy8LAZha8Gsj2BAexJJU7ttTfeFcuHzmLjAiZ@46.137.202.140:443?security=tls&sni=node1.bw8848.org&type=ws&host=node1.bw8848.org&path=/node1-node1-5sczzi#T.ME: @aristapnel
+trojan://4f4d1167-ef14-4304-9bce-0740472503ef@188.253.12.93:41943?security=tls&sni=az.01.naiun.bilibili.com#T.ME: @aristapnel
+trojan://4f4d1167-ef14-4304-9bce-0740472503ef@188.253.12.94:45553?security=tls&sni=ch.01.naiun.bilibili.com#T.ME: @aristapnel
+trojan://4f4d1167-ef14-4304-9bce-0740472503ef@188.253.12.98:47909?security=tls&sni=is.01.naiun.bilibili.com#T.ME: @aristapnel
+trojan://4f4d1167-ef14-4304-9bce-0740472503ef@188.253.12.90:45619?security=tls&sni=fr.01.naiun.bilibili.com#T.ME: @aristapnel
+trojan://4f4d1167-ef14-4304-9bce-0740472503ef@103.177.136.42:48697?security=tls&sni=gh.01.naiun.bilibili.com#T.ME: @aristapnel
+trojan://4f4d1167-ef14-4304-9bce-0740472503ef@188.253.12.99:41943?security=tls&sni=az.01.naiun.bilibili.com#T.ME: @aristapnel
 trojan://BxceQaOe@119.246.1.143:443?security=tls&sni=t.me/ripaojiedian#T.ME: @aristapnel
 trojan://LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu@ch-2.bexum.fun:443?security=tls&insecure=0&allowInsecure=0&type=tcp&headerType=none#T.ME: @aristapnel
 trojan://LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu@ch-2.bexum.fun:443?security=tls&sni=ch-2.bexum.fun&fp=chrome&insecure=0&allowInsecure=0&type=tcp&headerType=none#T.ME: @aristapnel

@@ -1,5 +1,5 @@
 // GITHUB - VMESS - Tier ALL
-// Updated: 2026-06-18 09:16:06
+// Updated: 2026-06-18 09:45:28
 // Count: 19
 
 {
@@ -256,28 +256,6 @@
     {
       "type": "vmess",
       "tag": "T.ME: @aristapnel #12",
-      "server": "23.138.148.96",
-      "server_port": 25213,
-      "uuid": "17301584-89b6-4ce3-f0df-ada8184ff58e",
-      "security": "auto",
-      "tls": {
-        "enabled": false
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "T.ME: @aristapnel #13",
-      "server": "23.141.204.132",
-      "server_port": 29633,
-      "uuid": "0685a0bf-2413-45d2-dc00-c0281387c247",
-      "security": "auto",
-      "tls": {
-        "enabled": false
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "T.ME: @aristapnel #14",
       "server": "uk.vpnjantit.com",
       "server_port": 10000,
       "uuid": "3c05ef9e-6582-11f1-a6e5-1727059cff63",
@@ -295,10 +273,32 @@
     },
     {
       "type": "vmess",
-      "tag": "T.ME: @aristapnel #15",
+      "tag": "T.ME: @aristapnel #13",
+      "server": "65.109.221.245",
+      "server_port": 33366,
+      "uuid": "2ee7eb26-8118-4d0a-a300-8d0edcfde6e5",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "T.ME: @aristapnel #14",
       "server": "89.167.82.102",
       "server_port": 4443,
       "uuid": "88553247-c1c8-4e80-9db6-56bff7efc33b",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "T.ME: @aristapnel #15",
+      "server": "nlt.reata.ir",
+      "server_port": 1020,
+      "uuid": "6244c41a-f4c1-4733-a654-c38f7729b13c",
       "security": "auto",
       "tls": {
         "enabled": false
@@ -364,8 +364,12 @@
       "tag": "block"
     },
     {
-      "type": "selector",
-      "tag": "proxy",
+      "type": "urltest",
+      "tag": "🚀 ARISTA LOW LATENCY",
+      "url": "http://www.gstatic.com/generate_204",
+      "interval": "300s",
+      "tolerance": 50,
+      "idle_timeout": "30s",
       "outbounds": [
         "T.ME: @aristapnel #1",
         "T.ME: @aristapnel #2",
@@ -385,14 +389,12 @@
         "T.ME: @aristapnel #16",
         "T.ME: @aristapnel #17",
         "T.ME: @aristapnel #18",
-        "T.ME: @aristapnel #19",
-        "direct"
-      ],
-      "default": "T.ME: @aristapnel #1"
+        "T.ME: @aristapnel #19"
+      ]
     },
     {
-      "type": "urltest",
-      "tag": "auto",
+      "type": "selector",
+      "tag": "🎬 ARISTA STREAM",
       "outbounds": [
         "T.ME: @aristapnel #1",
         "T.ME: @aristapnel #2",
@@ -414,14 +416,77 @@
         "T.ME: @aristapnel #18",
         "T.ME: @aristapnel #19"
       ],
-      "url": "http://www.gstatic.com/generate_204",
-      "interval": "5m",
-      "tolerance": 50
+      "default": "T.ME: @aristapnel #1"
+    },
+    {
+      "type": "load_balance",
+      "tag": "⚖️ ARISTA BALANCE",
+      "strategy": "consistent_hashing",
+      "outbounds": [
+        "T.ME: @aristapnel #1",
+        "T.ME: @aristapnel #2",
+        "T.ME: @aristapnel #3",
+        "T.ME: @aristapnel #4",
+        "T.ME: @aristapnel #5",
+        "T.ME: @aristapnel #6",
+        "T.ME: @aristapnel #7",
+        "T.ME: @aristapnel #8",
+        "T.ME: @aristapnel #9",
+        "T.ME: @aristapnel #10",
+        "T.ME: @aristapnel #11",
+        "T.ME: @aristapnel #12",
+        "T.ME: @aristapnel #13",
+        "T.ME: @aristapnel #14",
+        "T.ME: @aristapnel #15",
+        "T.ME: @aristapnel #16",
+        "T.ME: @aristapnel #17",
+        "T.ME: @aristapnel #18",
+        "T.ME: @aristapnel #19"
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "🛡 ARISTA BACKUP",
+      "outbounds": [
+        "T.ME: @aristapnel #1",
+        "T.ME: @aristapnel #2",
+        "T.ME: @aristapnel #3",
+        "T.ME: @aristapnel #4",
+        "T.ME: @aristapnel #5",
+        "T.ME: @aristapnel #6",
+        "T.ME: @aristapnel #7",
+        "T.ME: @aristapnel #8",
+        "T.ME: @aristapnel #9",
+        "T.ME: @aristapnel #10",
+        "T.ME: @aristapnel #11",
+        "T.ME: @aristapnel #12",
+        "T.ME: @aristapnel #13",
+        "T.ME: @aristapnel #14",
+        "T.ME: @aristapnel #15",
+        "T.ME: @aristapnel #16",
+        "T.ME: @aristapnel #17",
+        "T.ME: @aristapnel #18",
+        "T.ME: @aristapnel #19"
+      ],
+      "default": "T.ME: @aristapnel #1"
+    },
+    {
+      "type": "selector",
+      "tag": "🎯 ARISTA CORE",
+      "outbounds": [
+        "🚀 ARISTA LOW LATENCY",
+        "🎬 ARISTA STREAM",
+        "⚖️ ARISTA BALANCE",
+        "🛡 ARISTA BACKUP",
+        "direct",
+        "block"
+      ],
+      "default": "🚀 ARISTA LOW LATENCY"
     }
   ],
   "route": {
     "auto_detect_interface": true,
-    "final": "proxy",
+    "final": "🎯 ARISTA CORE",
     "default_domain_resolver": "cloudflare",
     "rules": [
       {
