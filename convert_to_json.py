@@ -449,15 +449,19 @@ class ConfigToJSONConverter:
     def build_singbox_config(self, proxies: List[Dict]) -> Dict:
         if not proxies:
             return {
-                "log": {"level": "info"},
+                "log": {"level": "info", "timestamp": True},
                 "inbounds": [],
                 "outbounds": [{"type": "direct", "tag": "direct"}],
-                "route": {"rules": []}
+                "route": {"final": "direct", "rules": []}
             }
-        tags = [p["tag"] for p in proxies if "tag" in p]
+
         for p in proxies:
-            if isinstance(p, dict) and "type" in p:
-                p.setdefault("domain_resolver", "dns")
+            if isinstance(p, dict):
+                p.pop("domain_resolver", None)
+                p.pop("default_domain_resolver", None)
+
+        tags = [p.get("tag") for p in proxies if isinstance(p, dict) and p.get("tag")]
+
         return {
             "log": {
                 "level": "info",
