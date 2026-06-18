@@ -1,5 +1,5 @@
 // GITHUB - VLESS - Tier 100
-// Updated: 2026-06-18 07:12:24
+// Updated: 2026-06-18 08:48:35
 // Count: 100
 
 {
@@ -64,8 +64,7 @@
           "short_id": "8bcfe256cf216fd8"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -86,8 +85,7 @@
           "public_key": "K0iITauuYEqIayR3IB5Ny8MVKyORDJ65rUSHc3tLe1E",
           "short_id": "42c0b628ba6a42a9"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -113,8 +111,7 @@
         "headers": {
           "Host": "zh.hollowspot.ir"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -136,8 +133,7 @@
           "short_id": "9eb31eb7572c0882"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -159,8 +155,7 @@
           "short_id": "cd57a927f6b72d81"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -182,8 +177,7 @@
           "short_id": "4a5b6c7d"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -204,8 +198,7 @@
           "public_key": "ve8spuAYBeV8j7QnofoqGecdYl1KZYYcykiyHHzNg1U",
           "short_id": "0bce"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -227,8 +220,7 @@
           "short_id": "9eb31eb7572c0882"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -247,8 +239,7 @@
         "alpn": [
           "http/1.1"
         ]
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -270,8 +261,7 @@
           "short_id": "9eb31eb7572c0882"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -281,8 +271,7 @@
       "uuid": "d3b5fdf3-bdcb-4dec-b46b-c06b5d828f73",
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -305,8 +294,7 @@
         "headers": {
           "Host": "cd11.thisiswe.uno"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -332,8 +320,7 @@
         "headers": {
           "Host": "nobitex.sylu.net"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -359,8 +346,7 @@
         "headers": {
           "Host": "instxrpt.samanidempire.org"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -381,8 +367,7 @@
           "public_key": "-zsPOGrZY1Dlb6eypa5V_OPaLBpT66FX3cSo0mNX8SI",
           "short_id": "47ee5c592c1672cf"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -404,8 +389,7 @@
           "short_id": "39a1eb3ec417cd66"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -427,8 +411,7 @@
           "short_id": "0f917152a871e9c0"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -450,8 +433,7 @@
           "short_id": "701775cae5f3a793"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -472,8 +454,7 @@
           "public_key": "xrzsSwm-PkWv-DgyaFCVd_QELA6YFBtvaDOlQCd7Sj8",
           "short_id": "e4656850eaed4e86"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -483,8 +464,7 @@
       "uuid": "7007111a-c28b-4ab1-8d28-bc7b42681028",
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -506,8 +486,7 @@
           "short_id": "ead461"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -529,8 +508,7 @@
           "short_id": "90a13f"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -540,8 +518,7 @@
       "uuid": "d3b5fdf3-bdcb-4dec-b46b-c06b5d828f73",
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -563,8 +540,7 @@
           "short_id": "e164b85aec8a7422"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -585,8 +561,7 @@
           "http/1.1"
         ]
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -607,8 +582,7 @@
           "public_key": "L0T7BLyB6gtVckvnxryaK-GGd2XwgoJ3YFM9M8kXmho",
           "short_id": "7554"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -629,8 +603,7 @@
           "public_key": "a3wxOmmJ95RHcuVYvxGusowLy8c6a4amlbS2OxMNTHc",
           "short_id": "52ad"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -651,8 +624,7 @@
           "public_key": "1RJ2ulM9UyAC8PFy194dV0RTZI6xF6U4CGClhNz9fTg",
           "short_id": "50ed6f6007515d63"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -674,8 +646,7 @@
           "short_id": "174c6cf22e22"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -697,8 +668,7 @@
           "short_id": "d49d578f280fd83a"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -720,8 +690,7 @@
           "short_id": "4fa44664f6a566d3"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -742,8 +711,7 @@
           "public_key": "tMbRR1FTvBecmMv3GLv50T21hXHqHxulqWBKwNEW50Q",
           "short_id": "822d"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -760,8 +728,7 @@
         "headers": {
           "Host": "sc-france2.09vpn.com"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -783,8 +750,7 @@
           "short_id": "8dc4fccb2bcfc99d"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -805,8 +771,7 @@
           "public_key": "QRvZBf0tz7ij9V7L4MjXkHoMkdDAbwc-UzyDt-PLshU"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -828,8 +793,7 @@
           "short_id": "33554379411b3219"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -851,8 +815,7 @@
           "short_id": "65ce6cee3941af69"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -873,8 +836,7 @@
           "public_key": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -896,8 +858,7 @@
           "short_id": "6bb3c7f9f97b45b8"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -919,8 +880,7 @@
           "short_id": "6354585c37827955"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -942,8 +902,7 @@
           "short_id": "81"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -965,8 +924,7 @@
           "short_id": "a1b2c3d4e5f60789"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -988,8 +946,7 @@
           "short_id": "8f222b3475800821"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1011,8 +968,7 @@
           "short_id": "18e4d2d21241"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1034,8 +990,7 @@
           "short_id": "a20d3ed244c76426"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1060,8 +1015,7 @@
       "transport": {
         "type": "grpc",
         "service_name": "grpc"
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1083,8 +1037,7 @@
           "short_id": "1929ef620e9b34f5"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1106,8 +1059,7 @@
           "short_id": "1929ef620e9b34f5"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1129,8 +1081,7 @@
           "short_id": "f4b4a6365558ea2e"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1151,8 +1102,7 @@
           "public_key": "6_hMGHFRodRl4rUOlv0mJJBC-9en9gNpypLiNqBAuw0",
           "short_id": "281902"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1174,8 +1124,7 @@
           "short_id": "2715592069f36fe7"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1196,8 +1145,7 @@
           "public_key": "Qkso5vLwNsJx8xXmMfwzEYXey_XmDMriA9k4uP-negg",
           "short_id": "a9b6"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1219,8 +1167,7 @@
           "short_id": "a1b2c3d4e5f6789a"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1241,8 +1188,7 @@
           "public_key": "2Z2meC9rRAMD3k52ne8dh8PdfRNpOs5T9yObPyFkXyQ",
           "short_id": "f9fe"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1264,8 +1210,7 @@
           "short_id": "9f35da6c9412b832"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1287,8 +1232,7 @@
           "short_id": "2715592069f36fe7"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1310,8 +1254,7 @@
           "short_id": "f6e197a0b9f2"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1333,8 +1276,7 @@
           "short_id": "1929ef620e9b34f5"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1357,8 +1299,7 @@
       "transport": {
         "type": "grpc",
         "service_name": "GunService"
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1381,8 +1322,7 @@
         "headers": {
           "Host": "fi.unoix.io"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1404,8 +1344,7 @@
           "short_id": "37e6f3e4339e"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1426,8 +1365,7 @@
           "public_key": "3iQ5QX52pIjouDXoPSfrQRvpqaOTqG26IJLctU7McAY",
           "short_id": "02"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1441,8 +1379,7 @@
       "transport": {
         "type": "grpc",
         "service_name": "GunService"
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1464,8 +1401,7 @@
           "short_id": "48fccabc158a4c22"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1490,8 +1426,7 @@
       "transport": {
         "type": "grpc",
         "service_name": "vless"
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1514,8 +1449,7 @@
         "headers": {
           "Host": "jafarservices.jafarghasemiturk.ir"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1537,8 +1471,7 @@
           "short_id": "04bf0403f96e5b4b"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1559,8 +1492,7 @@
           "public_key": "RravQN06gzsNsm5ojEhZGrxBgLGEpqEThtHEltdjpBk",
           "short_id": "b3d76d"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1574,8 +1506,7 @@
       "transport": {
         "type": "grpc",
         "service_name": "GunService"
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1592,8 +1523,7 @@
         "headers": {
           "Host": "telewebion.com"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1607,8 +1537,7 @@
       "transport": {
         "type": "grpc",
         "service_name": "GunService"
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1630,8 +1559,7 @@
           "short_id": "04bf0403f96e5b4b"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1653,8 +1581,7 @@
           "short_id": "f7aa9e61197d3ac6"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1677,8 +1604,7 @@
         "headers": {
           "Host": "r4.bb0.ccwu.cc"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1695,8 +1621,7 @@
         "headers": {
           "Host": "ggbnh.1x5.indevs.in"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1718,8 +1643,7 @@
           "short_id": "9eff19e0405a"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1739,8 +1663,7 @@
           "enabled": true,
           "public_key": "w28tNIWZCfW4X9aQDLwXECK3pU59zihJ0GIMA13u5X8"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1762,8 +1685,7 @@
           "short_id": "6bb3c7f9f97b45b8"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1784,8 +1706,7 @@
           "public_key": "1xMt7stxzh55Xy31H180TZNMvRYNkhEE86StqE4CtDs",
           "short_id": "2f2a"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1807,8 +1728,7 @@
           "short_id": "42237f32aba8"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1830,8 +1750,7 @@
           "short_id": "64318fb6091432"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1848,8 +1767,7 @@
         "headers": {
           "Host": "ghj.ae1autumn.cc.cd"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1871,8 +1789,7 @@
           "short_id": "0ea9a621ae03e231"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1894,8 +1811,7 @@
           "short_id": "205748bc0f24a747"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1917,8 +1833,7 @@
           "short_id": "e49b4e3d5f46d5c2"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1940,8 +1855,7 @@
           "short_id": "1929ef620e9b34f5"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1963,8 +1877,7 @@
           "short_id": "9409f73c2fd7"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1987,8 +1900,7 @@
         "headers": {
           "Host": "vbhj.dddct.us.ci"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -2010,8 +1922,7 @@
           "short_id": "205748bc0f24a747"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -2032,8 +1943,7 @@
           "public_key": "Wvt6tuMcFY9rWF2BsdAD4DXgLAoxQJxHWlao2BPR23Y"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -2056,8 +1966,7 @@
         "headers": {
           "Host": "njkkl.5nn.ccwu.cc"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -2073,8 +1982,7 @@
           "enabled": true,
           "fingerprint": "chrome"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -2095,8 +2003,7 @@
           "public_key": "kKX1o7FhJLyDaVE6sqXUcYpUIuFUgij_ueRYc_E4JhM",
           "short_id": "1a24af87"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -2117,8 +2024,7 @@
           "public_key": "SnWZg6ORcQepuWLI1EVCTTVc4KyfDiGWR4o_CXCMhgk",
           "short_id": "4ae260"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -2140,8 +2046,7 @@
           "short_id": "afef94e2"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -2163,8 +2068,7 @@
           "short_id": "d9c2d8"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -2187,8 +2091,7 @@
         "headers": {
           "Host": "tttyu.003330333.xyz"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -2209,8 +2112,7 @@
           "public_key": "3zn513ilYXOJngXLRP0MUnK23HuB9TKLjQ7YG20dzTQ"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -2231,8 +2133,7 @@
           "public_key": "4cfuj5otn8-uhPUe23OhB6KY8I42AxxJNt4lWIpg_AU"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -2253,8 +2154,7 @@
           "public_key": "-kDgSQgouE56cqDIDwgCco1LNQ-8q61WllL5egDI0yI",
           "short_id": "6670"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "direct",

@@ -1,6 +1,6 @@
 # GITHUB - ALL - Tier 50
-# Updated: 2026-06-18 07:09:19
-# Count: 50
+# Updated: 2026-06-18 08:45:41
+# Count: 48
 
 proxies:
 - name: 'T.ME: @aristapnel #1'
@@ -18,17 +18,6 @@ proxies:
     path: '%2Fassignment'
     headers:
       Host: www.calmlunch.com
-- name: 'T.ME: @aristapnel #2'
-  type: trojan
-  server: 51.75.86.196
-  port: 55646
-  password: 03mpolj39zyewzufal2r
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  tcp-fast-open: true
-  servername: 51.75.86.196
-  client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #3'
   type: trojan
   server: 51.75.86.196
@@ -53,20 +42,16 @@ proxies:
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #5'
   type: trojan
-  server: store.ubi.com
-  port: 443
-  password: 4c3164ee-abcf-4091-abea-d1cd4937a68d
-  network: ws
+  server: 51.75.86.196
+  port: 55646
+  password: 03mpolj39zyewzufal2r
+  network: tcp
   udp: true
   skip-cert-verify: false
   tcp-fast-open: true
-  servername: jy.hhllfly.kdns.fr
+  servername: 51.75.86.196
   client-fingerprint: chrome
-  ws-opts:
-    path: /
-    headers:
-      Host: jy.hhllfly.kdns.fr
-- name: 'T.ME: @aristapnel #6'
+- name: 'T.ME: @aristapnel #7'
   type: trojan
   server: 213.176.113.98
   port: 2053
@@ -81,17 +66,6 @@ proxies:
     path: /trTelegram🇨🇳+@WangCai2
     headers:
       Host: Koma-YT.PAGeS.Dev
-- name: 'T.ME: @aristapnel #7'
-  type: trojan
-  server: 185.126.236.44
-  port: 443
-  password: BSs5IAVMQdYuykvDsOYZoa6gNPSGBjAbLL
-  network: tcp
-  udp: true
-  skip-cert-verify: false
-  tcp-fast-open: true
-  servername: www.mesaly.click
-  client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #8'
   type: trojan
   server: 185.126.236.44
@@ -145,6 +119,15 @@ proxies:
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #13'
   type: hysteria2
+  server: vpn-de-002.fastervpn.world
+  port: 443
+  password: qQe1z5kU8kN6SlKnDt9Ru3Qp
+  sni: vpn-de-002.fastervpn.world
+  skip-cert-verify: false
+  fast-open: true
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #14'
+  type: hysteria2
   server: 130.61.50.75
   port: 6443
   password: zhangyang
@@ -152,7 +135,7 @@ proxies:
   skip-cert-verify: false
   fast-open: true
   client-fingerprint: chrome
-- name: 'T.ME: @aristapnel #14'
+- name: 'T.ME: @aristapnel #15'
   type: hysteria2
   server: mumbai-3.nezhasu.com
   port: 443
@@ -161,7 +144,7 @@ proxies:
   skip-cert-verify: false
   fast-open: true
   client-fingerprint: chrome
-- name: 'T.ME: @aristapnel #15'
+- name: 'T.ME: @aristapnel #16'
   type: hysteria2
   server: lsdg1.lansecs.top
   port: 58338
@@ -170,7 +153,7 @@ proxies:
   skip-cert-verify: false
   fast-open: true
   client-fingerprint: chrome
-- name: 'T.ME: @aristapnel #16'
+- name: 'T.ME: @aristapnel #17'
   type: hysteria2
   server: 70.34.215.221
   port: 20335
@@ -181,7 +164,7 @@ proxies:
   client-fingerprint: chrome
   obfs: salamander
   obfs-password: U1wBrYQyFm
-- name: 'T.ME: @aristapnel #17'
+- name: 'T.ME: @aristapnel #18'
   type: hysteria2
   server: dir.cybsecguru.com
   port: 35000
@@ -192,7 +175,7 @@ proxies:
   client-fingerprint: chrome
   obfs: salamander
   obfs-password: '%40JavidnamanIran-Javid-SHAH-KingRezaPahlavi'
-- name: 'T.ME: @aristapnel #18'
+- name: 'T.ME: @aristapnel #19'
   type: hysteria2
   server: falankefu1.nezhasu.com
   port: 443
@@ -201,21 +184,12 @@ proxies:
   skip-cert-verify: false
   fast-open: true
   client-fingerprint: chrome
-- name: 'T.ME: @aristapnel #19'
+- name: 'T.ME: @aristapnel #20'
   type: hysteria2
   server: lsus3.lansecs.top
   port: 58338
   password: e42a38c4-4bea-42d6-90f1-3076e12f8c51
   sni: lsus3.lansecs.top
-  skip-cert-verify: false
-  fast-open: true
-  client-fingerprint: chrome
-- name: 'T.ME: @aristapnel #20'
-  type: hysteria2
-  server: lundun1.nezhasu.com
-  port: 443
-  password: 2b195c17-5ff5-4b0d-a809-210b92212394
-  sni: lundun1.nezhasu.com
   skip-cert-verify: false
   fast-open: true
   client-fingerprint: chrome
@@ -676,11 +650,9 @@ proxy-groups:
   timeout: 3000
   proxies: &id001
   - 'T.ME: @aristapnel #1'
-  - 'T.ME: @aristapnel #2'
   - 'T.ME: @aristapnel #3'
   - 'T.ME: @aristapnel #4'
   - 'T.ME: @aristapnel #5'
-  - 'T.ME: @aristapnel #6'
   - 'T.ME: @aristapnel #7'
   - 'T.ME: @aristapnel #8'
   - 'T.ME: @aristapnel #9'

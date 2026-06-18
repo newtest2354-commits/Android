@@ -1,6 +1,6 @@
 // TELEGRAM - SS - Tier 50
-// Updated: 2026-06-18 07:12:23
-// Count: 2
+// Updated: 2026-06-18 08:48:35
+// Count: 4
 
 {
   "log": {
@@ -46,21 +46,35 @@
   "outbounds": [
     {
       "type": "shadowsocks",
-      "tag": "ARISTA #29",
-      "server": "admin.c1.havij.co",
-      "server_port": 443,
+      "tag": "ARISTA #23",
+      "server": "82.38.31.7",
+      "server_port": 8080,
       "method": "chacha20-ietf-poly1305",
-      "password": "1kVr0KATIJI7mwOF",
-      "domain_resolver": "dns"
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
     },
     {
       "type": "shadowsocks",
-      "tag": "ARISTA #30",
+      "tag": "ARISTA #33",
+      "server": "admin.c1.havij.co",
+      "server_port": 443,
+      "method": "chacha20-ietf-poly1305",
+      "password": "1kVr0KATIJI7mwOF"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ARISTA #34",
       "server": "series-a1.samanehha.co",
       "server_port": 443,
       "method": "chacha20-ietf-poly1305",
-      "password": "W74XFALLLuw6m5IA",
-      "domain_resolver": "dns"
+      "password": "W74XFALLLuw6m5IA"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ARISTA #35",
+      "server": "3.8.48.222",
+      "server_port": 80,
+      "method": "aes-256-gcm",
+      "password": "dada1203"
     },
     {
       "type": "direct",
@@ -74,18 +88,22 @@
       "type": "selector",
       "tag": "proxy",
       "outbounds": [
-        "ARISTA #29",
-        "ARISTA #30",
+        "ARISTA #23",
+        "ARISTA #33",
+        "ARISTA #34",
+        "ARISTA #35",
         "direct"
       ],
-      "default": "ARISTA #29"
+      "default": "ARISTA #23"
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "ARISTA #29",
-        "ARISTA #30"
+        "ARISTA #23",
+        "ARISTA #33",
+        "ARISTA #34",
+        "ARISTA #35"
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "5m",

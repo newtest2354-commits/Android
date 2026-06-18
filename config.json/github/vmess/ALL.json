@@ -1,5 +1,5 @@
 // GITHUB - VMESS - Tier ALL
-// Updated: 2026-06-18 07:12:24
+// Updated: 2026-06-18 08:48:35
 // Count: 19
 
 {
@@ -60,8 +60,7 @@
         "headers": {
           "Host": ""
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -79,8 +78,7 @@
         "headers": {
           "Host": ""
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -98,8 +96,7 @@
         "headers": {
           "Host": "209.126.84.189"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -110,8 +107,7 @@
       "security": "auto",
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -135,8 +131,7 @@
         "headers": {
           "Host": "n1744454498.lie5d.cyou"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -154,8 +149,7 @@
         "headers": {
           "Host": "wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -179,8 +173,7 @@
         "headers": {
           "Host": "n1744454501.4u9ma.icu"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -191,8 +184,7 @@
       "security": "auto",
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -210,8 +202,7 @@
         "headers": {
           "Host": ""
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -235,8 +226,7 @@
         "headers": {
           "Host": "nm7386.teeoomboom.de"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -260,36 +250,11 @@
         "headers": {
           "Host": "jl2klj.teeoomboom.de"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
       "tag": "T.ME: @aristapnel #12",
-      "server": "23.138.148.96",
-      "server_port": 25213,
-      "uuid": "17301584-89b6-4ce3-f0df-ada8184ff58e",
-      "security": "auto",
-      "tls": {
-        "enabled": false
-      },
-      "domain_resolver": "dns"
-    },
-    {
-      "type": "vmess",
-      "tag": "T.ME: @aristapnel #13",
-      "server": "23.141.204.132",
-      "server_port": 29633,
-      "uuid": "0685a0bf-2413-45d2-dc00-c0281387c247",
-      "security": "auto",
-      "tls": {
-        "enabled": false
-      },
-      "domain_resolver": "dns"
-    },
-    {
-      "type": "vmess",
-      "tag": "T.ME: @aristapnel #14",
       "server": "uk.vpnjantit.com",
       "server_port": 10000,
       "uuid": "3c05ef9e-6582-11f1-a6e5-1727059cff63",
@@ -303,20 +268,40 @@
         "headers": {
           "Host": ""
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
-      "tag": "T.ME: @aristapnel #15",
+      "tag": "T.ME: @aristapnel #13",
+      "server": "65.109.221.245",
+      "server_port": 33366,
+      "uuid": "2ee7eb26-8118-4d0a-a300-8d0edcfde6e5",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "T.ME: @aristapnel #14",
       "server": "89.167.82.102",
       "server_port": 4443,
       "uuid": "88553247-c1c8-4e80-9db6-56bff7efc33b",
       "security": "auto",
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "T.ME: @aristapnel #15",
+      "server": "nlt.reata.ir",
+      "server_port": 1020,
+      "uuid": "6244c41a-f4c1-4733-a654-c38f7729b13c",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      }
     },
     {
       "type": "vmess",
@@ -334,8 +319,7 @@
         "headers": {
           "Host": "de4.niekotin.de"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -346,8 +330,7 @@
       "security": null,
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -358,8 +341,7 @@
       "security": "auto",
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -370,8 +352,7 @@
       "security": "auto",
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "direct",

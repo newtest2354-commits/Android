@@ -1,5 +1,5 @@
 // GITHUB - ALL - Tier 100
-// Updated: 2026-06-18 07:12:24
+// Updated: 2026-06-18 08:48:35
 // Count: 80
 
 {
@@ -65,25 +65,33 @@
         "headers": {
           "Host": "www.calmlunch.com"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "trojan",
       "tag": "T.ME: @aristapnel #2",
-      "server": "51.75.86.196",
-      "server_port": 55646,
-      "password": "03mpolj39zyewzufal2r",
+      "server": "104.21.37.101",
+      "server_port": 443,
+      "password": "%{q",
       "tls": {
         "enabled": true,
-        "server_name": "51.75.86.196",
+        "server_name": "LUmOscoNfig.codmDemOnYt1.WORKeRS.DEV",
         "insecure": false,
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
+        },
+        "alpn": [
+          "http/1.1"
+        ]
       },
-      "domain_resolver": "dns"
+      "transport": {
+        "type": "ws",
+        "path": "/eyJqdW5rIjoia3lhOG5VQlY2NU1tZyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=?ed=2560",
+        "headers": {
+          "Host": "LUmOscoNfig.codmDemOnYt1.WORKeRS.DEV"
+        }
+      }
     },
     {
       "type": "trojan",
@@ -99,8 +107,7 @@
           "enabled": true,
           "fingerprint": "chrome"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "trojan",
@@ -116,30 +123,53 @@
           "enabled": true,
           "fingerprint": "chrome"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "trojan",
       "tag": "T.ME: @aristapnel #5",
-      "server": "store.ubi.com",
-      "server_port": 443,
-      "password": "4c3164ee-abcf-4091-abea-d1cd4937a68d",
+      "server": "51.75.86.196",
+      "server_port": 55646,
+      "password": "03mpolj39zyewzufal2r",
       "tls": {
-        "enabled": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "jy.hhllfly.kdns.fr"
+        "enabled": true,
+        "server_name": "51.75.86.196",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "trojan",
       "tag": "T.ME: @aristapnel #6",
+      "server": "104.21.70.127",
+      "server_port": 443,
+      "password": "63c392c7d53c",
+      "tls": {
+        "enabled": true,
+        "server_name": "BpB-bDFD94cC.ULtdataC005.woRkErs.DEV",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "alpn": [
+          "http/1.1"
+        ]
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/eyJqdW5rIjoidkMySGZZY24iLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560",
+        "headers": {
+          "Host": "BpB-bDFD94cC.ULtdataC005.woRkErs.DEV"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "T.ME: @aristapnel #7",
       "server": "213.176.113.98",
       "server_port": 2053,
       "password": "8r<[9'l6hAO#8ZQi",
@@ -158,28 +188,7 @@
         "headers": {
           "Host": "Koma-YT.PAGeS.Dev"
         }
-      },
-      "domain_resolver": "dns"
-    },
-    {
-      "type": "trojan",
-      "tag": "T.ME: @aristapnel #7",
-      "server": "185.126.236.44",
-      "server_port": 443,
-      "password": "BSs5IAVMQdYuykvDsOYZoa6gNPSGBjAbLL",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.mesaly.click",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "alpn": [
-          "http/1.1"
-        ]
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "trojan",
@@ -194,9 +203,11 @@
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
-      },
-      "domain_resolver": "dns"
+        },
+        "alpn": [
+          "http/1.1"
+        ]
+      }
     },
     {
       "type": "trojan",
@@ -212,8 +223,7 @@
           "enabled": true,
           "fingerprint": "chrome"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "trojan",
@@ -229,8 +239,7 @@
           "enabled": true,
           "fingerprint": "chrome"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "trojan",
@@ -246,8 +255,7 @@
           "enabled": true,
           "fingerprint": "chrome"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "trojan",
@@ -263,8 +271,7 @@
           "enabled": true,
           "fingerprint": "chrome"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "trojan",
@@ -280,8 +287,7 @@
           "enabled": true,
           "fingerprint": "chrome"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "trojan",
@@ -290,9 +296,14 @@
       "server_port": 443,
       "password": "BSs5IAVMQdYuykvDsOYZoa6gNPSGBjAbLL",
       "tls": {
-        "enabled": false
-      },
-      "domain_resolver": "dns"
+        "enabled": true,
+        "server_name": "www.mesaly.click",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
     },
     {
       "type": "trojan",
@@ -302,8 +313,7 @@
       "password": "BSs5IAVMQdYuykvDsOYZoa6gNPSGBjAbLL",
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "trojan",
@@ -313,36 +323,27 @@
       "password": "BSs5IAVMQdYuykvDsOYZoa6gNPSGBjAbLL",
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "trojan",
       "tag": "T.ME: @aristapnel #17",
+      "server": "185.126.236.44",
+      "server_port": 443,
+      "password": "BSs5IAVMQdYuykvDsOYZoa6gNPSGBjAbLL",
+      "tls": {
+        "enabled": false
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "T.ME: @aristapnel #18",
       "server": "89.167.82.102",
       "server_port": 2080,
       "password": "Bhi3WHtOR7SGiDERv3KkOjhknaQNDWFm0NcmowUEsVE=",
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
-    },
-    {
-      "type": "trojan",
-      "tag": "T.ME: @aristapnel #18",
-      "server": "130.94.107.242",
-      "server_port": 443,
-      "password": "Bt-qzyomC7g37TaHwvPSV0.YrNSxFmlvIP",
-      "tls": {
-        "enabled": true,
-        "server_name": "130.94.107.242",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "trojan",
@@ -358,8 +359,7 @@
           "enabled": true,
           "fingerprint": "chrome"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "trojan",
@@ -375,8 +375,7 @@
           "enabled": true,
           "fingerprint": "chrome"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "trojan",
@@ -392,8 +391,7 @@
           "enabled": true,
           "fingerprint": "chrome"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
@@ -405,8 +403,7 @@
         "enabled": true,
         "server_name": "202.61.205.86",
         "insecure": true
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
@@ -418,12 +415,23 @@
         "enabled": true,
         "server_name": "62.210.124.146",
         "insecure": true
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
       "tag": "T.ME: @aristapnel #24",
+      "server": "vpn-de-002.fastervpn.world",
+      "server_port": 443,
+      "password": "qQe1z5kU8kN6SlKnDt9Ru3Qp",
+      "tls": {
+        "enabled": true,
+        "server_name": "vpn-de-002.fastervpn.world",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "T.ME: @aristapnel #25",
       "server": "130.61.50.75",
       "server_port": 6443,
       "password": "zhangyang",
@@ -431,12 +439,11 @@
         "enabled": true,
         "server_name": "130.61.50.75",
         "insecure": true
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
-      "tag": "T.ME: @aristapnel #25",
+      "tag": "T.ME: @aristapnel #26",
       "server": "mumbai-3.nezhasu.com",
       "server_port": 443,
       "password": "2b195c17-5ff5-4b0d-a809-210b92212394",
@@ -444,12 +451,11 @@
         "enabled": true,
         "server_name": "mumbai-3.nezhasu.com",
         "insecure": true
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
-      "tag": "T.ME: @aristapnel #26",
+      "tag": "T.ME: @aristapnel #27",
       "server": "lsdg1.lansecs.top",
       "server_port": 58338,
       "password": "e42a38c4-4bea-42d6-90f1-3076e12f8c51",
@@ -457,12 +463,11 @@
         "enabled": true,
         "server_name": "lsdg1.lansecs.top",
         "insecure": true
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
-      "tag": "T.ME: @aristapnel #27",
+      "tag": "T.ME: @aristapnel #28",
       "server": "70.34.215.221",
       "server_port": 20335,
       "password": "80747420-96c4-4a2f-83e6-eea4e46beb09",
@@ -474,12 +479,11 @@
       "obfs": {
         "type": "salamander",
         "password": "U1wBrYQyFm"
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
-      "tag": "T.ME: @aristapnel #28",
+      "tag": "T.ME: @aristapnel #29",
       "server": "dir.cybsecguru.com",
       "server_port": 35000,
       "password": "b4bd0613-ff7c-4f2f-954d-185915e6ddad",
@@ -491,12 +495,11 @@
       "obfs": {
         "type": "salamander",
         "password": "@JavidnamanIran-Javid-SHAH-KingRezaPahlavi"
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
-      "tag": "T.ME: @aristapnel #29",
+      "tag": "T.ME: @aristapnel #30",
       "server": "falankefu1.nezhasu.com",
       "server_port": 443,
       "password": "2b195c17-5ff5-4b0d-a809-210b92212394",
@@ -504,12 +507,11 @@
         "enabled": true,
         "server_name": "falankefu1.nezhasu.com",
         "insecure": true
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
-      "tag": "T.ME: @aristapnel #30",
+      "tag": "T.ME: @aristapnel #31",
       "server": "lsus3.lansecs.top",
       "server_port": 58338,
       "password": "e42a38c4-4bea-42d6-90f1-3076e12f8c51",
@@ -517,12 +519,11 @@
         "enabled": true,
         "server_name": "lsus3.lansecs.top",
         "insecure": true
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
-      "tag": "T.ME: @aristapnel #31",
+      "tag": "T.ME: @aristapnel #32",
       "server": "lundun1.nezhasu.com",
       "server_port": 443,
       "password": "2b195c17-5ff5-4b0d-a809-210b92212394",
@@ -530,12 +531,11 @@
         "enabled": true,
         "server_name": "lundun1.nezhasu.com",
         "insecure": true
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
-      "tag": "T.ME: @aristapnel #32",
+      "tag": "T.ME: @aristapnel #33",
       "server": "xg.xn--mes13n8pi8x2b.shop",
       "server_port": 21072,
       "password": "642dc0b9-6481-4d84-ad60-3586e870f263",
@@ -543,12 +543,11 @@
         "enabled": true,
         "server_name": "xg.xn--mes13n8pi8x2b.shop",
         "insecure": true
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
-      "tag": "T.ME: @aristapnel #33",
+      "tag": "T.ME: @aristapnel #34",
       "server": "xg.xn--mes13n8pi8x2b.shop",
       "server_port": 21494,
       "password": "642dc0b9-6481-4d84-ad60-3586e870f263",
@@ -556,12 +555,11 @@
         "enabled": true,
         "server_name": "xg.xn--mes13n8pi8x2b.shop",
         "insecure": true
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
-      "tag": "T.ME: @aristapnel #34",
+      "tag": "T.ME: @aristapnel #35",
       "server": "tw.xn--mes13n8pi8x2b.shop",
       "server_port": 21828,
       "password": "642dc0b9-6481-4d84-ad60-3586e870f263",
@@ -569,12 +567,11 @@
         "enabled": true,
         "server_name": "tw.xn--mes13n8pi8x2b.shop",
         "insecure": true
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
-      "tag": "T.ME: @aristapnel #35",
+      "tag": "T.ME: @aristapnel #36",
       "server": "tw.xn--mes13n8pi8x2b.shop",
       "server_port": 21860,
       "password": "642dc0b9-6481-4d84-ad60-3586e870f263",
@@ -582,12 +579,11 @@
         "enabled": true,
         "server_name": "tw.xn--mes13n8pi8x2b.shop",
         "insecure": true
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
-      "tag": "T.ME: @aristapnel #36",
+      "tag": "T.ME: @aristapnel #37",
       "server": "rb.xn--mes13n8pi8x2b.shop",
       "server_port": 21545,
       "password": "642dc0b9-6481-4d84-ad60-3586e870f263",
@@ -595,12 +591,11 @@
         "enabled": true,
         "server_name": "rb.xn--mes13n8pi8x2b.shop",
         "insecure": true
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
-      "tag": "T.ME: @aristapnel #37",
+      "tag": "T.ME: @aristapnel #38",
       "server": "rb.xn--mes13n8pi8x2b.shop",
       "server_port": 21842,
       "password": "642dc0b9-6481-4d84-ad60-3586e870f263",
@@ -608,12 +603,11 @@
         "enabled": true,
         "server_name": "rb.xn--mes13n8pi8x2b.shop",
         "insecure": true
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
-      "tag": "T.ME: @aristapnel #38",
+      "tag": "T.ME: @aristapnel #39",
       "server": "mg.xn--mes13n8pi8x2b.shop",
       "server_port": 21349,
       "password": "642dc0b9-6481-4d84-ad60-3586e870f263",
@@ -621,12 +615,11 @@
         "enabled": true,
         "server_name": "mg.xn--mes13n8pi8x2b.shop",
         "insecure": true
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
-      "tag": "T.ME: @aristapnel #39",
+      "tag": "T.ME: @aristapnel #40",
       "server": "mg.xn--mes13n8pi8x2b.shop",
       "server_port": 21639,
       "password": "642dc0b9-6481-4d84-ad60-3586e870f263",
@@ -634,12 +627,11 @@
         "enabled": true,
         "server_name": "mg.xn--mes13n8pi8x2b.shop",
         "insecure": true
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "hysteria2",
-      "tag": "T.ME: @aristapnel #40",
+      "tag": "T.ME: @aristapnel #41",
       "server": "trq.xn--mes13n8pi8x2b.shop",
       "server_port": 21112,
       "password": "642dc0b9-6481-4d84-ad60-3586e870f263",
@@ -647,21 +639,7 @@
         "enabled": true,
         "server_name": "trq.xn--mes13n8pi8x2b.shop",
         "insecure": true
-      },
-      "domain_resolver": "dns"
-    },
-    {
-      "type": "hysteria2",
-      "tag": "T.ME: @aristapnel #41",
-      "server": "trq.xn--mes13n8pi8x2b.shop",
-      "server_port": 21910,
-      "password": "642dc0b9-6481-4d84-ad60-3586e870f263",
-      "tls": {
-        "enabled": true,
-        "server_name": "trq.xn--mes13n8pi8x2b.shop",
-        "insecure": true
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -679,8 +657,7 @@
         "headers": {
           "Host": ""
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -698,8 +675,7 @@
         "headers": {
           "Host": ""
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -717,8 +693,7 @@
         "headers": {
           "Host": "209.126.84.189"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -729,8 +704,7 @@
       "security": "auto",
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -754,8 +728,7 @@
         "headers": {
           "Host": "n1744454498.lie5d.cyou"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -773,8 +746,7 @@
         "headers": {
           "Host": "wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -798,8 +770,7 @@
         "headers": {
           "Host": "n1744454501.4u9ma.icu"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -810,8 +781,7 @@
       "security": "auto",
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -829,8 +799,7 @@
         "headers": {
           "Host": ""
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -854,8 +823,7 @@
         "headers": {
           "Host": "nm7386.teeoomboom.de"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -879,36 +847,11 @@
         "headers": {
           "Host": "jl2klj.teeoomboom.de"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
       "tag": "T.ME: @aristapnel #73",
-      "server": "23.138.148.96",
-      "server_port": 25213,
-      "uuid": "17301584-89b6-4ce3-f0df-ada8184ff58e",
-      "security": "auto",
-      "tls": {
-        "enabled": false
-      },
-      "domain_resolver": "dns"
-    },
-    {
-      "type": "vmess",
-      "tag": "T.ME: @aristapnel #74",
-      "server": "23.141.204.132",
-      "server_port": 29633,
-      "uuid": "0685a0bf-2413-45d2-dc00-c0281387c247",
-      "security": "auto",
-      "tls": {
-        "enabled": false
-      },
-      "domain_resolver": "dns"
-    },
-    {
-      "type": "vmess",
-      "tag": "T.ME: @aristapnel #75",
       "server": "uk.vpnjantit.com",
       "server_port": 10000,
       "uuid": "3c05ef9e-6582-11f1-a6e5-1727059cff63",
@@ -922,20 +865,40 @@
         "headers": {
           "Host": ""
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
-      "tag": "T.ME: @aristapnel #76",
+      "tag": "T.ME: @aristapnel #74",
+      "server": "65.109.221.245",
+      "server_port": 33366,
+      "uuid": "2ee7eb26-8118-4d0a-a300-8d0edcfde6e5",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "T.ME: @aristapnel #75",
       "server": "89.167.82.102",
       "server_port": 4443,
       "uuid": "88553247-c1c8-4e80-9db6-56bff7efc33b",
       "security": "auto",
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "T.ME: @aristapnel #76",
+      "server": "nlt.reata.ir",
+      "server_port": 1020,
+      "uuid": "6244c41a-f4c1-4733-a654-c38f7729b13c",
+      "security": "auto",
+      "tls": {
+        "enabled": false
+      }
     },
     {
       "type": "vmess",
@@ -953,8 +916,7 @@
         "headers": {
           "Host": "de4.niekotin.de"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -965,8 +927,7 @@
       "security": null,
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -977,8 +938,7 @@
       "security": "auto",
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vmess",
@@ -989,8 +949,7 @@
       "security": "auto",
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1012,8 +971,7 @@
           "short_id": "8bcfe256cf216fd8"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1034,8 +992,7 @@
           "public_key": "K0iITauuYEqIayR3IB5Ny8MVKyORDJ65rUSHc3tLe1E",
           "short_id": "42c0b628ba6a42a9"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1061,8 +1018,7 @@
         "headers": {
           "Host": "zh.hollowspot.ir"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1084,8 +1040,7 @@
           "short_id": "9eb31eb7572c0882"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1107,8 +1062,7 @@
           "short_id": "cd57a927f6b72d81"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1130,8 +1084,7 @@
           "short_id": "4a5b6c7d"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1152,8 +1105,7 @@
           "public_key": "ve8spuAYBeV8j7QnofoqGecdYl1KZYYcykiyHHzNg1U",
           "short_id": "0bce"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1175,8 +1127,7 @@
           "short_id": "9eb31eb7572c0882"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1195,8 +1146,7 @@
         "alpn": [
           "http/1.1"
         ]
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1218,8 +1168,7 @@
           "short_id": "9eb31eb7572c0882"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1229,8 +1178,7 @@
       "uuid": "d3b5fdf3-bdcb-4dec-b46b-c06b5d828f73",
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1253,8 +1201,7 @@
         "headers": {
           "Host": "cd11.thisiswe.uno"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1280,8 +1227,7 @@
         "headers": {
           "Host": "nobitex.sylu.net"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1307,8 +1253,7 @@
         "headers": {
           "Host": "instxrpt.samanidempire.org"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1329,8 +1274,7 @@
           "public_key": "-zsPOGrZY1Dlb6eypa5V_OPaLBpT66FX3cSo0mNX8SI",
           "short_id": "47ee5c592c1672cf"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1352,8 +1296,7 @@
           "short_id": "39a1eb3ec417cd66"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1375,8 +1318,7 @@
           "short_id": "0f917152a871e9c0"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1398,8 +1340,7 @@
           "short_id": "701775cae5f3a793"
         }
       },
-      "flow": "xtls-rprx-vision",
-      "domain_resolver": "dns"
+      "flow": "xtls-rprx-vision"
     },
     {
       "type": "vless",
@@ -1420,8 +1361,7 @@
           "public_key": "xrzsSwm-PkWv-DgyaFCVd_QELA6YFBtvaDOlQCd7Sj8",
           "short_id": "e4656850eaed4e86"
         }
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "vless",
@@ -1431,8 +1371,7 @@
       "uuid": "7007111a-c28b-4ab1-8d28-bc7b42681028",
       "tls": {
         "enabled": false
-      },
-      "domain_resolver": "dns"
+      }
     },
     {
       "type": "direct",
