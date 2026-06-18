@@ -1,5 +1,5 @@
 // TELEGRAM - HYSTERIA2 - Tier ALL
-// Updated: 2026-06-17 23:12:55
+// Updated: 2026-06-18 04:17:27
 // Count: 7
 
 {
@@ -73,38 +73,6 @@
     {
       "type": "hysteria2",
       "tag": "ARISTA #2",
-      "server": "vpn-de-002.fastervpn.world",
-      "server_port": 443,
-      "password": "qQe1z5kU8kN6SlKnDt9Ru3Qp",
-      "tls": {
-        "enabled": true,
-        "server_name": "vpn-de-002.fastervpn.world",
-        "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "ARISTA #3",
-      "server": "endpoint.neoservers.ir",
-      "server_port": 30781,
-      "password": "zZlPDO5jYeaE9rYtNnjlBI0igvbIdjRX",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.microsoft.com",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "obfs": {
-        "type": "salamander",
-        "password": "8s7t1sNDH36vU8_Ixd7MckIY"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "ARISTA #4",
       "server": "213.156.152.76",
       "server_port": 443,
       "password": "@V2RayyNGvpn",
@@ -124,7 +92,51 @@
     },
     {
       "type": "hysteria2",
+      "tag": "ARISTA #3",
+      "server": "vpn-de-002.fastervpn.world",
+      "server_port": 443,
+      "password": "qQe1z5kU8kN6SlKnDt9Ru3Qp",
+      "tls": {
+        "enabled": true,
+        "server_name": "vpn-de-002.fastervpn.world",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "ARISTA #4",
+      "server": "202.61.205.86",
+      "server_port": 4433,
+      "password": "18cf8030-1ceb-4b7d-8c0c-c036413c144e",
+      "tls": {
+        "enabled": true,
+        "server_name": "202.61.205.86",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
       "tag": "ARISTA #5",
+      "server": "endpoint.neoservers.ir",
+      "server_port": 30781,
+      "password": "zZlPDO5jYeaE9rYtNnjlBI0igvbIdjRX",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.microsoft.com",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "8s7t1sNDH36vU8_Ixd7MckIY"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "ARISTA #6",
       "server": "18.157.222.169",
       "server_port": 54040,
       "password": "@Masir_Sefid",
@@ -140,18 +152,6 @@
       "obfs": {
         "type": "salamander",
         "password": "Masir_Sefid"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "ARISTA #6",
-      "server": "202.61.205.86",
-      "server_port": 4433,
-      "password": "18cf8030-1ceb-4b7d-8c0c-c036413c144e",
-      "tls": {
-        "enabled": true,
-        "server_name": "202.61.205.86",
-        "insecure": true
       }
     },
     {
@@ -216,6 +216,27 @@
     "rules": [
       {
         "action": "hijack-dns"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "domain_suffix": [
+              "google.com",
+              "youtube.com",
+              "telegram.org"
+            ]
+          },
+          {
+            "domain_keyword": [
+              "google",
+              "youtube",
+              "telegram"
+            ]
+          }
+        ],
+        "outbound": "proxy"
       }
     ]
   }

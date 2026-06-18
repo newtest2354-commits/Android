@@ -1,6 +1,6 @@
 # GITHUB - SS - Tier ALL
-# Updated: 2026-06-17 23:10:18
-# Count: 59
+# Updated: 2026-06-18 04:14:26
+# Count: 58
 
 proxies:
 - name: 'T.ME: @aristapnel #1'
@@ -269,13 +269,21 @@ proxies:
   tcp-fast-open: true
 - name: 'T.ME: @aristapnel #40'
   type: ss
+  server: admin.c1.webramz.co
+  port: 443
+  cipher: chacha20-ietf-poly1305
+  password: W74XFALLLuw6m5IA
+  udp: true
+  tcp-fast-open: true
+- name: 'T.ME: @aristapnel #41'
+  type: ss
   server: r3mrcg00129437x.cybervena.com
   port: 50099
   cipher: chacha20-ietf-poly1305
   password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #41'
+- name: 'T.ME: @aristapnel #42'
   type: ss
   server: 82.38.31.16
   port: 8080
@@ -283,7 +291,7 @@ proxies:
   password: oZIoA69Q8yhcQV8ka3Pa3A
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #42'
+- name: 'T.ME: @aristapnel #43'
   type: ss
   server: 213.226.68.8
   port: 31348
@@ -291,7 +299,7 @@ proxies:
   password: hkasb5cVrs4jE18jCEJxB4Gr55hVGW24y35gU9GIIeyT31Fw
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #43'
+- name: 'T.ME: @aristapnel #44'
   type: ss
   server: 46.246.97.3
   port: 31348
@@ -299,7 +307,7 @@ proxies:
   password: nbWNC8zZ0eXokIOuW5rL8oNrXmXg5qAuL05R4fGNKCS7IG0u
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #44'
+- name: 'T.ME: @aristapnel #45'
   type: ss
   server: 185.202.93.194
   port: 41348
@@ -307,7 +315,7 @@ proxies:
   password: HSpc9IH8JsQkeHSzzYXChjHsl7nHgSaA8K60Cd
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #45'
+- name: 'T.ME: @aristapnel #46'
   type: ss
   server: 45.129.96.62
   port: 41348
@@ -315,7 +323,7 @@ proxies:
   password: 6U3psR0sQuQxWXoBHB4KTD3YacwQwS21XvSEy9
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #46'
+- name: 'T.ME: @aristapnel #47'
   type: ss
   server: r3mrcg001286ek2.cybervena.com
   port: 50099
@@ -323,7 +331,7 @@ proxies:
   password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #47'
+- name: 'T.ME: @aristapnel #48'
   type: ss
   server: r3mrcg001269pz2.cybervena.com
   port: 50099
@@ -331,7 +339,7 @@ proxies:
   password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #48'
+- name: 'T.ME: @aristapnel #49'
   type: ss
   server: 198.98.53.130
   port: 443
@@ -339,7 +347,7 @@ proxies:
   password: eDfN7SODQceIOmIAbtJJtK
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #49'
+- name: 'T.ME: @aristapnel #50'
   type: ss
   server: 108.181.121.226
   port: 8388
@@ -347,7 +355,7 @@ proxies:
   password: WSyL4XTwNsdv
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #50'
+- name: 'T.ME: @aristapnel #51'
   type: ss
   server: 161.129.71.148
   port: 17913
@@ -355,20 +363,12 @@ proxies:
   password: wcjMniCODfhz26P7L2BvpEDQfhogbFTl
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #51'
+- name: 'T.ME: @aristapnel #52'
   type: ss
   server: 47.80.24.245
   port: 8127
   cipher: 2022-blake3-aes-128-gcm
   password: 3UebYm8HW8DU7iMs1O0pew==
-  udp: true
-  tcp-fast-open: true
-- name: 'T.ME: @aristapnel #52'
-  type: ss
-  server: r3mrcg00129437x.cybervena.com
-  port: 50099
-  cipher: chacha20-ietf-poly1305
-  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
   udp: true
   tcp-fast-open: true
 - name: 'T.ME: @aristapnel #53'
@@ -381,21 +381,13 @@ proxies:
   tcp-fast-open: true
 - name: 'T.ME: @aristapnel #54'
   type: ss
-  server: r3mrcg001269pz2.cybervena.com
-  port: 50099
-  cipher: chacha20-ietf-poly1305
-  password: 7e731ec3-f8e1-43f6-92cf-3978d14705c4
-  udp: true
-  tcp-fast-open: true
-- name: 'T.ME: @aristapnel #55'
-  type: ss
   server: 168.138.175.92
   port: 9888
   cipher: aes-128-gcm
   password: JVSuuib4ydvY8m7u6jElTYbeRO8ygJ4Hi8Iq733BqAkF
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #56'
+- name: 'T.ME: @aristapnel #55'
   type: ss
   server: 82.38.31.2
   port: 8080
@@ -403,7 +395,7 @@ proxies:
   password: oZIoA69Q8yhcQV8ka3Pa3A
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #57'
+- name: 'T.ME: @aristapnel #56'
   type: ss
   server: 130.49.161.18
   port: 28474
@@ -411,7 +403,7 @@ proxies:
   password: _TusuE5i0EzyvWsQuTiKMMr_j_sduu2E
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #58'
+- name: 'T.ME: @aristapnel #57'
   type: ss
   server: 86.106.84.198
   port: 13265
@@ -419,7 +411,7 @@ proxies:
   password: phizo046s4oqsm33sfvm
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #59'
+- name: 'T.ME: @aristapnel #58'
   type: ss
   server: 46.225.30.16
   port: 49534
@@ -427,7 +419,7 @@ proxies:
   password: tEY1W9tCYB6R5Y22378dJ9yh4H4PAZlAM/m31aG1PYM=
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #60'
+- name: 'T.ME: @aristapnel #59'
   type: ss
   server: 82.38.31.189
   port: 8080
@@ -435,7 +427,7 @@ proxies:
   password: k1dBOmOB4oqi7Ump37a1bQ
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #61'
+- name: 'T.ME: @aristapnel #60'
   type: ss
   server: 156.146.38.167
   port: 443
@@ -443,7 +435,7 @@ proxies:
   password: shadowsocks
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #62'
+- name: 'T.ME: @aristapnel #61'
   type: ss
   server: 37.19.198.160
   port: 443
@@ -451,7 +443,7 @@ proxies:
   password: shadowsocks
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #63'
+- name: 'T.ME: @aristapnel #62'
   type: ss
   server: 71.19.148.74
   port: 443
@@ -459,7 +451,7 @@ proxies:
   password: XUMTygEM1jVYIvysXKqA5T
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #64'
+- name: 'T.ME: @aristapnel #63'
   type: ss
   server: 46.249.109.128
   port: 56594
@@ -467,7 +459,7 @@ proxies:
   password: mzeMYBJYp4Bo7nA1qYLvv7QG73igtAA85nt4pr8A9ntx2qhDfYgRtiJ7iH7VrcneQKNmtvpbsvvFKPaUATYELi18iH56Ttr4
   udp: true
   tcp-fast-open: true
-- name: 'T.ME: @aristapnel #65'
+- name: 'T.ME: @aristapnel #64'
   type: ss
   server: hackney-latest-strike.freesocks.work
   port: 443
@@ -542,7 +534,6 @@ proxy-groups:
   - 'T.ME: @aristapnel #62'
   - 'T.ME: @aristapnel #63'
   - 'T.ME: @aristapnel #64'
-  - 'T.ME: @aristapnel #65'
 - name: 🎬 ARISTA STREAM
   type: fallback
   url: http://www.gstatic.com/generate_204

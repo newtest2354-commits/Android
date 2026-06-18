@@ -1,5 +1,5 @@
 // TELEGRAM - SS - Tier ALL
-// Updated: 2026-06-17 23:12:55
+// Updated: 2026-06-18 04:17:27
 // Count: 4
 
 {
@@ -52,15 +52,7 @@
   "outbounds": [
     {
       "type": "shadowsocks",
-      "tag": "ARISTA #1",
-      "server": "3.8.48.222",
-      "server_port": 80,
-      "method": "aes-256-gcm",
-      "password": "dada1203"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "ARISTA #10",
+      "tag": "ARISTA #9",
       "server": "82.38.31.7",
       "server_port": 8080,
       "method": "chacha20-ietf-poly1305",
@@ -68,7 +60,15 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "ARISTA #35",
+      "tag": "ARISTA #57",
+      "server": "3.8.48.222",
+      "server_port": 80,
+      "method": "aes-256-gcm",
+      "password": "dada1203"
+    },
+    {
+      "type": "shadowsocks",
+      "tag": "ARISTA #58",
       "server": "admin.c1.havij.co",
       "server_port": 443,
       "method": "chacha20-ietf-poly1305",
@@ -76,7 +76,7 @@
     },
     {
       "type": "shadowsocks",
-      "tag": "ARISTA #36",
+      "tag": "ARISTA #59",
       "server": "series-a1.samanehha.co",
       "server_port": 443,
       "method": "chacha20-ietf-poly1305",
@@ -94,22 +94,22 @@
       "type": "selector",
       "tag": "proxy",
       "outbounds": [
-        "ARISTA #1",
-        "ARISTA #10",
-        "ARISTA #35",
-        "ARISTA #36",
+        "ARISTA #9",
+        "ARISTA #57",
+        "ARISTA #58",
+        "ARISTA #59",
         "direct"
       ],
-      "default": "ARISTA #1"
+      "default": "ARISTA #9"
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "ARISTA #1",
-        "ARISTA #10",
-        "ARISTA #35",
-        "ARISTA #36"
+        "ARISTA #9",
+        "ARISTA #57",
+        "ARISTA #58",
+        "ARISTA #59"
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "5m",
@@ -122,6 +122,27 @@
     "rules": [
       {
         "action": "hijack-dns"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "domain_suffix": [
+              "google.com",
+              "youtube.com",
+              "telegram.org"
+            ]
+          },
+          {
+            "domain_keyword": [
+              "google",
+              "youtube",
+              "telegram"
+            ]
+          }
+        ],
+        "outbound": "proxy"
       }
     ]
   }

@@ -1,6 +1,6 @@
 // GITHUB - VMESS - Tier ALL
-// Updated: 2026-06-17 23:12:56
-// Count: 19
+// Updated: 2026-06-18 04:17:27
+// Count: 16
 
 {
   "log": {
@@ -261,46 +261,6 @@
     {
       "type": "vmess",
       "tag": "T.ME: @aristapnel #12",
-      "server": "uk.vpnjantit.com",
-      "server_port": 10000,
-      "uuid": "3c05ef9e-6582-11f1-a6e5-1727059cff63",
-      "security": "auto",
-      "tls": {
-        "enabled": false
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vpnjantit",
-        "headers": {
-          "Host": ""
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "T.ME: @aristapnel #13",
-      "server": "65.109.221.245",
-      "server_port": 33366,
-      "uuid": "2ee7eb26-8118-4d0a-a300-8d0edcfde6e5",
-      "security": "auto",
-      "tls": {
-        "enabled": false
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "T.ME: @aristapnel #14",
-      "server": "89.167.82.102",
-      "server_port": 4443,
-      "uuid": "88553247-c1c8-4e80-9db6-56bff7efc33b",
-      "security": "auto",
-      "tls": {
-        "enabled": false
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "T.ME: @aristapnel #15",
       "server": "96.47.230.5",
       "server_port": 54840,
       "uuid": "b2da9920-b0a7-4354-9e26-3833ab8d00d0",
@@ -324,7 +284,7 @@
     },
     {
       "type": "vmess",
-      "tag": "T.ME: @aristapnel #16",
+      "tag": "T.ME: @aristapnel #13",
       "server": "de4.niekotin.de",
       "server_port": 80,
       "uuid": "38ed5d70-443e-4ac3-b877-ea21d97fed93",
@@ -342,7 +302,7 @@
     },
     {
       "type": "vmess",
-      "tag": "T.ME: @aristapnel #17",
+      "tag": "T.ME: @aristapnel #14",
       "server": "82.198.246.214",
       "server_port": 180,
       "uuid": "d13fc2f5-3e05-4795-81eb-44143a09e552",
@@ -353,7 +313,7 @@
     },
     {
       "type": "vmess",
-      "tag": "T.ME: @aristapnel #18",
+      "tag": "T.ME: @aristapnel #15",
       "server": "85.9.125.88",
       "server_port": 1020,
       "uuid": "6244c41a-f4c1-4733-a654-c38f7729b13c",
@@ -364,7 +324,7 @@
     },
     {
       "type": "vmess",
-      "tag": "T.ME: @aristapnel #19",
+      "tag": "T.ME: @aristapnel #16",
       "server": "193.111.235.72",
       "server_port": 22301,
       "uuid": "16563c51-2db2-4b50-a3f1-572b632c7342",
@@ -401,9 +361,6 @@
         "T.ME: @aristapnel #14",
         "T.ME: @aristapnel #15",
         "T.ME: @aristapnel #16",
-        "T.ME: @aristapnel #17",
-        "T.ME: @aristapnel #18",
-        "T.ME: @aristapnel #19",
         "direct"
       ],
       "default": "T.ME: @aristapnel #1"
@@ -427,10 +384,7 @@
         "T.ME: @aristapnel #13",
         "T.ME: @aristapnel #14",
         "T.ME: @aristapnel #15",
-        "T.ME: @aristapnel #16",
-        "T.ME: @aristapnel #17",
-        "T.ME: @aristapnel #18",
-        "T.ME: @aristapnel #19"
+        "T.ME: @aristapnel #16"
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "5m",
@@ -443,6 +397,27 @@
     "rules": [
       {
         "action": "hijack-dns"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "domain_suffix": [
+              "google.com",
+              "youtube.com",
+              "telegram.org"
+            ]
+          },
+          {
+            "domain_keyword": [
+              "google",
+              "youtube",
+              "telegram"
+            ]
+          }
+        ],
+        "outbound": "proxy"
       }
     ]
   }

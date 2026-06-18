@@ -1,5 +1,5 @@
 // GITHUB - HYSTERIA2 - Tier ALL
-// Updated: 2026-06-17 23:12:56
+// Updated: 2026-06-18 04:17:27
 // Count: 30
 
 {
@@ -550,6 +550,27 @@
     "rules": [
       {
         "action": "hijack-dns"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "domain_suffix": [
+              "google.com",
+              "youtube.com",
+              "telegram.org"
+            ]
+          },
+          {
+            "domain_keyword": [
+              "google",
+              "youtube",
+              "telegram"
+            ]
+          }
+        ],
+        "outbound": "proxy"
       }
     ]
   }
