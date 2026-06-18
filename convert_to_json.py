@@ -459,7 +459,10 @@ class ConfigToJSONConverter:
             if isinstance(p, dict) and "type" in p:
                 p.setdefault("domain_resolver", "dns")
         return {
-            "log": {"level": "info", "timestamp": True},
+            "log": {
+                "level": "info",
+                "timestamp": True
+            },
             "dns": {
                 "servers": [
                     {
@@ -471,15 +474,8 @@ class ConfigToJSONConverter:
                         "tag": "cloudflare",
                         "type": "udp",
                         "server": "1.1.1.1"
-                    },
-                    {
-                        "tag": "fakeip",
-                        "type": "fakeip",
-                        "inet4_range": "198.18.0.0/15",
-                        "inet6_range": "fc00::/18"
                     }
                 ],
-                "independent_cache": True,
                 "rules": [
                     {
                         "domain": ["geosite:private"],
@@ -502,14 +498,19 @@ class ConfigToJSONConverter:
                 }
             ],
             "outbounds": proxies + [
-                {"type": "direct", "tag": "direct"},
-                {"type": "block", "tag": "block"},
+                {
+                    "type": "direct",
+                    "tag": "direct"
+                },
+                {
+                    "type": "block",
+                    "tag": "block"
+                },
                 {
                     "type": "selector",
                     "tag": "proxy",
                     "outbounds": tags + ["direct"],
-                    "default": tags[0] if tags else "direct",
-                    "domain_resolver": "dns"
+                    "default": tags[0] if tags else "direct"
                 },
                 {
                     "type": "urltest",
@@ -517,16 +518,16 @@ class ConfigToJSONConverter:
                     "outbounds": tags,
                     "url": "http://www.gstatic.com/generate_204",
                     "interval": "5m",
-                    "tolerance": 50,
-                    "domain_resolver": "dns"
+                    "tolerance": 50
                 }
             ],
             "route": {
                 "auto_detect_interface": True,
                 "final": "proxy",
-                "default_domain_resolver": "dns",
                 "rules": [
-                    {"action": "hijack-dns"}
+                    {
+                        "action": "hijack-dns"
+                    }
                 ]
             }
         }
