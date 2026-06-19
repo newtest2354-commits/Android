@@ -1,5 +1,5 @@
 # GITHUB - ALL - HYSTERIA2
-# Updated: 2026-06-19 19:46:05
+# Updated: 2026-06-19 20:12:22
 # Count: 32
 
 hysteria2://18cf8030-1ceb-4b7d-8c0c-c036413c144e@202.61.205.86:4433?insecure=1&sni=de1.xiaoliyu.cyou#T.ME: @aristapnel

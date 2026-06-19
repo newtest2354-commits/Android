@@ -1,5 +1,5 @@
 # GITHUB - ALL - Tier 50
-# Updated: 2026-06-19 19:46:16
+# Updated: 2026-06-19 20:12:35
 # Count: 50
 
 proxies:
@@ -39,87 +39,79 @@ proxies:
 - name: 'T.ME: @aristapnel #4'
   type: trojan
   server: 103.177.136.41
-  port: 45553
+  port: 46424
   password: 4f4d1167-ef14-4304-9bce-0740472503ef
   network: tcp
   udp: true
   skip-cert-verify: false
   tcp-fast-open: true
-  servername: ch.01.naiun.bilibili.com
+  servername: de.01.naiun.bilibili.com
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #5'
   type: trojan
   server: 103.177.136.42
-  port: 45553
+  port: 48697
   password: 4f4d1167-ef14-4304-9bce-0740472503ef
   network: tcp
   udp: true
   skip-cert-verify: false
   tcp-fast-open: true
-  servername: ch.01.naiun.bilibili.com
+  servername: gh.01.naiun.bilibili.com
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #6'
   type: trojan
-  server: 103.177.136.45
-  port: 45553
+  server: 103.177.136.44
+  port: 46424
   password: 4f4d1167-ef14-4304-9bce-0740472503ef
   network: tcp
   udp: true
   skip-cert-verify: false
   tcp-fast-open: true
-  servername: ch.01.naiun.bilibili.com
+  servername: de.01.naiun.bilibili.com
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #7'
   type: trojan
-  server: 188.253.12.93
-  port: 45553
+  server: 103.177.136.45
+  port: 45619
   password: 4f4d1167-ef14-4304-9bce-0740472503ef
   network: tcp
   udp: true
   skip-cert-verify: false
   tcp-fast-open: true
-  servername: ch.01.naiun.bilibili.com
+  servername: fr.01.naiun.bilibili.com
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #8'
   type: trojan
-  server: shazira.app
-  port: 443
-  password: 8d19cac6-defb-46d1-a84a-a8100a86fd11
-  network: ws
-  udp: true
-  skip-cert-verify: false
-  tcp-fast-open: true
-  servername: shazira.app
-  client-fingerprint: chrome
-  ws-opts:
-    path: /Novan-ID10
-    headers:
-      Host: shazira.app
-- name: 'T.ME: @aristapnel #9'
-  type: trojan
-  server: 213.176.113.98
-  port: 2053
-  password: 8r%3C%5B9%27l6hAO%238ZQi
-  network: ws
-  udp: true
-  skip-cert-verify: false
-  tcp-fast-open: true
-  servername: Koma-YT.PAGeS.Dev
-  client-fingerprint: chrome
-  ws-opts:
-    path: /trTelegram🇨🇳+@WangCai2
-    headers:
-      Host: Koma-YT.PAGeS.Dev
-- name: 'T.ME: @aristapnel #10'
-  type: trojan
-  server: 207.126.167.241
-  port: 443
-  password: GTCCjtvCtuy03-aV1mwF0OkG2q6yL+Fc5K
+  server: 103.177.136.45
+  port: 48697
+  password: 4f4d1167-ef14-4304-9bce-0740472503ef
   network: tcp
   udp: true
   skip-cert-verify: false
   tcp-fast-open: true
-  servername: 207.126.167.241
+  servername: gh.01.naiun.bilibili.com
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #9'
+  type: trojan
+  server: 188.253.12.90
+  port: 45619
+  password: 4f4d1167-ef14-4304-9bce-0740472503ef
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: fr.01.naiun.bilibili.com
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #10'
+  type: trojan
+  server: 188.253.12.93
+  port: 45619
+  password: 4f4d1167-ef14-4304-9bce-0740472503ef
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: fr.01.naiun.bilibili.com
   client-fingerprint: chrome
 - name: 'T.ME: @aristapnel #11'
   type: hysteria2

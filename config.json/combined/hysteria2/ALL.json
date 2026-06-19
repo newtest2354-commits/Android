@@ -1,5 +1,5 @@
 // COMBINED - HYSTERIA2 - Tier ALL
-// Updated: 2026-06-19 19:49:01
+// Updated: 2026-06-19 20:15:54
 // Count: 38
 
 {
@@ -53,46 +53,6 @@
     {
       "type": "hysteria2",
       "tag": "ARISTA #1",
-      "server": "80.66.81.78",
-      "server_port": 9443,
-      "password": "rs2mR3g9bZiMloftx6lZQ59Um1Ld",
-      "tls": {
-        "enabled": true,
-        "server_name": "tunel1.washing.help",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "obfs": {
-        "type": "salamander",
-        "password": "oMgvuBy5Lj5kYM57sGsnjpjNcSEQ"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "ARISTA #2",
-      "server": "130.49.161.70",
-      "server_port": 443,
-      "password": "p7Q76LzlnS4hIzr1W3staBOnUe_WwSkR",
-      "tls": {
-        "enabled": true,
-        "server_name": "hy2.aspidnet.xyz",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "obfs": {
-        "type": "salamander",
-        "password": "rG07s3COMIEvdnQipRyWzx_H_2xygNC3"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "ARISTA #3",
       "server": "70.34.205.15",
       "server_port": 443,
       "password": "T$me$V2RayyNGvpn",
@@ -112,7 +72,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "ARISTA #4",
+      "tag": "ARISTA #2",
       "server": "70.34.206.217",
       "server_port": 443,
       "password": "T$me$V2RayyNGvpn",
@@ -132,7 +92,27 @@
     },
     {
       "type": "hysteria2",
-      "tag": "ARISTA #6",
+      "tag": "ARISTA #3",
+      "server": "130.49.161.70",
+      "server_port": 443,
+      "password": "p7Q76LzlnS4hIzr1W3staBOnUe_WwSkR",
+      "tls": {
+        "enabled": true,
+        "server_name": "hy2.aspidnet.xyz",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "rG07s3COMIEvdnQipRyWzx_H_2xygNC3"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "ARISTA #4",
       "server": "207.154.242.160",
       "server_port": 443,
       "password": "Masir_Sefid",
@@ -152,7 +132,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "ARISTA #7",
+      "tag": "ARISTA #5",
       "server": "206.189.58.246",
       "server_port": 443,
       "password": "Masir_Sefid",
@@ -168,6 +148,26 @@
       "obfs": {
         "type": "salamander",
         "password": "Masir_Sefid"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "ARISTA #7",
+      "server": "80.66.81.78",
+      "server_port": 9443,
+      "password": "rs2mR3g9bZiMloftx6lZQ59Um1Ld",
+      "tls": {
+        "enabled": true,
+        "server_name": "tunel1.washing.help",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "obfs": {
+        "type": "salamander",
+        "password": "oMgvuBy5Lj5kYM57sGsnjpjNcSEQ"
       }
     },
     {
@@ -646,7 +646,7 @@
         "ARISTA #2",
         "ARISTA #3",
         "ARISTA #4",
-        "ARISTA #6",
+        "ARISTA #5",
         "ARISTA #7",
         "T.ME: @aristapnel #8",
         "T.ME: @aristapnel #9",
@@ -695,7 +695,7 @@
         "ARISTA #2",
         "ARISTA #3",
         "ARISTA #4",
-        "ARISTA #6",
+        "ARISTA #5",
         "ARISTA #7",
         "T.ME: @aristapnel #8",
         "T.ME: @aristapnel #9",

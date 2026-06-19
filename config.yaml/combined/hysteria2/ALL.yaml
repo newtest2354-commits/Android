@@ -1,31 +1,9 @@
 # COMBINED - HYSTERIA2 - Tier ALL
-# Updated: 2026-06-19 19:46:05
+# Updated: 2026-06-19 20:12:22
 # Count: 39
 
 proxies:
 - name: 'ARISTA #1'
-  type: hysteria2
-  server: 80.66.81.78
-  port: 9443
-  password: rs2mR3g9bZiMloftx6lZQ59Um1Ld
-  sni: 80.66.81.78
-  skip-cert-verify: false
-  fast-open: true
-  client-fingerprint: chrome
-  obfs: salamander
-  obfs-password: oMgvuBy5Lj5kYM57sGsnjpjNcSEQ
-- name: 'ARISTA #2'
-  type: hysteria2
-  server: 130.49.161.70
-  port: 443
-  password: p7Q76LzlnS4hIzr1W3staBOnUe_WwSkR
-  sni: 130.49.161.70
-  skip-cert-verify: false
-  fast-open: true
-  client-fingerprint: chrome
-  obfs: salamander
-  obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
-- name: 'ARISTA #3'
   type: hysteria2
   server: 70.34.205.15
   port: 443
@@ -36,7 +14,7 @@ proxies:
   client-fingerprint: chrome
   obfs: salamander
   obfs-password: T.me%24V2RayyNGvpn
-- name: 'ARISTA #4'
+- name: 'ARISTA #2'
   type: hysteria2
   server: 70.34.206.217
   port: 443
@@ -47,16 +25,18 @@ proxies:
   client-fingerprint: chrome
   obfs: salamander
   obfs-password: T%24me%24V2RayyNGVpn%40V2RayyNGvpn
-- name: 'ARISTA #5'
+- name: 'ARISTA #3'
   type: hysteria2
-  server: …
+  server: 130.49.161.70
   port: 443
   password: p7Q76LzlnS4hIzr1W3staBOnUe_WwSkR
-  sni: …
+  sni: 130.49.161.70
   skip-cert-verify: false
   fast-open: true
   client-fingerprint: chrome
-- name: 'ARISTA #6'
+  obfs: salamander
+  obfs-password: rG07s3COMIEvdnQipRyWzx_H_2xygNC3
+- name: 'ARISTA #4'
   type: hysteria2
   server: 207.154.242.160
   port: 443
@@ -67,7 +47,7 @@ proxies:
   client-fingerprint: chrome
   obfs: salamander
   obfs-password: Masir_Sefid
-- name: 'ARISTA #7'
+- name: 'ARISTA #5'
   type: hysteria2
   server: 206.189.58.246
   port: 443
@@ -78,6 +58,26 @@ proxies:
   client-fingerprint: chrome
   obfs: salamander
   obfs-password: Masir_Sefid
+- name: 'ARISTA #6'
+  type: hysteria2
+  server: …
+  port: 443
+  password: p7Q76LzlnS4hIzr1W3staBOnUe_WwSkR
+  sni: …
+  skip-cert-verify: false
+  fast-open: true
+  client-fingerprint: chrome
+- name: 'ARISTA #7'
+  type: hysteria2
+  server: 80.66.81.78
+  port: 9443
+  password: rs2mR3g9bZiMloftx6lZQ59Um1Ld
+  sni: 80.66.81.78
+  skip-cert-verify: false
+  fast-open: true
+  client-fingerprint: chrome
+  obfs: salamander
+  obfs-password: oMgvuBy5Lj5kYM57sGsnjpjNcSEQ
 - name: 'T.ME: @aristapnel #8'
   type: hysteria2
   server: 202.61.205.86
