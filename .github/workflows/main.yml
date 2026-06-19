@@ -32,7 +32,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests beautifulsoup4 pyyaml httpx ipwhois
+        pip install requests beautifulsoup4 pyyaml
 
     - name: Clean old config files
       run: |
@@ -49,11 +49,6 @@ jobs:
         rm -rf config.json/
         mkdir -p config.json
 
-    - name: Clean country config files
-      run: |
-        rm -rf configs_by_country/
-        mkdir -p configs_by_country
-
     - name: Run Telegram Config Extractor
       run: python telegram_extractor.py
       timeout-minutes: 20
@@ -64,9 +59,6 @@ jobs:
 
     - name: Combine Configs
       run: python combine_configs.py
-
-    - name: Run Country Classifier
-      run: python country_classifier.py
 
     - name: Convert to YAML (Clash Meta)
       run: python convert_to_yaml.py
