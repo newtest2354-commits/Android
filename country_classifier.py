@@ -1,3 +1,5 @@
+# country_classifier.py رو با این نسخه جایگزین کن
+
 import os
 import re
 import json
@@ -35,8 +37,8 @@ class CountryClassifier:
                 code = resp.json().get("country_code", "unknown").lower()
                 self.geo_cache[ip] = code
                 return code
-        except:
-            pass
+        except Exception as e:
+            logging.debug(f"Geo lookup failed for {ip}: {e}")
         self.geo_cache[ip] = "unknown"
         return "unknown"
 
@@ -88,12 +90,14 @@ class CountryClassifier:
                         host, port = netloc.rsplit(':', 1)
                         return host, port
                     return netloc, '443'
-        except:
-            pass
+        except Exception as e:
+            logging.debug(f"Extract error: {e}")
         return None, None
 
     def resolve_host(self, host):
-        if not host or self.is_ip(host):
+        if not host:
+            return None
+        if self.is_ip(host):
             return host
         try:
             return socket.gethostbyname(host)
@@ -113,9 +117,15 @@ class CountryClassifier:
 
     def classify_by_country(self):
         combined_dir = 'configs.txt/combined'
+        
+        logging.info(f"Checking directory: {combined_dir}")
+        logging.info(f"Directory exists: {os.path.exists(combined_dir)}")
+        
         if not os.path.exists(combined_dir):
             logging.error(f"Combined directory not found: {combined_dir}")
             return
+
+        logging.info(f"Contents of {combined_dir}: {os.listdir(combined_dir)}")
 
         country_configs = defaultdict(lambda: defaultdict(list))
         processed = 0
@@ -123,11 +133,16 @@ class CountryClassifier:
 
         for category in self.categories:
             cat_file = os.path.join(combined_dir, f"{category}.txt")
+            logging.info(f"Checking category file: {cat_file}")
+            
             if not os.path.exists(cat_file):
+                logging.warning(f"Category file not found: {cat_file}")
                 continue
 
             configs = self.read_configs(cat_file)
-            for config in configs:
+            logging.info(f"Found {len(configs)} configs in {category}")
+            
+            for idx, config in enumerate(configs):
                 host, port = self.extract_host_port(config)
                 if not host:
                     failed += 1
@@ -146,6 +161,11 @@ class CountryClassifier:
                 processed += 1
 
         logging.info(f"Classified {processed} configs, failed {failed}")
+        logging.info(f"Found {len(country_configs)} countries")
+
+        if not country_configs:
+            logging.warning("No configs classified! Check input files.")
+            return
 
         for country, categories in country_configs.items():
             country_dir = os.path.join(self.output_dir, country)
@@ -157,6 +177,7 @@ class CountryClassifier:
                     cat_file = os.path.join(country_dir, f"{category}.txt")
                     with open(cat_file, 'w', encoding='utf-8') as f:
                         f.write(f"# {country.upper()} - {category.upper()}\n")
+                        f.write(f"# Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
                         f.write(f"# Count: {len(configs)}\n\n")
                         f.write("\n".join(configs))
                     all_configs.extend(configs)
@@ -165,16 +186,19 @@ class CountryClassifier:
                 all_file = os.path.join(country_dir, "all.txt")
                 with open(all_file, 'w', encoding='utf-8') as f:
                     f.write(f"# {country.upper()} - ALL\n")
+                    f.write(f"# Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
                     f.write(f"# Count: {len(all_configs)}\n\n")
                     f.write("\n".join(all_configs))
 
                 light_file = os.path.join(country_dir, "light.txt")
                 with open(light_file, 'w', encoding='utf-8') as f:
                     f.write(f"# {country.upper()} - LIGHT (30 configs)\n")
+                    f.write(f"# Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
                     f.write(f"# Count: {min(30, len(all_configs))}\n\n")
                     f.write("\n".join(all_configs[:30]))
 
         self.create_summary(country_configs)
+        logging.info(f"Output saved to: {self.output_dir}")
 
     def create_summary(self, country_configs):
         summary = {
@@ -188,10 +212,11 @@ class CountryClassifier:
             }
             summary['countries'][country]['total'] = sum(len(c) for c in categories.values())
 
-        with open(os.path.join(self.output_dir, 'summary.json'), 'w', encoding='utf-8') as f:
+        summary_file = os.path.join(self.output_dir, 'summary.json')
+        with open(summary_file, 'w', encoding='utf-8') as f:
             json.dump(summary, f, indent=2, ensure_ascii=False)
 
-        logging.info(f"Created summary for {len(country_configs)} countries")
+        logging.info(f"Created summary for {len(country_configs)} countries at {summary_file}")
 
 def main():
     classifier = CountryClassifier()
