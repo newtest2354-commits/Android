@@ -1,6 +1,6 @@
 # GITHUB - TROJAN - Tier ALL
-# Updated: 2026-06-19 20:12:33
-# Count: 191
+# Updated: 2026-06-20 03:46:30
+# Count: 206
 
 proxies:
 - name: 'T.ME: @aristapnel #1'
@@ -2526,6 +2526,183 @@ proxies:
     path: '%2Fassignment'
     headers:
       Host: www.creationlong.org
+- name: 'T.ME: @aristapnel #198'
+  type: trojan
+  server: ch-2.bexum.fun
+  port: 443
+  password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: ch-2.bexum.fun
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #199'
+  type: trojan
+  server: ch-2.bexum.fun
+  port: 443
+  password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: ch-2.bexum.fun
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #200'
+  type: trojan
+  server: 172.236.220.10
+  port: 443
+  password: s_WEN9lMmufG%2BqDIsn-4C7JOVAnDdbS3Ui
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: 172.236.220.10
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #201'
+  type: trojan
+  server: de-1.hysteria.ltd
+  port: 9443
+  password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: de-1.hysteria.ltd
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #202'
+  type: trojan
+  server: ws-1.hysteria.ltd
+  port: 9443
+  password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
+  network: ws
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: ws-1.hysteria.ltd
+  client-fingerprint: chrome
+  ws-opts:
+    path: '%2Fws'
+    headers:
+      Host: ws-1.hysteria.ltd
+- name: 'T.ME: @aristapnel #203'
+  type: trojan
+  server: de-1.hysteria.ltd
+  port: 9443
+  password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: de-1.hysteria.ltd
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #204'
+  type: trojan
+  server: 103.177.136.41
+  port: 48697
+  password: 4f4d1167-ef14-4304-9bce-0740472503ef
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: gh.01.naiun.bilibili.com
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #205'
+  type: trojan
+  server: 35.181.89.207
+  port: 22223
+  password: telegram-id-directvpn
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: trojan.burgerip.co.uk
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #206'
+  type: trojan
+  server: 65.20.90.225
+  port: 443
+  password: Tu1fZjElnkRg0ECRj0sI0u54PY8ptUmATg
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: www.sandbox-cloud.click
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #207'
+  type: trojan
+  server: kz-1.hysteria.ltd
+  port: 9443
+  password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: kz-1.hysteria.ltd
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #208'
+  type: trojan
+  server: kz-1.bexum.fun
+  port: 5443
+  password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: kz-1.bexum.fun
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #209'
+  type: trojan
+  server: kz-1.hysteria.ltd
+  port: 9443
+  password: LYaEYwjN8LjWTRJdCCTzW7V6gK7atJVu
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: kz-1.hysteria.ltd
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #210'
+  type: trojan
+  server: 81.255.155.10
+  port: 443
+  password: humanity
+  network: ws
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: www.creationlong.org
+  client-fingerprint: chrome
+  ws-opts:
+    path: /assignment
+    headers:
+      Host: www.creationlong.org
+- name: 'T.ME: @aristapnel #211'
+  type: trojan
+  server: 64.176.65.85
+  port: 443
+  password: iGccGWTMHtoXtBhGYK4mogg7iIUhGbcvCf
+  network: tcp
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: 64.176.65.85
+  client-fingerprint: chrome
+- name: 'T.ME: @aristapnel #212'
+  type: trojan
+  server: 108.181.4.83
+  port: 443
+  password: fde84658-f03b-430a-a86f-c32cb1a2cdad
+  network: ws
+  udp: true
+  skip-cert-verify: false
+  tcp-fast-open: true
+  servername: us6lh1fsyabizv5m.lovebaipiao.net
+  client-fingerprint: chrome
+  ws-opts:
+    path: /images
+    headers:
+      Host: us6lh1fsyabizv5m.lovebaipiao.net
 proxy-groups:
 - name: 🚀 ARISTA LOW LATENCY
   type: url-test
@@ -2726,6 +2903,21 @@ proxy-groups:
   - 'T.ME: @aristapnel #195'
   - 'T.ME: @aristapnel #196'
   - 'T.ME: @aristapnel #197'
+  - 'T.ME: @aristapnel #198'
+  - 'T.ME: @aristapnel #199'
+  - 'T.ME: @aristapnel #200'
+  - 'T.ME: @aristapnel #201'
+  - 'T.ME: @aristapnel #202'
+  - 'T.ME: @aristapnel #203'
+  - 'T.ME: @aristapnel #204'
+  - 'T.ME: @aristapnel #205'
+  - 'T.ME: @aristapnel #206'
+  - 'T.ME: @aristapnel #207'
+  - 'T.ME: @aristapnel #208'
+  - 'T.ME: @aristapnel #209'
+  - 'T.ME: @aristapnel #210'
+  - 'T.ME: @aristapnel #211'
+  - 'T.ME: @aristapnel #212'
 - name: 🎬 ARISTA STREAM
   type: fallback
   url: http://www.gstatic.com/generate_204
