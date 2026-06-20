@@ -1,4 +1,3 @@
-# .github/workflows/main.yml
 name: Update Arista Configs
 
 on:
@@ -33,7 +32,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests beautifulsoup4 pyyaml httpx urllib3
+        pip install requests beautifulsoup4 pyyaml httpx
 
     - name: Clean old config files
       run: |
@@ -61,14 +60,14 @@ jobs:
     - name: Combine Configs
       run: python combine_configs.py
 
-    - name: Run Config Processor (Ping & Country Sort)
-      run: python config_processor.py
-
     - name: Convert to YAML (Clash Meta)
       run: python convert_to_yaml.py
 
     - name: Convert to JSON (Sing-Box)
       run: python convert_to_json.py
+
+    - name: Run Proxy Quality Checker
+      run: python proxy_checker.py
 
     - name: Create summary
       run: |
