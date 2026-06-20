@@ -283,11 +283,15 @@ class CountryClassifier:
             return
         
         all_configs = self.deduplicate(all_configs)
+        print(f"Total configs to classify: {len(all_configs)}")
+        
         country_map = self.classify_configs(all_configs)
         
         if not country_map:
             print("No configs could be classified by country.")
             return
+        
+        print(f"Classified {sum(len(c) for c in country_map.values())} configs into {len(country_map)} countries")
         
         self.process_country_configs(country_map)
         
@@ -316,6 +320,8 @@ class CountryClassifier:
             for proto, proto_configs in categorized.items():
                 summary["countries"][country]["protocols"][proto] = len(proto_configs)
         
+        os.makedirs(self.output_base, exist_ok=True)
+        
         summary_file = os.path.join(self.output_base, "summary.json")
         with open(summary_file, 'w', encoding='utf-8') as f:
             json.dump(summary, f, indent=2, ensure_ascii=False)
@@ -341,6 +347,8 @@ def main():
         print("\n✅ Country classification completed successfully")
     except Exception as e:
         print(f"\n❌ ERROR: {e}")
+        import traceback
+        traceback.print_exc()
 
 if __name__ == "__main__":
     main()
