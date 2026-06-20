@@ -1,5 +1,5 @@
 # GITHUB - ALL - Tier 150
-# Updated: 2026-06-20 04:38:56
+# Updated: 2026-06-20 07:01:58
 # Count: 145
 
 proxies:
@@ -1099,7 +1099,7 @@ proxies:
   type: vmess
   server: 89.167.82.102
   port: 8880
-  uuid: 38d5f36b-b393-4e3f-a150-4937935c6bb1
+  uuid: 449a533a-4a82-44c1-adbd-48e9c2deb22c
   alterId: 0
   cipher: auto
   network: tcp
