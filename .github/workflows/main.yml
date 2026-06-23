@@ -1,0 +1,65 @@
+name: Hybrid Scanner
+
+on:
+  schedule:
+    - cron: "0 */3 * * *"
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install aiohttp aiosqlite maxminddb uvloop prometheus-client
+          pip install aiohttp[speedups]
+
+      - name: Download MaxMind DB
+        run: |
+          wget -O GeoLite2-Country.mmdb https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-Country.mmdb || true
+
+      - name: Check if scan is running
+        id: check_lock
+        run: |
+          if [ -f /tmp/scan.lock ]; then
+            LOCK_TIME=$(stat -c %Y /tmp/scan.lock 2>/dev/null || echo 0)
+            CURRENT_TIME=$(date +%s)
+            if [ $((CURRENT_TIME - LOCK_TIME)) -lt 10800 ]; then
+              echo "lock_exists=true" >> $GITHUB_OUTPUT
+              echo "Scan already running (lock file exists)"
+              exit 0
+            else
+              rm -f /tmp/scan.lock
+              echo "lock_exists=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "lock_exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run scanner
+        if: steps.check_lock.outputs.lock_exists != 'true'
+        run: |
+          touch /tmp/scan.lock
+          python arista_hybrid.py
+          rm -f /tmp/scan.lock
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: proxy-results
+          path: |
+            proxies_output.txt
+            proxies_output.json
+            proxies_hybrid.db
+          retention-days: 7
