@@ -1,3 +1,5 @@
-node-4th.pool-1-0.dynamic.nt-isp.net
-node-5cz.pool-1-0.dynamic.nt-isp.net
+node-65i.pool-1-0.dynamic.nt-isp.net
+node-828.pool-1-0.dynamic.nt-isp.net
+node-8mc.pool-1-0.dynamic.nt-isp.net
+this.media
 www.w3.org
