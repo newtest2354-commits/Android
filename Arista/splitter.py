@@ -115,23 +115,16 @@ def clean_stage_files():
 def clean_output_files():
     files_to_clean = [
         "output/results.txt",
+        "output/best_ips.txt",
         "output/domains_raw.txt",
         "output/domains.txt",
         "output/live_bank.txt",
         "output/geo_cache.json"
     ]
-    print("=" * 60)
-    print("[SPLITTER] clean_output_files() CALLED")
-    print("[SPLITTER] Files to be cleaned (best_ips.txt is SAFE):")
-    for f in files_to_clean:
-        print(f"[SPLITTER]   - {f}")
-    print("=" * 60)
     for f in files_to_clean:
         if os.path.exists(f):
             os.remove(f)
             print(f"REMOVED: {f}")
-        else:
-            print(f"[SPLITTER] FILE NOT FOUND: {f}")
 
 
 def split_file(
@@ -151,8 +144,6 @@ def split_file(
         infile
     )
 
-    print(f"[SPLITTER] TOTAL_IPS_IN_CLEAN_FILE: {total}")
-
     if total <= 0:
 
         write_lines(
@@ -167,9 +158,6 @@ def split_file(
         return OUTPUT_FILE
 
     cursor = load_cursor()
-
-    print(f"[SPLITTER] CURRENT_CURSOR: {cursor}")
-    print(f"[SPLITTER] PROGRESS: {round((cursor/total)*100, 2)}%")
 
     clean_stage_files()
 
@@ -187,7 +175,6 @@ def split_file(
         
         reset_cursor()
         cursor = 0
-        print(f"[SPLITTER] CURSOR RESET TO: {cursor}")
 
     available_ips = []
     line_idx = 0
@@ -211,8 +198,6 @@ def split_file(
                     break
     except:
         pass
-
-    print(f"[SPLITTER] AVAILABLE_IPS_IN_BATCH: {len(available_ips)}")
 
     if not available_ips:
         if cursor >= total:
@@ -248,14 +233,6 @@ def split_file(
         f"NEW={len(available_ips)} "
         f"PROGRESS={percent}%"
     )
-
-    best_file = "output/best_ips.txt"
-    if os.path.exists(best_file):
-        best_size = os.path.getsize(best_file)
-        best_lines = count_lines(best_file)
-        print(f"[SPLITTER] best_ips.txt EXISTS: SIZE={best_size} bytes, LINES={best_lines}")
-    else:
-        print(f"[SPLITTER] best_ips.txt DOES NOT EXIST")
 
     return OUTPUT_FILE
 
