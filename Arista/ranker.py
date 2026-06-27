@@ -436,7 +436,8 @@ def rank_results():
             print(f"REMOVED HIGH TCP ENTRY... NEW SIZE: {current_size_mb:.2f}MB")
 
     with open(BEST_FILE, "w", encoding="utf-8") as f:
-        f.writelines(combined_lines)
+    for line in combined_lines:
+        f.write(line.rstrip("\n") + "\n")
 
     print(f"BEST_IPS_SIZE: {current_size_mb:.2f}MB")
     print(f"BEST_IPS_LINES: {len(combined_lines)}")
