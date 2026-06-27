@@ -1,3 +1,9 @@
-node-dwk.pool-1-0.dynamic.nt-isp.net
+node-ewk.pool-1-0.dynamic.nt-isp.net
 node-ewq.pool-1-0.dynamic.nt-isp.net
+node-he1.pool-1-0.dynamic.nt-isp.net
+node-hg8.pool-1-0.dynamic.nt-isp.net
+node-hsz.pool-1-0.dynamic.nt-isp.net
+node-htc.pool-1-0.dynamic.nt-isp.net
+node-hwj.pool-1-0.dynamic.nt-isp.net
+this.media
 www.w3.org
