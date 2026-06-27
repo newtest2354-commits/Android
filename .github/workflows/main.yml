@@ -1,0 +1,461 @@
+name: ARISTA MATRIX PIPELINE
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: arista-matrix
+  cancel-in-progress: false
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  PYTHONUNBUFFERED: 1
+
+jobs:
+
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r Arista/requirements.txt
+
+      - name: Cache IP Bank
+        uses: actions/cache@v4
+        id: ip-bank-cache
+        with:
+          path: .cache
+          key: ip-bank-${{ hashFiles('Arista/config.json') }}
+          restore-keys: |
+            ip-bank-
+
+      - name: Restore Rolling State
+        uses: actions/download-artifact@v4
+        with:
+          name: arista-output
+          path: output
+        continue-on-error: true
+
+      - name: Prepare Bank
+        run: |
+          mkdir -p output
+          mkdir -p .cache
+
+          if [ ! -s output/clean_ips.txt ]; then
+            python Arista/downloader.py
+            python Arista/cleaner.py
+          fi
+
+      - name: Save Rolling State
+        uses: actions/upload-artifact@v4
+        with:
+          name: arista-output
+          path: |
+            output/tcp_live.txt
+            output/tls_live.txt
+            output/https_live.txt
+            output/fingerprint_results.txt
+            output/scanned_cache.txt
+            output/geo_cache.json
+            output/live_bank.txt
+            output/scan_cursor.txt
+            output/current_part.txt
+            output/domains_raw.txt
+            output/domains.txt
+            output/results.txt
+            output/best_ips.txt
+          overwrite: true
+          retention-days: 3
+
+  tcp:
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r Arista/requirements.txt
+
+      - name: Cache IP Bank
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: ip-bank-${{ hashFiles('Arista/config.json') }}
+          restore-keys: |
+            ip-bank-
+
+      - name: Restore State
+        uses: actions/download-artifact@v4
+        with:
+          name: arista-output
+          path: output
+        continue-on-error: true
+
+      - name: TCP Scan
+        run: |
+          free -h
+          python Arista/main.py --tcp
+
+      - name: Save State
+        uses: actions/upload-artifact@v4
+        with:
+          name: arista-output
+          path: |
+            output/tcp_live.txt
+            output/tls_live.txt
+            output/https_live.txt
+            output/fingerprint_results.txt
+            output/scanned_cache.txt
+            output/geo_cache.json
+            output/live_bank.txt
+            output/scan_cursor.txt
+            output/current_part.txt
+            output/domains_raw.txt
+            output/domains.txt
+            output/results.txt
+            output/best_ips.txt
+          overwrite: true
+          retention-days: 3
+
+  tls:
+    needs: tcp
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r Arista/requirements.txt
+
+      - name: Cache IP Bank
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: ip-bank-${{ hashFiles('Arista/config.json') }}
+          restore-keys: |
+            ip-bank-
+
+      - name: Restore State
+        uses: actions/download-artifact@v4
+        with:
+          name: arista-output
+          path: output
+        continue-on-error: true
+
+      - name: TLS Scan
+        run: |
+          free -h
+          python Arista/main.py --tls
+
+      - name: Save State
+        uses: actions/upload-artifact@v4
+        with:
+          name: arista-output
+          path: |
+            output/tcp_live.txt
+            output/tls_live.txt
+            output/https_live.txt
+            output/fingerprint_results.txt
+            output/scanned_cache.txt
+            output/geo_cache.json
+            output/live_bank.txt
+            output/scan_cursor.txt
+            output/current_part.txt
+            output/domains_raw.txt
+            output/domains.txt
+            output/results.txt
+            output/best_ips.txt
+          overwrite: true
+          retention-days: 3
+
+  https:
+    needs: tls
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r Arista/requirements.txt
+
+      - name: Cache IP Bank
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: ip-bank-${{ hashFiles('Arista/config.json') }}
+          restore-keys: |
+            ip-bank-
+
+      - name: Restore State
+        uses: actions/download-artifact@v4
+        with:
+          name: arista-output
+          path: output
+        continue-on-error: true
+
+      - name: HTTPS Validation
+        run: |
+          free -h
+          python Arista/main.py --https
+
+      - name: Save State
+        uses: actions/upload-artifact@v4
+        with:
+          name: arista-output
+          path: |
+            output/tcp_live.txt
+            output/tls_live.txt
+            output/https_live.txt
+            output/fingerprint_results.txt
+            output/scanned_cache.txt
+            output/geo_cache.json
+            output/live_bank.txt
+            output/scan_cursor.txt
+            output/current_part.txt
+            output/domains_raw.txt
+            output/domains.txt
+            output/results.txt
+            output/best_ips.txt
+          overwrite: true
+          retention-days: 3
+
+  fingerprint:
+    needs: https
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r Arista/requirements.txt
+
+      - name: Cache IP Bank
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: ip-bank-${{ hashFiles('Arista/config.json') }}
+          restore-keys: |
+            ip-bank-
+
+      - name: Restore State
+        uses: actions/download-artifact@v4
+        with:
+          name: arista-output
+          path: output
+        continue-on-error: true
+
+      - name: Fingerprint
+        run: |
+          free -h
+          python Arista/main.py --fp
+
+      - name: Save State
+        uses: actions/upload-artifact@v4
+        with:
+          name: arista-output
+          path: |
+            output/tcp_live.txt
+            output/tls_live.txt
+            output/https_live.txt
+            output/fingerprint_results.txt
+            output/scanned_cache.txt
+            output/geo_cache.json
+            output/live_bank.txt
+            output/scan_cursor.txt
+            output/current_part.txt
+            output/domains_raw.txt
+            output/domains.txt
+            output/results.txt
+            output/best_ips.txt
+          overwrite: true
+          retention-days: 3
+
+  geo:
+    needs: fingerprint
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r Arista/requirements.txt
+
+      - name: Cache IP Bank
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: ip-bank-${{ hashFiles('Arista/config.json') }}
+          restore-keys: |
+            ip-bank-
+
+      - name: Restore State
+        uses: actions/download-artifact@v4
+        with:
+          name: arista-output
+          path: output
+        continue-on-error: true
+
+      - name: GEO
+        run: |
+          free -h
+          python Arista/main.py --geo
+
+      - name: Save State
+        uses: actions/upload-artifact@v4
+        with:
+          name: arista-output
+          path: |
+            output/tcp_live.txt
+            output/tls_live.txt
+            output/https_live.txt
+            output/fingerprint_results.txt
+            output/scanned_cache.txt
+            output/geo_cache.json
+            output/live_bank.txt
+            output/scan_cursor.txt
+            output/current_part.txt
+            output/domains_raw.txt
+            output/domains.txt
+            output/results.txt
+            output/best_ips.txt
+          overwrite: true
+          retention-days: 3
+
+  finalize:
+    needs: geo
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r Arista/requirements.txt
+
+      - name: Cache IP Bank
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: ip-bank-${{ hashFiles('Arista/config.json') }}
+          restore-keys: |
+            ip-bank-
+
+      - name: Restore State
+        uses: actions/download-artifact@v4
+        with:
+          name: arista-output
+          path: output
+        continue-on-error: true
+
+      - name: Finalize
+        run: |
+          free -h
+          python Arista/main.py --finalize
+
+      - name: Save Final State
+        uses: actions/upload-artifact@v4
+        with:
+          name: arista-output
+          path: |
+            output/tcp_live.txt
+            output/tls_live.txt
+            output/https_live.txt
+            output/fingerprint_results.txt
+            output/scanned_cache.txt
+            output/geo_cache.json
+            output/live_bank.txt
+            output/scan_cursor.txt
+            output/current_part.txt
+            output/domains_raw.txt
+            output/domains.txt
+            output/results.txt
+            output/best_ips.txt
+          overwrite: true
+          retention-days: 3
+
+      - name: Commit Final Output
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          mkdir -p output
+
+          [ -f output/best_ips.txt ] && git add output/best_ips.txt
+          [ -f output/domains.txt ] && git add output/domains.txt
+          [ -f output/results.txt ] && git add output/results.txt
+          [ -f output/scan_cursor.txt ] && git add output/scan_cursor.txt
+          [ -f output/current_part.txt ] && git add output/current_part.txt
+
+          [ -f output/tcp_live.txt ] && git add output/tcp_live.txt
+          [ -f output/tls_live.txt ] && git add output/tls_live.txt
+          [ -f output/https_live.txt ] && git add output/https_live.txt
+          [ -f output/fingerprint_results.txt ] && git add output/fingerprint_results.txt
+          [ -f output/scanned_cache.txt ] && git add output/scanned_cache.txt
+          [ -f output/geo_cache.json ] && git add output/geo_cache.json
+          [ -f output/live_bank.txt ] && git add output/live_bank.txt
+
+          git diff --cached --quiet || (
+            git commit -m "ARISTA $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+            git push
+          )
