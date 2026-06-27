@@ -688,19 +688,25 @@ def fp_worker(
 
     provider = geo.get("provider", "")
 
+    sni = tls_info.get("sni", "")
+    domain = None
+    try:
+        with open("output/domains_raw.txt", "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line and line in sni:
+                    domain = line
+                    break
+    except:
+        pass
+
     cdn = detect_cdn(
         ip=ip,
         port=port,
         headers=headers,
-        issuer=tls_info.get(
-            "issuer"
-        ),
-        sni=tls_info.get(
-            "sni"
-        ),
-        alpn=tls_info.get(
-            "alpn"
-        ),
+        issuer=tls_info.get("issuer"),
+        sni=sni,
+        domain=domain,
         provider=provider
     )
 
