@@ -1,0 +1,24 @@
+1.0.0.2|443|301|639|http/1.1|1.0|0|cloudflare|Australia|Cloudflare
+1.0.0.2|8443|301|613|h2|1.0|0|cloudflare|Australia|Cloudflare
+1.0.0.2|2053|301|129|http/1.1|1.0|0|cloudflare|Australia|Cloudflare
+1.0.0.2|2083|301|93|http/1.1|1.0|0|cloudflare|Australia|Cloudflare
+1.0.0.2|2087|301|67|http/1.1|1.0|0|cloudflare|Australia|Cloudflare
+1.0.0.2|2096|301|58|http/1.1|1.0|0|cloudflare|Australia|Cloudflare
+1.0.0.3|443|301|712|http/1.1|1.0|0|cloudflare|Australia|Cloudflare
+1.0.0.3|8443|301|274|http/1.1|1.0|0|cloudflare|Australia|Cloudflare
+1.0.0.3|2053|301|492|h2|1.0|0|cloudflare|Australia|Cloudflare
+1.0.0.3|2083|301|658|http/1.1|1.0|0|cloudflare|Australia|Cloudflare
+1.0.0.3|2087|301|212|http/1.1|1.0|0|cloudflare|Australia|Cloudflare
+1.0.0.3|2096|301|685|http/1.1|1.0|0|cloudflare|Australia|Cloudflare
+1.0.0.1|443|301|749|http/1.1|1.0|0|cloudflare|Australia|Cloudflare
+1.0.0.1|8443|301|693|h2|1.0|0|cloudflare|Australia|Cloudflare
+1.0.0.1|2053|301|912|http/1.1|1.0|0|cloudflare|Australia|Cloudflare
+1.0.0.1|2083|301|886|http/1.1|1.0|0|cloudflare|Australia|Cloudflare
+1.0.0.1|2087|301|707|http/1.1|1.0|0|cloudflare|Australia|Cloudflare
+1.0.0.1|2096|301|893|http/1.1|1.0|0|cloudflare|Australia|Cloudflare
+1.0.7.243|443|200|623|h2|1.0|0|unknown|Australia|Gtelecom Pty
+1.0.7.244|443|200|406|h2|1.0|0|unknown|Australia|Gtelecom Pty
+1.0.7.242|443|200|418|h2|1.0|0|unknown|Australia|Gtelecom Pty
+1.0.16.71|443|403|678|http/1.1|1.0|0|unknown|Japan|I2TS-MTK
+1.0.16.75|443|403|670|http/1.1|1.0|0|unknown|Japan|I2TS-MTK
+1.0.16.78|443|401|659|http/1.1|1.0|0|unknown|Japan|I2TS-MTK
