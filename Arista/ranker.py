@@ -150,7 +150,10 @@ def load_tcp_latency():
                     port = parts[1]
                     latency = parts[2]
                     key = f"{ip}:{port}"
-                    tcp_map[key] = int(latency) if latency.isdigit() else 9999
+                    if latency.isdigit():
+                        tcp_map[key] = int(latency)
+                    else:
+                        tcp_map[key] = 9999
     except:
         pass
 
@@ -175,6 +178,26 @@ def load_geo_city():
         pass
 
     return city_map
+
+
+def load_geo_asn():
+    asn_map = {}
+
+    if not os.path.exists(GEO_FILE):
+        return asn_map
+
+    try:
+        with open(GEO_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            for ip, info in data.items():
+                if isinstance(info, dict):
+                    asn = info.get("asn", "")
+                    if asn and asn != "Unknown":
+                        asn_map[ip] = asn
+    except:
+        pass
+
+    return asn_map
 
 
 def load_domains_raw():
@@ -230,7 +253,7 @@ def extract_ttfb_from_line(line):
 def extract_tcp_from_line(line):
     try:
         tcp_part = line.split('[TCP=')[1].split(']')[0]
-        if tcp_part == "DOMAIN":
+        if tcp_part == "DOMAIN" or tcp_part == "timeout":
             return 9999
         return int(tcp_part.replace('ms', '')) if tcp_part.replace('ms', '').isdigit() else 9999
     except:
@@ -255,6 +278,7 @@ def rank_results():
     domains_ips = load_domains_ips()
     sni_map = load_tls_sni()
     city_map = load_geo_city()
+    asn_map = load_geo_asn()
     tcp_map = load_tcp_latency()
 
     ranked = []
@@ -303,13 +327,14 @@ def rank_results():
 
         sni = sni_map.get(key, "-")
         tcp_latency = item.get("tcp", "N/A")
-        
+
         if tcp_latency == 9999:
-            tcp_display = "DOMAIN"
+            tcp_display = "timeout"
         else:
             tcp_display = f"{tcp_latency}ms"
 
         city = city_map.get(ip, "-")
+        asn = asn_map.get(ip, "")
 
         port_type = get_port_type(port)
 
@@ -345,6 +370,9 @@ def rank_results():
 
         if provider and provider != "-" and provider != "Unknown":
             parts.append(f'[Provider={provider}]')
+
+        if asn and asn != "Unknown":
+            parts.append(f'[ASN={asn}]')
 
         line = " ".join(parts) + "\n"
         new_lines.append(line)
