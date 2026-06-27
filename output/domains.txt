@@ -1,14 +1,3 @@
-apps.apple.com
-node-1wl.pool-1-0.dynamic.nt-isp.net
-node-20j.pool-1-0.dynamic.nt-isp.net
-node-226.pool-1-0.dynamic.nt-isp.net
-node-227.pool-1-0.dynamic.nt-isp.net
-node-22a.pool-1-0.dynamic.nt-isp.net
-node-244.pool-1-0.dynamic.nt-isp.net
-node-24f.pool-1-0.dynamic.nt-isp.net
-node-25u.pool-1-0.dynamic.nt-isp.net
-node-29e.pool-1-0.dynamic.nt-isp.net
-node-2lb.pool-1-0.dynamic.nt-isp.net
-node-2me.pool-1-0.dynamic.nt-isp.net
-play.google.com
+node-45y.pool-1-0.dynamic.nt-isp.net
+node-4th.pool-1-0.dynamic.nt-isp.net
 www.w3.org
