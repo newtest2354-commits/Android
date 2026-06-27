@@ -379,6 +379,7 @@ def rank_results():
 
     old_lines = []
     old_ips = {}
+
     if os.path.exists(BEST_FILE):
         try:
             with open(BEST_FILE, "r", encoding="utf-8") as f:
