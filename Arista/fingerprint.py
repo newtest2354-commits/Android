@@ -264,6 +264,92 @@ def detect_cdn_from_tls(issuer):
     return "unknown"
 
 
+def detect_cdn_from_sni(sni):
+    if not sni:
+        return "unknown"
+    
+    sni_lower = safe_lower(sni)
+    
+    cdn_identifiers = {
+        "cloudflare": ["cloudflare"],
+        "fastly": ["fastly"],
+        "akamai": ["akamai"],
+        "cloudfront": ["cloudfront"],
+        "vercel": ["vercel"],
+        "bunny": ["bunny"],
+        "gcore": ["gcore"],
+        "incapsula": ["incapsula"],
+        "sucuri": ["sucuri"],
+        "stackpath": ["stackpath"],
+        "leaseweb": ["leaseweb"],
+        "cdnsun": ["cdnsun"],
+        "belugacdn": ["belugacdn"],
+        "quiccloud": ["quiccloud"],
+        "cachefly": ["cachefly"],
+        "edgemesh": ["edgemesh"],
+        "highwinds": ["highwinds"],
+        "cdn77": ["cdn77"],
+        "facebook": ["facebook", "fbcdn"],
+        "google": ["google", "gstatic"],
+        "amazon": ["amazon", "aws"],
+        "microsoft": ["microsoft"],
+        "twitter": ["twitter", "twimg"],
+        "instagram": ["instagram"],
+        "youtube": ["youtube", "ytimg"],
+        "telegram": ["telegram"]
+    }
+    
+    for cdn, identifiers in cdn_identifiers.items():
+        for identifier in identifiers:
+            if identifier in sni_lower:
+                return cdn
+    
+    return "unknown"
+
+
+def detect_cdn_from_domain(domain):
+    if not domain:
+        return "unknown"
+    
+    domain_lower = safe_lower(domain)
+    
+    cdn_identifiers = {
+        "cloudflare": ["cloudflare.com", "cloudflare.net"],
+        "fastly": ["fastly.com", "fastly.net"],
+        "akamai": ["akamai.com", "akamai.net"],
+        "cloudfront": ["cloudfront.net"],
+        "vercel": ["vercel.com"],
+        "bunny": ["bunny.net", "bunnycdn.com"],
+        "gcore": ["gcore.com", "gcore.lu"],
+        "incapsula": ["incapsula.com"],
+        "sucuri": ["sucuri.net"],
+        "stackpath": ["stackpath.com"],
+        "leaseweb": ["leaseweb.com"],
+        "cdnsun": ["cdnsun.com"],
+        "belugacdn": ["belugacdn.com"],
+        "quiccloud": ["quic.cloud"],
+        "cachefly": ["cachefly.com"],
+        "edgemesh": ["edgemesh.com"],
+        "highwinds": ["highwinds.com"],
+        "cdn77": ["cdn77.com"],
+        "facebook": ["facebook.com", "fbcdn.net"],
+        "google": ["google.com", "googleapis.com", "gstatic.com"],
+        "amazon": ["amazonaws.com", "amazon.com"],
+        "microsoft": ["microsoft.com", "azure.com"],
+        "twitter": ["twitter.com", "twimg.com"],
+        "instagram": ["instagram.com", "cdninstagram.com"],
+        "youtube": ["youtube.com", "ytimg.com"],
+        "telegram": ["telegram.com", "tdesktop.com"]
+    }
+    
+    for cdn, identifiers in cdn_identifiers.items():
+        for identifier in identifiers:
+            if identifier in domain_lower:
+                return cdn
+    
+    return "unknown"
+
+
 def detect_cdn_from_asn(provider):
     provider_lower = safe_lower(provider)
 
@@ -304,14 +390,19 @@ def detect_cdn_from_asn(provider):
     return "unknown"
 
 
-def detect_cdn(ip=None, port=None, headers=None, issuer=None, sni=None, alpn=None, provider=None):
+def detect_cdn(ip=None, port=None, headers=None, issuer=None, sni=None, domain=None, provider=None):
     if headers is not None:
         cdn = detect_cdn_from_headers(headers)
         if cdn != "unknown":
             return cdn
 
-    if provider is not None:
-        cdn = detect_cdn_from_asn(provider)
+    if sni is not None:
+        cdn = detect_cdn_from_sni(sni)
+        if cdn != "unknown":
+            return cdn
+
+    if domain is not None:
+        cdn = detect_cdn_from_domain(domain)
         if cdn != "unknown":
             return cdn
 
@@ -320,20 +411,9 @@ def detect_cdn(ip=None, port=None, headers=None, issuer=None, sni=None, alpn=Non
         if cdn != "unknown":
             return cdn
 
-    if ip is not None and port is not None:
-        scheme = "https" if port in TLS_PORTS else "http"
-        try:
-            r = requests.get(
-                f"{scheme}://{ip}",
-                timeout=4,
-                verify=False,
-                allow_redirects=True,
-                headers={"User-Agent": "Mozilla/5.0"}
-            )
-            cdn = detect_cdn_from_headers(r.headers)
-            if cdn != "unknown":
-                return cdn
-        except:
-            pass
+    if provider is not None:
+        cdn = detect_cdn_from_asn(provider)
+        if cdn != "unknown":
+            return cdn
 
     return "unknown"
