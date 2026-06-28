@@ -217,27 +217,16 @@ on:
 7. **Finalize**: رتبه‌بندی نهایی
 ---
 
----
-
-<div align="center">
-
-## 📡 بانک اطلاعات IPهای برتر
-
-<br>
-
-[![Best IPs](https://img.shields.io/badge/📄-Best_IPs-00C853?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/aristapanell-cell/ARISTA-MATRIX-PIPELINE/refs/heads/main/output/best_ips.txt)
-
-<br>
-
-✨ **مشاهده آخرین لیست IPهای رتبه‌بندی‌شده با اطلاعات کامل شامل Score، TTFB، CDN، Protocol، Domain، Country، City و Provider**
-
-<br>
-
 </div>
 
+> [!TIP]
+> ## 📡 بانک اطلاعات IPهای برتر
+>
+> [![Best IPs](https://img.shields.io/badge/📄-Best_IPs-00C853?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/aristapanell-cell/ARISTA-MATRIX-PIPELINE/refs/heads/main/output/best_ips.txt)
+>
+> **مشاهده آخرین لیست IPهای رتبه‌بندی‌شده با اطلاعات کامل شامل Score، TTFB، CDN، Protocol، Domain، Country، City و Provider**
+
 ---
-
-
 <div align="center">
 
 ### 📦 **پروژه جمع‌آوری کانفیگ و سابسکریپشن‌ها برای استفاده در کلاینت‌های مختلف**  
@@ -247,6 +236,7 @@ on:
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/aristapanell-cell/AriataPanel)
 
+<br>
 <br>
 
 <table border="0" cellpadding="20" style="background: linear-gradient(135deg, #1a1a2e, #16213e); border-radius: 20px; border: 2px solid #e94560; margin: 0 auto;">
