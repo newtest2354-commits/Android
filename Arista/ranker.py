@@ -1,5 +1,6 @@
 import os
 import json
+import re
 
 RESULT_FILE = "output/results.txt"
 BEST_FILE = "output/best_ips.txt"
@@ -9,8 +10,8 @@ TLS_FILE = "output/tls_live.txt"
 GEO_FILE = "output/geo_cache.json"
 
 KNOWN_CDN_BONUS = 2
-H2_BONUS = 2
-RELIABILITY_BONUS = 3
+H2_BONUS = 3
+RELIABILITY_BONUS = 8
 
 FAST_TTFB_BONUS = 4
 MID_TTFB_BONUS = 2
@@ -150,8 +151,9 @@ def load_tcp_latency():
                     port = parts[1]
                     latency = parts[2]
                     key = f"{ip}:{port}"
-                    if latency.isdigit():
-                        tcp_map[key] = int(latency)
+                    match = re.search(r'(\d+)', latency)
+                    if match:
+                        tcp_map[key] = int(match.group(1))
                     else:
                         tcp_map[key] = 9999
     except:
@@ -255,7 +257,10 @@ def extract_tcp_from_line(line):
         tcp_part = line.split('[TCP=')[1].split(']')[0]
         if tcp_part == "DOMAIN" or tcp_part == "timeout":
             return 9999
-        return int(tcp_part.replace('ms', '')) if tcp_part.replace('ms', '').isdigit() else 9999
+        match = re.search(r'(\d+)', tcp_part)
+        if match:
+            return int(match.group(1))
+        return 9999
     except:
         return 9999
 
@@ -307,11 +312,10 @@ def rank_results():
 
     ranked.sort(
         key=lambda x: (
-            x.get("tcp", 9999),
             -x["score"],
+            x.get("tcp", 9999),
             x.get("ttfb", 9999),
             -x.get("reliability", 0),
-            0 if x.get("proto", "").lower() == "h2" else 1,
             x.get("port", 65535)
         )
     )
@@ -411,11 +415,10 @@ def rank_results():
     combined = sorted(
         combined_dict.values(),
         key=lambda x: (
-            x["tcp"],
             -x["score"],
+            x["tcp"],
             x["ttfb"],
             -x.get("reliability", 0),
-            0 if x.get("proto", "").lower() == "h2" else 1,
             x["port"]
         )
     )
@@ -438,11 +441,11 @@ def rank_results():
     current_size_mb = get_file_size_mb(combined_lines)
 
     if current_size_mb > MAX_BEST_IPS_SIZE_MB:
-        print(f"FILE SIZE {current_size_mb:.2f}MB EXCEEDED {MAX_BEST_IPS_SIZE_MB}MB! REMOVING WORST TCP ENTRIES...")
+        print(f"FILE SIZE {current_size_mb:.2f}MB EXCEEDED {MAX_BEST_IPS_SIZE_MB}MB! REMOVING LOWEST SCORE ENTRIES...")
         while current_size_mb > MAX_BEST_IPS_SIZE_MB and len(combined_lines) > 100:
             removed = combined_lines.pop()
             current_size_mb = get_file_size_mb(combined_lines)
-            print(f"REMOVED HIGH TCP ENTRY... NEW SIZE: {current_size_mb:.2f}MB")
+            print(f"REMOVED LOWEST SCORE ENTRY... NEW SIZE: {current_size_mb:.2f}MB")
 
     with open(BEST_FILE, "w", encoding="utf-8") as f:
         for line in combined_lines:
@@ -454,12 +457,18 @@ def rank_results():
 
 
 def ttfb_score(ttfb):
-    if ttfb <= 150:
-        return FAST_TTFB_BONUS
+    if ttfb <= 50:
+        return 8
+    elif ttfb <= 100:
+        return 7
+    elif ttfb <= 150:
+        return 6
+    elif ttfb <= 200:
+        return 5
     elif ttfb <= 300:
-        return MID_TTFB_BONUS
+        return 4
     elif ttfb <= 500:
-        return SLOW_TTFB_BONUS
+        return 2
     else:
         return 0
 
@@ -484,17 +493,40 @@ def port_score(port):
 def score(item):
     total = 0
 
-    total += ttfb_score(item.get("ttfb", 9999))
-    total += cdn_score(item.get("cdn", ""))
-    total += port_score(item.get("port", 0))
-
-    proto = item.get("proto", "").lower()
-    if "h2" in proto:
-        total += H2_BONUS
+    ttfb = item.get("ttfb", 9999)
+    if ttfb <= 50:
+        total += 8
+    elif ttfb <= 100:
+        total += 7
+    elif ttfb <= 150:
+        total += 6
+    elif ttfb <= 200:
+        total += 5
+    elif ttfb <= 300:
+        total += 4
+    elif ttfb <= 500:
+        total += 2
 
     reliability = item.get("reliability", 0)
-    if reliability >= 0.9:
-        total += RELIABILITY_BONUS
+    if reliability >= 0.99:
+        total += 8
+    elif reliability >= 0.95:
+        total += 7
+    elif reliability >= 0.90:
+        total += 6
+    elif reliability >= 0.80:
+        total += 4
+    elif reliability >= 0.70:
+        total += 2
+
+    proto = str(item.get("proto", "")).lower()
+    if "h2" in proto:
+        total += 3
+    elif "http/1.1" in proto:
+        total += 1
+
+    total += cdn_score(item.get("cdn", ""))
+    total += port_score(item.get("port", 0))
 
     return total
 
