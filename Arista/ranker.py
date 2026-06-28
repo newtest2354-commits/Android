@@ -277,6 +277,22 @@ def parse_line_to_dict(line):
         return None
 
 
+def find_domain_for_ip(ip, domains_set, sni_map, port):
+    key = f"{ip}:{port}"
+    sni = sni_map.get(key, "")
+
+    if sni:
+        for d in sorted(domains_set):
+            if d in sni or sni in d:
+                return d
+
+    for d in sorted(domains_set):
+        if d in ip:
+            return d
+
+    return "-"
+
+
 def rank_results():
     data = load_results()
     domains_set = load_domains_raw()
@@ -356,12 +372,7 @@ def rank_results():
 
         port_type = get_port_type(port)
 
-        domain = "-"
-        sni_lower = sni.lower() if sni != "-" else ""
-        for d in sorted(domains_set):
-            if d and (d in sni_lower or sni_lower in d):
-                domain = d
-                break
+        domain = find_domain_for_ip(ip, domains_set, sni_map, port)
 
         parts = [
             f'[IP: {ip}]',
@@ -375,7 +386,8 @@ def rank_results():
             f'[TYPE={port_type}]'
         ]
 
-        parts.append(f'[DOMAIN={domain}]')
+        if domain and domain != "-":
+            parts.append(f'[DOMAIN={domain}]')
 
         if sni and sni != "-":
             parts.append(f'[SNI={sni}]')
