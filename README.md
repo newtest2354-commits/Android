@@ -223,13 +223,18 @@ on:
 
 # 📡 بانک اطلاعات IPهای برتر
 
+### ⚡ آخرین نتایج اسکن به‌صورت زنده در دسترس است
+
+<br>
+
 <a href="https://cdn.jsdelivr.net/gh/aristapanell-cell/ARISTA-MATRIX-PIPELINE@main/output/best_ips.txt">
-<img src="https://img.shields.io/badge/LIVE_BEST_IPS-CLICK_TO_OPEN-16A34A?style=for-the-badge&logo=github&logoColor=white&labelColor=000000" height="42">
+    <img src="https://img.shields.io/badge/⚡_BEST_IPS-LIVE-00C853?style=for-the-badge&logo=github&logoColor=white&labelColor=111827" alt="BEST IPS">
 </a>
 
 <br><br>
 
-💡 **آخرین نتایج Pipeline به‌صورت خودکار پس از هر اجرا به‌روزرسانی می‌شود.**
+⭐ **مشاهده لیست کامل IPهای رتبه‌بندی‌شده**  
+🚀 **Score • TTFB • Protocol • CDN • Domain • Country • City • Provider**
 
 </div>
 
