@@ -14,6 +14,24 @@
 
 ---
 
+---
+
+<div align="center">
+
+## 📡 بانک اطلاعات IPهای برتر
+
+<br>
+
+[![Best IPs](https://img.shields.io/badge/📄-Best_IPs-00C853?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/aristapanell-cell/ARISTA-MATRIX-PIPELINE/refs/heads/main/output/best_ips.txt)
+
+<br>
+
+✨ **مشاهده آخرین لیست IPهای رتبه‌بندی‌شده با اطلاعات کامل شامل Score، TTFB، CDN، Protocol، Domain، Country، City و Provider**
+
+</div>
+
+---
+
 </div>
 
 <div dir="rtl">
@@ -194,23 +212,7 @@ python Arista/main.py --finalize
 ```
 
 ---
----
 
-<div align="center">
-
-## 📡 Live Best IP Database
-
-<br>
-
-[![Best IPs](https://img.shields.io/badge/📄-Best_IPs-00C853?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/aristapanell-cell/ARISTA-MATRIX-PIPELINE/refs/heads/main/output/best_ips.txt)
-
-<br>
-
-✨ **مشاهده آخرین لیست IPهای رتبه‌بندی‌شده با اطلاعات کامل شامل Score، TTFB، CDN، Protocol، Domain، Country، City و Provider**
-
-</div>
-
----
 ## 🔧 GitHub Actions
 
 پروژه از GitHub Actions برای اجرای خودکار و دوره‌ای پشتیبانی می‌کند:
