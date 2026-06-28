@@ -221,15 +221,15 @@ on:
 
 <div align="center">
 
-## 📡 بانک اطلاعات IPهای برتر
+# 📡 بانک اطلاعات IPهای برتر
 
-<a href="https://raw.githubusercontent.com/aristapanell-cell/ARISTA-MATRIX-PIPELINE/refs/heads/main/output/best_ips.txt">
-  <img src="https://img.shields.io/badge/🚀_مشاهده_لیست_کامل_Best_IPs-00C853?style=for-the-badge" alt="Best IPs">
+<a href="https://cdn.jsdelivr.net/gh/aristapanell-cell/ARISTA-MATRIX-PIPELINE@main/output/best_ips.txt">
+<img src="https://img.shields.io/badge/LIVE_BEST_IPS-CLICK_TO_OPEN-16A34A?style=for-the-badge&logo=github&logoColor=white&labelColor=000000" height="42">
 </a>
 
 <br><br>
 
-✨ **آخرین لیست IPهای رتبه‌بندی‌شده با اطلاعات کامل شامل Score، TTFB، CDN، Protocol، Domain، Country، City و Provider**
+💡 **آخرین نتایج Pipeline به‌صورت خودکار پس از هر اجرا به‌روزرسانی می‌شود.**
 
 </div>
 
