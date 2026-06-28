@@ -219,12 +219,19 @@ on:
 
 </div>
 
-> [!TIP]
-> ## 📡 بانک اطلاعات IPهای برتر
->
-> [![Best IPs](https://img.shields.io/badge/📄-Best_IPs-00C853?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/aristapanell-cell/ARISTA-MATRIX-PIPELINE/refs/heads/main/output/best_ips.txt)
->
-> **مشاهده آخرین لیست IPهای رتبه‌بندی‌شده با اطلاعات کامل شامل Score، TTFB، CDN، Protocol، Domain، Country، City و Provider**
+<div align="center">
+
+## 📡 بانک اطلاعات IPهای برتر
+
+<a href="https://raw.githubusercontent.com/aristapanell-cell/ARISTA-MATRIX-PIPELINE/refs/heads/main/output/best_ips.txt">
+  <img src="https://img.shields.io/badge/🚀_مشاهده_لیست_کامل_Best_IPs-00C853?style=for-the-badge" alt="Best IPs">
+</a>
+
+<br><br>
+
+✨ **آخرین لیست IPهای رتبه‌بندی‌شده با اطلاعات کامل شامل Score، TTFB، CDN، Protocol، Domain، Country، City و Provider**
+
+</div>
 
 ---
 <div align="center">
