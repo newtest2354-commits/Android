@@ -10,7 +10,6 @@ node-iei.pool-1-0.dynamic.nt-isp.net
 node-ieu.pool-1-0.dynamic.nt-isp.net
 node-igc.pool-1-0.dynamic.nt-isp.net
 node-igf.pool-1-0.dynamic.nt-isp.net
-node-igh.pool-1-0.dynamic.nt-isp.net
 node-igw.pool-1-0.dynamic.nt-isp.net
 node-igy.pool-1-0.dynamic.nt-isp.net
 r.day
