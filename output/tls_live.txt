@@ -1,14 +1,2 @@
-1.0.172.79:80:201::cloudflare.com:
-1.0.172.79:443:201::cdn.cloudflare.net:
-1.0.172.79:8080:201::www.cloudflare.com:
-1.0.172.79:8443:201::cloudflare.com:
-1.0.172.79:2053:201::cloudflare.com:
-1.0.172.79:2083:201::cloudflare.com:
-1.0.172.79:2087:201::www.cloudflare.com:
-1.0.172.79:2095:201::cloudflare.com:
-1.0.172.79:2096:200::cloudflare.com:
-1.0.171.164:443:193::cloudflare.com:
-1.0.171.182:443:195::cloudflare.com:
-1.0.171.233:443:194::cloudflare.com:
-1.0.171.157:443:195:h2:cloudflare.com:
-1.0.174.45:8443:201::cloudflare.com:
+1.0.187.192:443:253::cloudflare.com:
+1.0.225.224:8443:258::cloudflare.com:
