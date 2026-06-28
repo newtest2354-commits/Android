@@ -14,24 +14,6 @@
 
 ---
 
----
-
-<div align="center">
-
-## 📡 بانک اطلاعات IPهای برتر
-
-<br>
-
-[![Best IPs](https://img.shields.io/badge/📄-Best_IPs-00C853?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/aristapanell-cell/ARISTA-MATRIX-PIPELINE/refs/heads/main/output/best_ips.txt)
-
-<br>
-
-✨ **مشاهده آخرین لیست IPهای رتبه‌بندی‌شده با اطلاعات کامل شامل Score، TTFB، CDN، Protocol، Domain، Country، City و Provider**
-
-</div>
-
----
-
 </div>
 
 <div dir="rtl">
@@ -235,6 +217,23 @@ on:
 7. **Finalize**: رتبه‌بندی نهایی
 ---
 
+---
+
+<div align="center">
+
+## 📡 بانک اطلاعات IPهای برتر
+
+<br>
+
+[![Best IPs](https://img.shields.io/badge/📄-Best_IPs-00C853?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/aristapanell-cell/ARISTA-MATRIX-PIPELINE/refs/heads/main/output/best_ips.txt)
+
+<br>
+
+✨ **مشاهده آخرین لیست IPهای رتبه‌بندی‌شده با اطلاعات کامل شامل Score، TTFB، CDN، Protocol، Domain، Country، City و Provider**
+
+</div>
+
+---
 </div>
 
 <div align="center">
