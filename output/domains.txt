@@ -1,1 +1,7 @@
-node-bsw.pool-1-0.dynamic.nt-isp.net
+node-dwj.pool-1-0.dynamic.nt-isp.net
+node-ewk.pool-1-0.dynamic.nt-isp.net
+node-exi.pool-1-0.dynamic.nt-isp.net
+node-f5x.pool-1-0.dynamic.nt-isp.net
+node-hyy.pool-1-0.dynamic.nt-isp.net
+node-igy.pool-1-0.dynamic.nt-isp.net
+www.w3.org
