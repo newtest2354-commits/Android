@@ -1,3 +1,3 @@
-date.now
-www.fnj.co.jp
-yoyaku.fnj.co.jp
+node-22a.pool-1-0.dynamic.nt-isp.net
+node-f5x.pool-1-0.dynamic.nt-isp.net
+www.w3.org
