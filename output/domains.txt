@@ -1,3 +1,4 @@
-node-22a.pool-1-0.dynamic.nt-isp.net
-node-f5x.pool-1-0.dynamic.nt-isp.net
+node-809.pool-1-0.dynamic.nt-isp.net
+node-hv1.pool-1-0.dynamic.nt-isp.net
+node-hvz.pool-1-0.dynamic.nt-isp.net
 www.w3.org
