@@ -158,7 +158,7 @@ def parse_line_to_dict(line):
             "score": extract_score_from_line(line),
             "tcp": extract_tcp_from_line(line),
             "ttfb": extract_ttfb_from_line(line),
-            "line": line
+            "line": line.strip()
         }
     except:
         return None
@@ -268,8 +268,14 @@ def rank_results():
     os.makedirs("output", exist_ok=True)
 
     new_lines = []
+    seen_ips = set()
     for item in ranked:
         ip, port = item["ip"], item["port"]
+
+        if ip in seen_ips:
+            continue
+        seen_ips.add(ip)
+        
         key = f"{ip}:{port}"
         sni = sni_map.get(key, "-")
         tcp_latency = item.get("tcp", "N/A")
@@ -304,37 +310,36 @@ def rank_results():
         if asn and asn != "Unknown":
             parts.append(f'[ASN={asn}]')
 
-        new_lines.append(" ".join(parts) + "\n")
+        new_lines.append(" ".join(parts))
 
     old_ips = {}
     if os.path.exists(BEST_FILE):
         try:
             with open(BEST_FILE, "r", encoding="utf-8") as f:
                 for line in f:
-                    if parsed := parse_line_to_dict(line.strip()):
-                        old_ips[f"{parsed['ip']}:{parsed['port']}"] = parsed
+                    line = line.strip()
+                    if not line: 
+                        continue
+                    if parsed := parse_line_to_dict(line):
+                        old_ips[parsed['ip']] = parsed
         except:
             pass
 
     combined_dict = {}
     for line in new_lines:
         if parsed := parse_line_to_dict(line):
-            combined_dict[f"{parsed['ip']}:{parsed['port']}"] = parsed
+            combined_dict[parsed['ip']] = parsed
 
-    combined_dict.update(old_ips)
+    for ip, parsed in old_ips.items():
+        if ip not in combined_dict:
+            combined_dict[ip] = parsed
 
     combined = sorted(
         combined_dict.values(),
         key=lambda x: (-x["score"], x["tcp"], x["ttfb"])
     )
 
-    combined_lines = []
-    unique_ips = set()
-    for item in combined:
-        ip = item["ip"]
-        if ip not in unique_ips:
-            unique_ips.add(ip)
-            combined_lines.append(item["line"])
+    combined_lines = [item["line"] for item in combined]
 
     current_size_mb = sum(len(line.encode('utf-8')) for line in combined_lines) / (1024 * 1024)
 
@@ -346,7 +351,10 @@ def rank_results():
             print(f"REMOVED LOWEST SCORE ENTRY... NEW SIZE: {current_size_mb:.2f}MB")
 
     with open(BEST_FILE, "w", encoding="utf-8") as f:
-        f.write("\n".join(combined_lines) + ("\n" if combined_lines else ""))
+        if combined_lines:
+            f.write("\n".join(combined_lines) + "\n")
+        else:
+            f.write("")
 
     print(f"BEST_IPS_SIZE: {current_size_mb:.2f}MB")
     print(f"BEST_IPS_LINES: {len(combined_lines)}")
