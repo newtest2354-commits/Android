@@ -1,4 +1,1 @@
-1.0.128.115:8443:268::cloudflare.com:
-1.0.141.35:443:255::cloudflare.com:
-1.0.130.158:8443:250::cloudflare.com:
-1.0.152.101:443:268::cloudflare.com:
+1.0.130.203:8443:250::cloudflare.com:
