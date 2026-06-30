@@ -227,7 +227,7 @@ on:
 
 <br>
 
-<a href="https://cdn.jsdelivr.net/gh/aristapanell-cell/ARISTA-MATRIX-PIPELINE@main/output/best_ips.txt">
+<a href="https://github.com/aristapanell-cell/ARISTA-MATRIX-PIPELINE/raw/refs/heads/main/output/best_ips.txt">
     <img src="https://img.shields.io/badge/⚡_BEST_IPS-LIVE-00C853?style=for-the-badge&logo=github&logoColor=white&labelColor=111827" alt="BEST IPS">
 </a>
 
