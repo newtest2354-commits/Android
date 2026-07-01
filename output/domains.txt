@@ -1,8 +1,1 @@
-server-13-32-65-167.lax54.r.cloudfront.net
-server-13-32-65-183.lax54.r.cloudfront.net
-server-13-32-65-248.lax54.r.cloudfront.net
-server-13-32-65-51.lax54.r.cloudfront.net
-server-13-32-65-75.lax54.r.cloudfront.net
-server-13-32-65-90.lax54.r.cloudfront.net
-server-13-32-66-246.lax54.r.cloudfront.net
 www.w3.org
