@@ -1,1 +1,4 @@
+server-13-32-71-2.iah50.r.cloudfront.net
+server-13-32-71-3.iah50.r.cloudfront.net
+server-13-32-71-6.iah50.r.cloudfront.net
 www.w3.org
